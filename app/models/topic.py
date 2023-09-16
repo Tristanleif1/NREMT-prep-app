@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, DateTime, func
 from .db import db, environment, SCHEMA
+from .quiz_topic import quiz_topics
+
 
 class Topic(db.Model):
     __tablename__ = 'topics'
@@ -12,6 +14,7 @@ class Topic(db.Model):
     name = db.Column(db.String, nullable=False)
 
     flashcard = db.relationship('Flashcard', back_populates='topic')
+    quizzes = db.relationship('Quiz', secondary=quiz_topics, back_populates='topics')
 
     def to_dict(self):
         return {
