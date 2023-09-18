@@ -36,6 +36,6 @@ def undo_topics():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.topics RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM categories"))
+        db.session.execute(text("DELETE FROM topics"))
 
     db.session.commit()

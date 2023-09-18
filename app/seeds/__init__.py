@@ -1,5 +1,7 @@
 from flask.cli import AppGroup
 from .users import seed_users, undo_users
+from .flashcards import seed_flashcards, undo_flashcards
+from .flashcard_sets import seed_flashcard_sets, undo_flashcard_sets
 
 from app.models.db import db, environment, SCHEMA
 
@@ -17,7 +19,11 @@ def seed():
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
         undo_users()
+        undo_flashcard_sets()
+        undo_flashcards()
     seed_users()
+    seed_flashcard_sets()
+    seed_flashcards()
     # Add other seed functions here
 
 
@@ -25,4 +31,6 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
+    undo_flashcard_sets()
+    undo_flashcards()
     # Add other undo functions here

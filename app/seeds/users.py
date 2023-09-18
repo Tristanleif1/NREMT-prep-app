@@ -40,7 +40,8 @@ def seed_users():
     db.session.add(justin)
     db.session.add(mary)
     db.session.add(adam)
-    db.session.commit(jennifer)
+    db.session.add(jennifer)
+    db.session.commit()
 
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
