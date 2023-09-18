@@ -1,5 +1,8 @@
 from __future__ import with_statement
-
+import os
+import sys
+sys.path.insert(0, os.path.realpath(os.path.join(os.path.dirname(__file__), '..')))
+from app import app
 import logging
 from logging.config import fileConfig
 
@@ -27,16 +30,17 @@ logger = logging.getLogger('alembic.env')
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from flask import current_app
-config.set_main_option(
-    'sqlalchemy.url',
-    str(current_app.extensions['migrate'].db.engine.url).replace('%', '%%'))
-target_metadata = current_app.extensions['migrate'].db.metadata
-
+with app.app_context():
+    config.set_main_option(
+        'sqlalchemy.url',
+        str(current_app.extensions['migrate'].db.engine.url).replace('%', '%%'))
+    target_metadata = current_app.extensions['migrate'].db.metadata
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
+config.set_main_option("sqlalchemy.url", os.environ.get("DATABASE_URL"))
 
 def run_migrations_offline():
     """Run migrations in 'offline' mode.

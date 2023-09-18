@@ -22,14 +22,14 @@ depends_on = None
 
 def upgrade():
     op.create_table('topics',
-    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True)
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
     sa.Column('name', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
 
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE topics SET SCHEMA {SCHEMA};")
 
 
 def downgrade():
-    pass
+    op.drop_table('topics')
