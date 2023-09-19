@@ -2,6 +2,8 @@ from flask.cli import AppGroup
 from .users import seed_users, undo_users
 from .flashcards import seed_flashcards, undo_flashcards
 from .flashcard_sets import seed_flashcard_sets, undo_flashcard_sets
+from .quizzes import seed_quizzes, undo_quizzes
+from .questions import seed_questions, undo_questions
 
 from app.models.db import db, environment, SCHEMA
 
@@ -21,9 +23,13 @@ def seed():
         undo_users()
         undo_flashcard_sets()
         undo_flashcards()
+        undo_quizzes()
+        undo_questions()
     seed_users()
     seed_flashcard_sets()
     seed_flashcards()
+    seed_quizzes()
+    seed_questions()
     # Add other seed functions here
 
 
@@ -33,4 +39,6 @@ def undo():
     undo_users()
     undo_flashcard_sets()
     undo_flashcards()
+    undo_quizzes()
+    undo_questions()
     # Add other undo functions here

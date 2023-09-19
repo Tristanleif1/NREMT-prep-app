@@ -24,6 +24,7 @@ class Question(db.Model):
         return {
             'id': self.id,
             'quizId': self.quizId,
+            'question': self.question,
             'option1': self.option1,
             'option2': self.option2,
             'option3': self.option3,

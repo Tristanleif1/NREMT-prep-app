@@ -24,6 +24,7 @@ def upgrade():
     op.create_table('questions',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
     sa.Column('quizId', sa.Integer(), sa.ForeignKey('quizzes.id'), nullable=False),
+    sa.Column('question', sa.String(), nullable=False),
     sa.Column('option1', sa.String(), nullable=False),
     sa.Column('option2', sa.String(), nullable=False),
     sa.Column('option3', sa.String(), nullable=False),
