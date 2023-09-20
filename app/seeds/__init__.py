@@ -4,6 +4,7 @@ from .flashcards import seed_flashcards, undo_flashcards
 from .flashcard_sets import seed_flashcard_sets, undo_flashcard_sets
 from .quizzes import seed_quizzes, undo_quizzes
 from .questions import seed_questions, undo_questions
+from .topics import seed_topics, undo_topics
 
 from app.models.db import db, environment, SCHEMA
 
@@ -21,11 +22,13 @@ def seed():
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
         undo_users()
+        undo_topics()
         undo_flashcard_sets()
         undo_flashcards()
         undo_quizzes()
         undo_questions()
     seed_users()
+    seed_topics()
     seed_flashcard_sets()
     seed_flashcards()
     seed_quizzes()
@@ -37,6 +40,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
+    undo_topics()
     undo_flashcard_sets()
     undo_flashcards()
     undo_quizzes()
