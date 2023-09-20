@@ -66,6 +66,8 @@ def my_flashcards():
 @flashcard_routes.route('/<int:id>')
 def flashcard_details(id):
     flashcard = Flashcard.query.get(id)
+    if not flashcard:
+        return jsonify({"error": "Flashcard not found"})
     return flashcard.to_dict()
 
 
