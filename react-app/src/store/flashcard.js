@@ -89,8 +89,8 @@ export const removeFlashcard = (flashcardId) => async (dispatch) => {
 
 export const getSingleFlashcard = (flashcardId) => async (dispatch) => {
     try {
-        const res = await fetch(`/api/flaschards/${flashcardId}`);
-        if(!response.ok){
+        const res = await fetch(`/api/flashcards/${flashcardId}`);
+        if(!res.ok){
             throw new Error("Internal server error")
         }
 
