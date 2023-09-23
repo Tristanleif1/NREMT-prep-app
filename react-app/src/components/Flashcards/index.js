@@ -19,6 +19,15 @@ const Flashcards = () => {
         setFlippedCardId(prevId => prevId === id ? null : id);
     };
 
+    const handleFontSize = (text) => {
+        const length =  text.length;
+        if(length <= 10) return '1.5rem';
+        if(length <= 50) return '1.2rem';
+        if(length <= 100) return '1rem';
+        if(length <= 150) return '0.8rem';
+        return '0.6rem'
+    }
+
     return (
         <div className="flashcard-grid">
             {flashcards.map(flashcard => (
@@ -29,12 +38,12 @@ const Flashcards = () => {
                 >
                     <div className="flip-container">
                         <div className="front">
-                            <div className="flashcard-question">
+                            <div className="flashcard-question" style={{ fontSize: handleFontSize(flashcard.question)}}>
                                 {flashcard.question}
                             </div>
                         </div>
                         <div className="back">
-                            <div className="flashcard-answer">
+                            <div className="flashcard-answer" style={{ fontSize: handleFontSize(flashcard.answer)}}>
                                 {flashcard.answer}
                             </div>
                         </div>
