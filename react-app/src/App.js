@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Flashcards from "./components/Flashcards";
+import FlashcardDetails from "./components/FlashcardDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Flashcards />
+          </Route>
+          <Route path="/flashcards/:id">
+            <FlashcardDetails />
           </Route>
           <Route path="/login" >
             <LoginFormPage />

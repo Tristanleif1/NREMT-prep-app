@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { useHistory, useParams } from "react-router-dom"
 import { loadFlashcards } from '../../store/flashcard';
 import './Flashcards.css'
 
 const Flashcards = () => {
+    const history = useHistory()
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -28,6 +30,10 @@ const Flashcards = () => {
         return '0.6rem'
     }
 
+    const redirectToDetails = (id) => {
+        history.push(`/flashcards/${id}`)
+    }
+
     return (
         <div className="flashcard-grid">
             {flashcards.map(flashcard => (
@@ -47,6 +53,9 @@ const Flashcards = () => {
                                 {flashcard.answer}
                             </div>
                         </div>
+                        <div className='ellipsis' onClick={(e) => {
+                        e.stopPropagation();
+                         redirectToDetails(flashcard.id);}}>...</div>
                     </div>
                 </div>
             ))}
