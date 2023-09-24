@@ -1,7 +1,104 @@
+.icon {
+  background: none;
+  border: none;
+}
+
+.fa-user-circle {
+  font-size: 30px;
+  color: #656969;
+}
+
+.fa-user-circle:hover {
+  color: #0b7564;
+  cursor: pointer;
+}
 .profile-dropdown {
   position: absolute;
+  margin-top: 290px;
+  right: 10px;
+  list-style-type: none;
+  text-align: center;
+  padding: 10px;
+  background-color: #36d892;
+  border-radius: 10px;
+  color: #000000;
+  z-index: 100;
+}
+
+.user-information {
+  border-bottom: 1px solid #696868;
+  padding: 10px;
+}
+.list-button {
+  margin-top: 20px;
+}
+
+.list-button button {
+  padding: 5px 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+.list-button button:hover {
+  cursor: pointer;
 }
 
 .hidden {
   display: none;
+}
+
+.nav-bar {
+  padding: 0px 30px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: #cecece 1px solid;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.create-flashcard {
+  color: #656969;
+}
+
+.create-flashcard:hover {
+  color: #0b7564;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 18.75rem;
+}
+
+.signup-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0px 15px;
+  height: 150px;
+}
+
+.signup-login > button {
+  border: none;
+  padding: 5px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.no-user {
+  margin-bottom: 70px;
+}
+
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.emt-logo img {
+  width: 150px;
+  height: 82px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
 }
