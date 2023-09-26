@@ -13,7 +13,7 @@ class FlashcardSet(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=func.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=func.now(), onupdate=func.now())
     
-    flashcard = db.relationship('Flashcard', back_populates='flashcardSet')
+    flashcard = db.relationship('Flashcard', back_populates='flashcardSet', cascade="all, delete-orphan")
 
     # External-model relationships(Foreign-keys)
     user = db.relationship('User', back_populates='flashcardSet')
