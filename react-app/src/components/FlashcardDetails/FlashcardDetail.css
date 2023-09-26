@@ -1,17 +1,45 @@
-.flashcard-detail-container {
+.flashcard-detail-page {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
+    padding: 2rem;
+}
+
+.flashcard-detail-header{
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 2rem
+}
+
+.flashcard-section {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 750px;
+}
+
+.change-question-button {
+    cursor: pointer;
+    width: 4em;
+    height: 4em;
+    color: gray;
+    flex-shrink: 0
 }
 
 .flashcard-detail {
-    width: 70vh;
-    height: 70vh;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid #cecece;
-    padding: 20px
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin: 0 20px;
+}
+
+.flashcard-detail h2,h3 {
+    margin: 0;
 }

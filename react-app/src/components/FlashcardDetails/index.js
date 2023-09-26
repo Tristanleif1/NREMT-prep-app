@@ -33,14 +33,17 @@ function FlashcardDetails() {
     if (!flashcard) return <div>Loading...</div>;
 
     return (
-        <div className="flashcard-detail-container">
-            <button onClick={goToPrevious}>Previous</button>
-            <div className="flashcard-detail">
-                <p>{flashcard.question}</p>
-                <p>{flashcard.answer}</p>
-            </div>
-            <button onClick={goToNext}>Next</button>
+        <div className="flashcard-detail-page">
+            <h1 className='project-detail-header'>Flashcard Review!</h1>
+            <div className='flashcard-section'>
+                <BsCaretLeftFill className='change-question-button' onClick={goToPrevious} />
+                <div className='flashcard-detail'>
+                    <h2>{flashcard.question}</h2>
+                    <h3>{flashcard.answer}</h3>
+                </div>
+            <BsFillCaretRightFill className='change-question-button' onClick={goToNext} />
         </div>
+    </div>
     );
 }
 

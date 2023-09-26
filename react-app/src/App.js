@@ -7,6 +7,8 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Flashcards from "./components/Flashcards";
 import FlashcardDetails from "./components/FlashcardDetails";
+import FlashcardForm from "./components/FlashcardForm";
+import MyFlashcards from "./components/MyFlashcardsPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +27,12 @@ function App() {
           </Route>
           <Route path="/flashcards/:id">
             <FlashcardDetails />
+          </Route>
+          <Route path="/new-flashcard">
+            <FlashcardForm />
+          </Route>
+          <Route path="/my-flashcards">
+            <MyFlashcards />
           </Route>
           <Route path="/login" >
             <LoginFormPage />

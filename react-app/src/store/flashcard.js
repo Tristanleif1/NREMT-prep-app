@@ -1,5 +1,5 @@
 import { csrfFetch } from "./csrf";
-const SET_FLASHCARDS = "flaschard/SET_FLASHCARDS"
+const SET_FLASHCARDS = "flashcard/SET_FLASHCARDS"
 const SET_SINGLE_FLASHCARD ="flashcard/SET_SINGLE_FLASHCARD"
 const ADD_FLASHCARD = "flashcard/ADD_FLASHCARD"
 const EDIT_FLASHCARD = "flashcard/EDIT_FLASHCARD"
@@ -42,7 +42,7 @@ export const loadFlashcards = () => async (dispatch) => {
 }
 
 export const createFlashcard = (flashcard) => async (dispatch) => {
-    const response = await csrfFetch('/api/flashcards', {
+    const response = await csrfFetch('/api/flashcards/', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -52,6 +52,7 @@ export const createFlashcard = (flashcard) => async (dispatch) => {
     if (response.ok){
         const createdFlashcard = await response.json();
         dispatch(addFlashcard(createdFlashcard))
+        return createdFlashcard;
     } else {
         console.log(response, "Failed");
         return response
@@ -131,5 +132,4 @@ export const flashcardsReducer = (state = {}, action) => {
         default:
             return state;
     }
-
 }
