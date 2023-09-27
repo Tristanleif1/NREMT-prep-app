@@ -8,6 +8,7 @@ const MyFlashcards = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         dispatch(loadFlashcards())

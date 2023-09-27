@@ -1,12 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createFlashcard } from "../../store/flashcard";
 import { useHistory, useParams } from "react-router-dom"
 import { Redirect } from "react-router-dom"
+import { updateFlashcard } from "../../store/flashcard";
 import "../FlashcardForm/FlashcardForm.css"
 
 const EditFlashcard = () => {
     const user = useSelector((state => state.session.user));
+    const flashcard =  useSelector((state) => state.flashcard[id])
     const history = useHistory();
     const [errors, setErrors] = useState({});
     const [formData, setFormData] = useState({
@@ -50,12 +52,51 @@ const EditFlashcard = () => {
             return;
         }
 
-        const response = await dispatch(createFlashcard(formData));
-        if (response.id) {
-            history.push(`/flashcards/${response.id}`);
-        } else {
-            setErrors(response.formErrors);
-            }
-        
+        await dispatch(updateFlashcard({ ...formData, id: parseInt(id) }));
+        history.push(`/flashcards/${id}`);
     };
-}
+
+     return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                 <div>
+                    <label>Topic</label>
+                    <select 
+                        value={formData.topicId}
+                        onChange={(e) => setFormData({ ...formData, topicId: e.target.value })}
+                     >
+                        <option value="" disabled>Select a topic</option>
+                        {topics.map(topic => (
+                            <option key={topic.id} value={topic.id}>{topic.name}</option>
+                        ))}
+                    </select>
+                    {errors?.topicId && <div className="error-validation">{errors?.topicId}</div>}
+                </div>
+                           
+                <div>
+                    <label>Question</label>
+                    <input 
+                        type="text" 
+                        value={formData.question}
+                        onChange={(e) => setFormData({ ...formData, question: e.target.value })}
+                    />
+                    {errors?.question && <div className="error-validation">{errors?.question}</div>}
+                </div>
+               
+                <div>
+                    <label>Answer</label>
+                    <input 
+                        type="text" 
+                        value={formData.answer}
+                        onChange={(e) => setFormData({ ...formData, answer: e.target.value })}
+                    />
+                    {errors?.answer && <div className="error-validation">{errors?.answer}</div>}
+                </div>
+               
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    );
+};
+
+export default EditFlashcard
