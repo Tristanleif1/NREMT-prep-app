@@ -107,3 +107,23 @@ def delete_flashcard_set(id):
     
     else:
         return jsonify({"error": "Unauthorized action"})
+    
+@flashcard_sets_routes.route('/<int:id>/add-flashcard', methods=["POST"])
+@login_required
+def add_flashcard_to_set(id):
+    form = FlashcardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_flashcard = Flashcard(
+            topicId=form.data["topicId"],
+            userId=current_user.id,
+            flashcardSetId=id,
+            question=form.data["question"],
+            answer=form.data["answer"]
+        )
+        db.session.add(new_flashcard)
+        db.session.commit()
+
+        return new_flashcard.to_dict()
+    else:
+        return jsonify({"error": "Invalid form data", "form submission error": form.errors}), 400

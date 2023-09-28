@@ -22,6 +22,7 @@ class FlashcardSet(db.Model):
         return {
             'id': self.id,
             'title': self.title,
-            'userId': self.userId
+            'userId': self.userId,
+            'flashcards': [flashcard.to_dict() for flashcard in self.flashcard]
         }
 
