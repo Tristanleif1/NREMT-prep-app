@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Flashcards from "./components/Flashcards";
 import FlashcardDetails from "./components/FlashcardDetails";
 import FlashcardForm from "./components/FlashcardForm";
+import EditFlashcard from "./components/EditFlashcard";
 import MyFlashcards from "./components/MyFlashcardsPage";
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Flashcards />
+          </Route>
+          <Route exact path="/flashcards/:id/edit">
+            <EditFlashcard />
           </Route>
           <Route path="/flashcards/:id">
             <FlashcardDetails />

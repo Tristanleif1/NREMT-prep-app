@@ -66,7 +66,7 @@ def my_flashcard_sets():
 @login_required
 def edit_flashcard_set_form(id):
     """
-    Update an existing flashacrd set that belongs to an authenticated user 
+    Update an existing flashcard set that belongs to an authenticated user 
     """
     form = FlashcardSetForm()
     form['csrf_token'].data = request.cookies['csrf_token']

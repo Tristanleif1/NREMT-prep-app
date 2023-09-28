@@ -4,10 +4,12 @@ import { createFlashcard } from "../../store/flashcard";
 import { useHistory, useParams } from "react-router-dom"
 import { Redirect } from "react-router-dom"
 import { updateFlashcard } from "../../store/flashcard";
+import { getSingleFlashcard } from "../../store/flashcard";
 import "../FlashcardForm/FlashcardForm.css"
 
 const EditFlashcard = () => {
     const user = useSelector((state => state.session.user));
+    const { id } = useParams();
     const flashcard =  useSelector((state) => state.flashcard[id])
     const history = useHistory();
     const [errors, setErrors] = useState({});

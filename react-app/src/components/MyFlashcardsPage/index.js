@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom"
 import { loadFlashcards } from "../../store/flashcard";
+import DeleteFlashcardModal from "../DeleteCardModal";
+import { useModal } from "../../context/Modal"
 import "../Flashcards/Flashcards.css"
 
 const MyFlashcards = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user);
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
+    const { setModalContent } = useModal()
 
     useEffect(() => {
         dispatch(loadFlashcards())
@@ -34,6 +37,17 @@ const MyFlashcards = () => {
     const redirectToDetails = (id) => {
         history.push(`/flashcards/${id}`)
     }
+
+    const redirectToEdit = (id) => {
+        history.push(`/flashcards/${id}/edit`);
+    }
+
+    const handleDeleteClick = (flashcardId, e) => {
+        e.stopPropagation();
+        setModalContent(<DeleteFlashcardModal flashcardId={flashcardId} />)
+    }
+
+
 
     return (
        <div className="myflashcards-container">
@@ -61,8 +75,15 @@ const MyFlashcards = () => {
                         <div className='ellipsis' onClick={(e) => {
                         e.stopPropagation();
                          redirectToDetails(flashcard.id);}}>...</div>
+                          <div className='edit-icon' onClick={(e) => {
+                            e.stopPropagation();
+                            redirectToEdit(flashcard.id, e);
+                        }}>🖉</div> 
+                        <div className="delete-icon" onClick={(e) => handleDeleteClick(flashcard.id, e)}>
+                        🗑️
                     </div>
                 </div>
+            </div>
             ))}
         </div>
         </div>

@@ -4,4 +4,4 @@ from wtforms.validators import DataRequired
 from app.models import FlashcardSet
 
 class FlashcardSetForm(FlaskForm):
-    title = StringField('Title', nullable=False)
+    title = StringField('Title', [validators.DataRequired()])

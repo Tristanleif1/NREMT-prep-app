@@ -1,45 +1,102 @@
-.flashcard-detail-page {
+.detail-flashcard-detail-page {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
     padding: 2rem;
+    margin-top: -110px;
 }
 
-.flashcard-detail-header{
+.detail-flashcard-detail-header {
     font-size: 36px;
     font-weight: bold;
-    margin-bottom: 2rem
+    margin-bottom: 2rem;
 }
 
-.flashcard-section {
+.detail-flashcard-section {
     display: flex;
     align-items: center;
-    width: 100%;
-    max-width: 750px;
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background-color: rgba(255, 99, 97, 0.8);
+    margin: 1em;
+    border-radius: 24px;
 }
 
-.change-question-button {
+.detail-change-question-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     cursor: pointer;
     width: 4em;
     height: 4em;
     color: gray;
-    flex-shrink: 0
+    z-index: 3;
 }
 
-.flashcard-detail {
-    flex-grow: 1;
+.detail-change-question-button:hover {
+    color: black;
+}
+
+.detail-flashcard-detail {
+    position: relative;
+    display: inline-block;
+    width: 500px;
+    height: 300px;
+    margin: 0 50px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.detail-flip-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.detail-flashcard-detail.flipped .detail-flip-container {
+    transform: rotateY(-180deg);
+}
+
+.detail-front, .detail-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    border: 1px solid #cecece;
-    padding: 40px 20px;
+    justify-content: center;
+    backface-visibility: hidden;
     border-radius: 8px;
-    margin: 0 20px;
+    background: white;
+    font-size: 1.2em;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.flashcard-detail h2,h3 {
+.detail-front {
+    z-index: 2;
+}
+
+.detail-back {
+    transform: rotateY(180deg);
+}
+
+.detail-back h3 {
+    transform: rotateY(0deg);
+}
+
+.detail-flashcard-detail h2, .detail-flashcard-detail h3 {
     margin: 0;
+}
+
+.detail-change-question-button.left {
+    left: -50px;
+}
+
+.detail-change-question-button.right {
+    right: -50px;
 }
