@@ -13,7 +13,7 @@ const EditFlashcard = () => {
     const flashcard =  useSelector((state) => state.flashcard[id])
     const history = useHistory();
     const [errors, setErrors] = useState({});
-    const [formData, setFormData] = useState({
+    const [formData,  setFormData] = useState({
         topicId: "",
         question: "",
         answer: "",
