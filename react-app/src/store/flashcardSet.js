@@ -1,4 +1,4 @@
-import { __esModule } from "react-router-dom/cjs/react-router-dom.min";
+
 import { csrfFetch } from "./csrf";
 const SET_FLASHCARD_SETS = "flashcardSet/SET_FLASHCARD_SETS"
 const SET_SINGLE_FLASHCARD_SET = "flashcardSet/SET_FLASHCARD_SET"
@@ -149,7 +149,7 @@ export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
       case SET_SINGLE_FLASHCARD_SET:
         return {
             ...state,
-            [action.flashcard.id]: action.flashcard
+            [action.flashcardSet.id]: action.flashcardSet,
         };
       case ADD_FLASHCARD_TO_SET:
         return {

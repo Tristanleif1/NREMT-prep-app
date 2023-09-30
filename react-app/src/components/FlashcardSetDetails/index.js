@@ -3,20 +3,24 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from "react-router-dom"
 import { getSingleFlashcardSet } from '../../store/flashcardSet'
 import { BsCaretLeftFill, BsFillCaretRightFill} from "react-icons/bs";
+import "./FlashcardSetDetails.css"
 
 function FlashcardSetDetails() {
     const { id } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
-    const flashcardSet = useSelector(state => state.flashcardSets[id]);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [flipped, setFlipped] = useState(false);
 
     useEffect(() => {
         if (id) {
             dispatch(getSingleFlashcardSet(id));
         }
     }, [dispatch, id]);
+    // const flashcardSets = useSelector((state) => Object.values(state.flashcardSet));
+    // console.log(flashcardSets);
+
+    const flashcardSet = useSelector(state => state.flashcardSet[id]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [flipped, setFlipped] = useState(false);
 
     const goToPrevious = () => {
         if (currentIndex > 0) {
@@ -52,6 +56,9 @@ function FlashcardSetDetails() {
                     </div>
                 </div>
                 <BsFillCaretRightFill className='change-question-button right' onClick={goToNext} />
+            </div>
+            <div className='card-info'>
+                Card {currentIndex + 1} / {flashcardSet.flashcards.length}
             </div>
         </div>
     );

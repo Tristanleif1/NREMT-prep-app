@@ -11,6 +11,7 @@ import FlashcardForm from "./components/FlashcardForm";
 import EditFlashcard from "./components/EditFlashcard";
 import MyFlashcards from "./components/MyFlashcardsPage";
 import FlashcardSetForm from "./components/FlashcardSetForm";
+import FlashcardSetDetails from "./components/FlashcardSetDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path="/new-flashcard-set">
             <FlashcardSetForm />
+          </Route>
+          <Route path="/flashcard-sets/:id">
+            <FlashcardSetDetails />
           </Route>
           <Route path="/my-flashcards">
             <MyFlashcards />

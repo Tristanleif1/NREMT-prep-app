@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from "react-router-dom"
 import { loadFlashcards } from '../../store/flashcard';
+import { loadFlashcardSets } from '../../store/flashcardSet';
 import './Flashcards.css'
 
 const Flashcards = () => {
@@ -10,9 +11,12 @@ const Flashcards = () => {
 
     useEffect(() => {
         dispatch(loadFlashcards())
+        dispatch(loadFlashcardSets())
     }, [dispatch])
 
     const flashcards = useSelector(state => Object.values(state.flashcard))
+    const flashcardSets = useSelector(state => Object.values(state.flashcardSet))
+    console.log(flashcardSets)
 
     const [flippedCardId, setFlippedCardId] = useState(null);
 
@@ -34,7 +38,12 @@ const Flashcards = () => {
         history.push(`/flashcards/${id}`)
     }
 
+    const redirectToFlashcardSetDetails = (id) => {
+        history.push(`flashcard-sets/${id}`)
+    }
+
     return (
+       <div className='flashcard-container'>
         <div className="flashcard-grid">
             {flashcards.map(flashcard => (
                 <div 
@@ -60,6 +69,21 @@ const Flashcards = () => {
                 </div>
             ))}
         </div>
+        <div className='flashcard-sets-section'>
+            <h2>Flashcard Sets</h2>
+            <div className='flashcard-sets-grid'>
+                {flashcardSets.map(set => (
+                    <div key={set.id} className='flashcard-set' onClick={(e) => {
+                        e.stopPropagation();
+                         redirectToFlashcardSetDetails(set.id);}}>
+                        <h3>{set.title}</h3>
+                        <p>{set.flashcards?.length} questions</p>
+                        <p className='username'>{set?.user?.username}</p>
+                     </div>
+                ))}
+            </div>
+        </div>
+    </div>
     );
 };
 

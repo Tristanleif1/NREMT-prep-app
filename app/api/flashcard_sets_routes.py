@@ -39,7 +39,6 @@ def post_flashcard_set():
 
 
 @flashcard_sets_routes.route('/<int:id>')
-@login_required
 def flashcard_set_details(id):
     """
     Get details about a flashcard set 
