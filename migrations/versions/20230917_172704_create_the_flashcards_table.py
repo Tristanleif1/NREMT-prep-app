@@ -23,7 +23,7 @@ depends_on = None
 def upgrade():
     op.create_table('flashcards',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False, primary_key=True),
-    sa.Column('topicId', sa.Integer(), sa.ForeignKey('topics.id'), nullable=False),
+    sa.Column('topicId', sa.Integer(), sa.ForeignKey('topics.id'), nullable=True),
     sa.Column('userId', sa.Integer(), sa.ForeignKey('users.id'), nullable=False),
     sa.Column('flashcardSetId', sa.Integer(), sa.ForeignKey('flashcard_sets.id'), nullable=True),
     sa.Column('question', sa.String(), nullable=False),

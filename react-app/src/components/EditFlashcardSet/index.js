@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
-import { useDispatch } from "react-redux";
-import {useHistory, useParams} from "react-router-dom";
-import {createFlashcardSet, createFlashcardInSet } from "../../store/flashcardSet"
-import "./FlashcardSetForm.css"
+import React, {useState, useEffect} from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { createFlashcard } from "../../store/flashcard";
+import { useHistory, useParams } from "react-router-dom"
+import { Redirect } from "react-router-dom"
+import "../FlashcardSetForm/FlashcardSetForm.css";
+import { updateFlashcardSet } from "../../store/flashcardSet";
+import { getSingleFlashcardSet } from "../../store/flashcardSet";
 
-const FlashcardSetForm = () => {
-    const dispatch = useDispatch();
+
+const EditFlashcardSet = () => {
+    const user = useSelector((state => state.session.user));
+    const { id } = useParams();
+    const flashcard =  useSelector((state) => state.flashcard[id])
+    const flashcardSet = useSelector(state => state.flashcardSet[id]);
     const history = useHistory();
-
-    const defaultFormData = {
+    const [errors, setErrors] = useState({});
+    const [formData,  setFormData] = useState({
         title: '',
         flashcards: Array.from({ length: 2 }, () => ({ question: '', answer: ''}) )
-    };
-    const [errors, setErrors ] = useState({});
-    const [formData, setFormData] = useState(defaultFormData)
+        })
+
+    const dispatch = useDispatch()
 
     const handleTitleChange = (e) => setFormData({...formData, title: e.target.value })
 
@@ -31,9 +38,28 @@ const FlashcardSetForm = () => {
         })
     }
 
+    const topics = [
+        {id: 1, name: "Airway, Respiration & Ventilation"},
+        {id: 2, name: "Cardiology & Resuscitation"},
+        {id: 3, name: "EMS Operations"},
+        {id: 4, name: "Medical: Obstetrics & Gynecology"},
+        {id: 5, name: "Trauma"}
+    ]
+
+    useEffect(() => {
+        if (!flashcardSet) {
+            dispatch(getSingleFlashcardSet(id));
+        } else {
+            setFormData({
+                title: flashcardSet.title,
+                flashcards: flashcardSet.flashcards
+            });
+        }
+    }, [flashcardSet, dispatch, id]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const {title, flashcards} = formData;
+
         let formErrors = {};
     
         if (!formData.title.trim()) {
@@ -53,31 +79,10 @@ const FlashcardSetForm = () => {
         if (Object.keys(formErrors).length > 0) {
             return;
         }
-        try {
-            const newSet = await dispatch(createFlashcardSet({ title }));
-            console.log("New Set: ", newSet);  // Added this line for debugging
-    
-            if (newSet && newSet.id) {
-                const flashcardsPromises = flashcards.map((flashcard) => {
-                    const { question, answer } = flashcard;
-                    if (question && answer) {
-                        return dispatch(createFlashcardInSet(newSet.id, { question, answer }));
-                    }
-                    return Promise.resolve();
-                });
-    
-               const addedFlashcards = await Promise.all(flashcardsPromises); 
-               console.log('Added Flashcards:', addedFlashcards)
-    
-                history.push(`/flashcard-sets/${newSet.id}`);
-            } else {
-                console.error("New set was not successfully created");
-            }
-        } catch (error) {
-            console.error("An error occurred while creating the flashcard set", error);
-        }
-    };
 
+        await dispatch(updateFlashcardSet({ ...formData, id: parseInt(id) }));
+        history.push(`/flashcard-sets/${id}`);
+    };
     return (
         <form onSubmit={handleSubmit}>
             <label>
@@ -106,9 +111,10 @@ const FlashcardSetForm = () => {
                 <button type='button' onClick={handleAddCard}>Add Card</button>
             )}
             
-            <button type="submit">Create Flashcard Set!</button>
+            <button type="submit">Update Flashcard Set!</button>
         </form>
     );
 }
 
-export default FlashcardSetForm
+
+export default EditFlashcardSet

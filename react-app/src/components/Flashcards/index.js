@@ -73,13 +73,11 @@ const Flashcards = () => {
             <h2>Flashcard Sets</h2>
             <div className='flashcard-sets-grid'>
                 {flashcardSets.map(set => (
-                    <div key={set.id} className='flashcard-set' onClick={(e) => {
-                        e.stopPropagation();
-                         redirectToFlashcardSetDetails(set.id);}}>
+                    <div key={set.id} className='flashcard-set' onClick={(e) => {e.stopPropagation(); redirectToFlashcardSetDetails(set.id)}}>
                         <h3>{set.title}</h3>
                         <p>{set.flashcards?.length} questions</p>
                         <p className='username'>{set?.user?.username}</p>
-                     </div>
+                        </div>
                 ))}
             </div>
         </div>

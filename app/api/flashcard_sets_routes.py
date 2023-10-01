@@ -112,9 +112,11 @@ def delete_flashcard_set(id):
 def add_flashcard_to_set(id):
     form = FlashcardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    # Remove or update form validation for topicId if needed
     if form.validate_on_submit():
+        topicId = form.data.get("topicId")  # Using get method to avoid KeyError
         new_flashcard = Flashcard(
-            topicId=form.data["topicId"],
+            topicId=topicId,
             userId=current_user.id,
             flashcardSetId=id,
             question=form.data["question"],
@@ -122,7 +124,6 @@ def add_flashcard_to_set(id):
         )
         db.session.add(new_flashcard)
         db.session.commit()
-
         return new_flashcard.to_dict()
     else:
         return jsonify({"error": "Invalid form data", "form submission error": form.errors}), 400

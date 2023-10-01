@@ -1,0 +1,59 @@
+.flashcard-sets-grid {
+    display: grid;
+    grid-gap: 36px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    list-style: none;
+    padding: 20px;
+    background-color: whitel;
+}
+
+.flashcard-sets-section {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.flashcard-set {
+    border: 1px solid #ccc;
+    border-radius: 15px; /* Slight border radius */
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 150ms, box-shadow 150ms;
+    cursor: pointer;
+    height: 150px;
+    width: 250px;
+    position: relative;
+}
+
+.flashcard-set:hover{
+    transform: scale(1.03);
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+}
+
+.flashcard-set h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.flashcard-set p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.username {
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.trash-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.set-edit-icon {
+    bottom: 5px;
+    position: absolute;
+    left: 5px;
+    cursor: pointer;
+}

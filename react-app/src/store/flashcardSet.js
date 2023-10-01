@@ -122,7 +122,8 @@ export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
         dispatch(addFlashcardToSet(newFlashcard, setId))
         return newFlashcard;
     } else {
-        console.error("Failed to add flashcard to set")
+        console.error("Failed to add flashcard to set");
+        throw new Error("Failed to add flashcard to set")
     }
  }
 

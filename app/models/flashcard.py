@@ -8,7 +8,7 @@ class Flashcard(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-    topicId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('topics.id')), nullable=False)
+    topicId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('topics.id')), nullable=True)
     userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     flashcardSetId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('flashcard_sets.id')), nullable=True)
     question = db.Column(db.String, nullable=False)

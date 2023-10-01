@@ -43,10 +43,10 @@ function FlashcardDetails() {
                 <div className={`detail-flashcard-detail ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(!flipped)}>
                     <div className="detail-flip-container">
                         <div className="detail-front">
-                            <h2>{flashcard.question}</h2>
+                            <h2>{flashcard?.question}</h2>
                         </div>
                         <div className="detail-back">
-                            <h3>{flashcard.answer}</h3>
+                            <h3>{flashcard?.answer}</h3>
                         </div>
                     </div>
                 </div>

@@ -95,7 +95,7 @@ const EditFlashcard = () => {
                     {errors?.answer && <div className="error-validation">{errors?.answer}</div>}
                 </div>
                
-                <button type="submit">Submit</button>
+                <button type="submit">Update!</button>
             </form>
         </div>
     );

@@ -30,7 +30,7 @@ function FlashcardSetDetails() {
     };
 
     const goToNext = () => {
-        if (currentIndex < flashcardSet.flashcards.length - 1) {
+        if (currentIndex < flashcardSet?.flashcards?.length - 1) {
             setFlipped(false);
             setCurrentIndex(currentIndex + 1);
         }
@@ -45,20 +45,20 @@ function FlashcardSetDetails() {
             <h1 className='set-detail-header'>Flashcard Set Review!</h1>
             <div className='set-flashcard-section'>
                 <BsCaretLeftFill className='change-question-button left' onClick={goToPrevious} />
-                <div className={`set-flashcard-detail ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(!flipped)}>
-                    <div className="flip-container">
-                        <div className="front">
-                            <h2>{currentFlashcard.question}</h2>
+                <div className={`set-flashcard-detail ${flipped ? 'set-flipped' : ''}`} onClick={() => setFlipped(!flipped)}>
+                    <div className="set-flip-container">
+                        <div className="set-front">
+                            <h2>{currentFlashcard?.question}</h2>
                         </div>
-                        <div className="back">
-                            <h3>{currentFlashcard.answer}</h3>
+                        <div className="set-back">
+                            <h3>{currentFlashcard?.answer}</h3>
                         </div>
                     </div>
                 </div>
                 <BsFillCaretRightFill className='change-question-button right' onClick={goToNext} />
             </div>
             <div className='card-info'>
-                Card {currentIndex + 1} / {flashcardSet.flashcards.length}
+                Card {currentIndex + 1} / {flashcardSet?.flashcards?.length}
             </div>
         </div>
     );
