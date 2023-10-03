@@ -142,11 +142,14 @@ export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
           ...state,
           [action.flashcardSet.id]: action.flashcardSet,
         };
-      case EDIT_FLASHCARD_SET:
-        return {
-          ...state,
-          [action.flashcardSet.id]: action.flashcardSet,
-        };
+        case EDIT_FLASHCARD_SET:
+            return {
+                ...state,
+                [action.flashcardSet.id]: {
+                    ...action.flashcardSet,
+                    flashcards: action.flashcardSet.flashcards 
+                }
+            };
       case SET_SINGLE_FLASHCARD_SET:
         return {
             ...state,

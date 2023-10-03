@@ -44,6 +44,7 @@ const Flashcards = () => {
 
     return (
        <div className='flashcard-container'>
+        <h2>Flashcards:</h2>
         <div className="flashcard-grid">
             {flashcards.map(flashcard => (
                 <div 
