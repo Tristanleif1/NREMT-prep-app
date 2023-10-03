@@ -69,19 +69,37 @@ def edit_flashcard_set_form(id):
     """
     form = FlashcardSetForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        flashcardSet = FlashcardSet.query.get(id)
-        if flashcardSet:
-            if form.data.get("title"):
-                flashcardSet.title = form.data["title"]
-            
+    flashcardSet = FlashcardSet.query.get(id)
+    if form.validate_on_submit() and flashcardSet:
+        flashcardSet.title = form.title.data
+        data = request.json
+        if data.get("flashcards"):
+            flashcard_ids = [flashcard['id'] for flashcard in data["flashcards"] if 'id' in flashcard]
+            Flashcard.query.filter(Flashcard.flashcardSetId == id, ~Flashcard.id.in_(flashcard_ids)).delete()
+
+            for flashcard_data in data["flashcards"]:
+                if 'id' in flashcard_data:
+                    flashcard = Flashcard.query.get(flashcard_data["id"])
+                    if flashcard:
+                        if flashcard_data["question"].strip() and flashcard_data["answer"].strip():
+                            flashcard.question = flashcard_data["question"]
+                            flashcard.answer = flashcard_data["answer"]
+                        else:
+                            db.session.delete(flashcard)
+                else:
+                    new_flashcard = Flashcard(
+                        question=flashcard_data["question"].strip(),
+                        answer=flashcard_data["answer"].strip(),
+                        flashcardSetId=id,
+                        userId=current_user.id
+                    )
+                    db.session.add(new_flashcard)
+
             db.session.commit()
 
-            return flashcardSet.to_dict()
-        else:
-            return jsonify({"error": "Flashcard Set not found"}), 400
-    else:
-        return jsonify({"error": "Invalid form data", "form_errors": form.errors}), 400
+        return flashcardSet.to_dict()
+    
+    return jsonify({"error": "Invalid form data", "form_errors": form.errors}), 400
     
 
 

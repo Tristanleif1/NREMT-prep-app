@@ -10,6 +10,9 @@ import { getSingleFlashcardSet } from "../../store/flashcardSet";
 
 const EditFlashcardSet = () => {
     const user = useSelector((state => state.session.user));
+    if (!user) {
+        history.push("/");
+      }
     const { id } = useParams();
     const flashcard =  useSelector((state) => state.flashcard[id])
     const flashcardSet = useSelector(state => state.flashcardSet[id]);
@@ -80,7 +83,10 @@ const EditFlashcardSet = () => {
             return;
         }
 
-        await dispatch(updateFlashcardSet({ ...formData, id: parseInt(id) }));
+        const updatedFlashcards = formData.flashcards.filter(card => card.question.trim() 
+        || card.answer.trim());
+
+        await dispatch(updateFlashcardSet({ ...formData, flashcards: updatedFlashcards, id: parseInt(id) }));
         history.push(`/flashcard-sets/${id}`);
     };
     return (
