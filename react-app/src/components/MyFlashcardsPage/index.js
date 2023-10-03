@@ -10,6 +10,9 @@ const MyFlashcards = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user);
+    if (!user) {
+        history.push("/");
+      }
     // const [showModal, setShowModal] = useState(false);
     const { setModalContent } = useModal()
 

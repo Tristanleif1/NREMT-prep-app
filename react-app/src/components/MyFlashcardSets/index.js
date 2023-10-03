@@ -11,6 +11,9 @@ const MyFlashcardSets = () => {
     const history = useHistory()
     const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user)
+    if (!user) {
+        history.push("/");
+      }
 
     const { setModalContent } = useModal()
 
