@@ -20,6 +20,11 @@ function LoginFormPage() {
       setErrors(data);
     }
   };
+  const handleDemo = () => {
+    const email = "demo@aa.io";
+    const password = "password";
+    dispatch(login(email, password));
+  };
 
   return (
     <>
@@ -49,6 +54,9 @@ function LoginFormPage() {
           />
         </label>
         <button type="submit">Log In</button>
+        <button className="login-form-page-btn" onClick={handleDemo}>
+            Demo User
+          </button>
       </form>
     </>
   );
