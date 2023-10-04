@@ -34,9 +34,9 @@ const EditFlashcard = () => {
             dispatch(getSingleFlashcard(id));
         } else {
             setFormData({
-                topicId: flashcard.topicId.toString(),
-                question: flashcard.question,
-                answer: flashcard.answer,
+                topicId: flashcard?.topicId?.toString(),
+                question: flashcard?.question,
+                answer: flashcard?.answer,
             });
         }
     }, [flashcard, dispatch, id]);
