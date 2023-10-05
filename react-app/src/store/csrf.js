@@ -4,7 +4,7 @@ export async function csrfFetch(url, options = {}) {
   options.method = options.method || 'GET';
   options.headers = options.headers || {};
 
-  const csrfToken = Cookies.get('XSRF-TOKEN');
+  const csrfToken = Cookies.get('csrf_token');
   console.log('CSRF Token:', csrfToken);  // Log CSRF token for debugging
 
   if (options.method.toUpperCase() !== 'GET') {
@@ -14,7 +14,7 @@ export async function csrfFetch(url, options = {}) {
       options.headers['Content-Type'] =
         options.headers['Content-Type'] || 'application/json';
     }
-    options.headers['XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN');
+    options.headers['X-CSRF-TOKEN'] = csrfToken;
   }
 
   const res = await window.fetch(url, options);
