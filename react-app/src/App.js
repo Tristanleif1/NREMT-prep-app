@@ -30,6 +30,12 @@ function App() {
           <Route exact path="/">
             <Flashcards />
           </Route>
+          <Route path="/login" >
+            <LoginFormPage />
+          </Route>
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
           <Route exact path="/flashcards/:id/edit">
             <EditFlashcard />
           </Route>
@@ -53,12 +59,6 @@ function App() {
           </Route>
           <Route path="/my-flashcard-sets">
             <MyFlashcardSets />
-          </Route>
-          <Route path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
           </Route>
         </Switch>
       )}
