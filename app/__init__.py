@@ -61,7 +61,6 @@ def inject_csrf_token(response):
     response.set_cookie(
         'csrf_token',
         generate_csrf(),
-        max_age=8640000,
         secure=True if os.environ.get('FLASK_ENV') == 'production' else False,
         samesite='Strict' if os.environ.get(
             'FLASK_ENV') == 'production' else None,
