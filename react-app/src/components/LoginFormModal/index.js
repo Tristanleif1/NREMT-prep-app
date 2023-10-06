@@ -13,21 +13,29 @@ function LoginFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(email === '' || password === '') {
+      const newErrors = [];
+      if(email === '') newErrors.push('email : This field is required.');
+      if(password === '') newErrors.push('password : This field is required.');
+      setErrors(newErrors);
+      return;
+    }
+
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+        closeModal();
     }
   };
 
   return (
-    <>
+    <div className="login-modal">
       <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login-form">
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li className="error-message" key={idx}>{error}</li>
           ))}
         </ul>
         <label>
@@ -36,7 +44,6 @@ function LoginFormModal() {
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </label>
         <label>
@@ -45,12 +52,11 @@ function LoginFormModal() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </label>
         <button type="submit">Log In</button>
       </form>
-    </>
+    </div>
   );
 }
 
