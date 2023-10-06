@@ -1,5 +1,4 @@
 
-import { csrfFetch } from "./csrf";
 const SET_FLASHCARD_SETS = "flashcardSet/SET_FLASHCARD_SETS"
 const SET_SINGLE_FLASHCARD_SET = "flashcardSet/SET_FLASHCARD_SET"
 const ADD_FLASHCARD_SET = "flashcardSet/ADD_FLASHCARD_SET"
@@ -50,7 +49,7 @@ export const loadFlashcardSets = () => async (dispatch) => {
 }
 
 export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
-    const response = await csrfFetch(`/api/flashcard-sets/`, {
+    const response = await fetch(`/api/flashcard-sets/`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -83,7 +82,7 @@ export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
 
 
  export const updateFlashcardSet = (flashcardSet) => async (dispatch) => {
-    const response = await csrfFetch(`/api/flashcard-sets/${flashcardSet.id}`, {
+    const response = await fetch(`/api/flashcard-sets/${flashcardSet.id}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
@@ -98,7 +97,7 @@ export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
  }
 
  export const removeFlashcardSet = (flashcardSetId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/flashcard-sets/${flashcardSetId}`, {
+    const response = await fetch(`/api/flashcard-sets/${flashcardSetId}`, {
         method: "DELETE",
     })
 
@@ -110,7 +109,7 @@ export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
  }
 
  export const createFlashcardInSet = (setId, flashcard) => async (dispatch) => {
-    const response = await csrfFetch(`/api/flashcard-sets/${setId}/add-flashcard`, {
+    const response = await fetch(`/api/flashcard-sets/${setId}/add-flashcard`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

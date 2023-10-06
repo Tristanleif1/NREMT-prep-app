@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+
 const SET_FLASHCARDS = "flashcard/SET_FLASHCARDS"
 const SET_SINGLE_FLASHCARD ="flashcard/SET_SINGLE_FLASHCARD"
 const ADD_FLASHCARD = "flashcard/ADD_FLASHCARD"
@@ -42,7 +42,7 @@ export const loadFlashcards = () => async (dispatch) => {
 }
 
 export const createFlashcard = (flashcard) => async (dispatch) => {
-    const response = await csrfFetch('/api/flashcards/', {
+    const response = await fetch('/api/flashcards/', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -61,7 +61,7 @@ export const createFlashcard = (flashcard) => async (dispatch) => {
 
 
 export const updateFlashcard = (flashcard) => async (dispatch) => {
-    const response = await csrfFetch(`/api/flashcards/${flashcard.id}`, {
+    const response = await fetch(`/api/flashcards/${flashcard.id}`, {
         method: 'PUT',
         headers: {
             "Content-Type": "application/json"
@@ -77,7 +77,7 @@ export const updateFlashcard = (flashcard) => async (dispatch) => {
 
 
 export const removeFlashcard = (flashcardId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/flashcards/${flashcardId}`, {
+    const response = await fetch(`/api/flashcards/${flashcardId}`, {
         method: "DELETE"
     })
     if(response.ok){
