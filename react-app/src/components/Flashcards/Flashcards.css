@@ -129,7 +129,7 @@
 .flashcard-set {
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 15px; /* Slight border radius */
+    border-radius: 15px; 
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 150ms, box-shadow 150ms;
