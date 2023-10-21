@@ -1,0 +1,12 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, p {
+    font-family: 'Roboto', sans-serif;
+}
+
+#root{
+    background-color: #1e1e1e;
+}
+

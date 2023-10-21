@@ -53,14 +53,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: #cecece 1px solid;
+  border-bottom: #282e3e 1px solid;
   margin-bottom: 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
-.create-flashcard {
-  color: #656969;
-}
+
 
 .create-flashcard:hover {
   color: #0b7564;
@@ -101,22 +100,89 @@ a {
   display: block;
   margin: 0 auto;
   border-radius: 10px;
+  position: absolute;
+  bottom: 2px;
 }
 
 .flashcard-links {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  position: absolute;
+  top: 20px;
+  left: calc(150px + 40px);
+  padding: 5px;
 }
 
 .create-flashcard,
 .create-flashcard-set {
     margin-bottom: 5px;
-    color: #656969;
+    color: white;
+    margin-right: 20px;
+    font-weight: bold;
 }
 
 .create-flashcard:hover,
 .create-flashcard-set:hover {
-    color: #0b7564;
+    color: white;
     text-decoration: none;
+}
+
+.create-flashcard:hover::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 40%;
+    background-color: #7583ff;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+.create-flashcard-set:hover::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 50%;
+  background-color: #7583ff;
+  position: absolute;
+  bottom: -10px;
+  left: 150px;
+}
+
+.topic-bar{
+  padding: 0px 10px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: #cecece 1px solid;
+  margin-bottom: 20px;
+}
+
+.topic-contents{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-bottom: 20px;
+  position: relative;
+}
+.topic-contents a {
+  color: #FFF9D9;
+  position: relative;
+}
+
+.topic-contents a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #FFDAB9; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.topic-contents a:hover::after {
+  width: 100%;
 }

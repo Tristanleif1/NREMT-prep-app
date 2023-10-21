@@ -11,6 +11,11 @@ function Navigation({ isLoaded }){
 	return (
         <>
             <div className="nav-bar">
+                <div className="emt-logo">
+                    <NavLink className="emt-logo" exact to="/">
+                        <img alt="rescue ready" src={logo}></img>
+                    </NavLink>
+                </div>
                 <div className="flashcard-links">
                     {sessionUser ? (
                         <NavLink className="create-flashcard" exact to="/new-flashcard">
@@ -31,13 +36,27 @@ function Navigation({ isLoaded }){
                         </NavLink>
                     )}
                 </div>
-                <div className="emt-logo">
-                    <NavLink className="emt-logo" exact to="/">
-                        <img alt="rescue ready" src={logo}></img>
-                    </NavLink>
-                </div>
                 {isLoaded && <ProfileButton user={sessionUser} />}
             </div>
+            <div className="topic-bar">
+            <div className="topic-contents">
+            <NavLink exact to="/flashcards/topic/1">
+             Airway, Respiration & Ventilation
+            </NavLink>
+            <NavLink exact to="/flashcards/topic/2">
+            Cardiology & Resuscitation
+            </NavLink>
+            <NavLink exact to="/flashcards/topic/3">
+            EMS Operations
+            </NavLink>
+            <NavLink exact to="/flashcards/topic/4">
+            Medical: Obstetrics
+            </NavLink>
+            <NavLink exact to="/flashcards/topic/5">
+            Trauma
+            </NavLink>
+        </div>
+      </div>
         </>
     );
 }

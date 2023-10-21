@@ -12,6 +12,13 @@
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 2rem;
+    color: white;
+}
+
+.detail-flashcard-detail-header h1{
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 2rem;
 }
 
 .detail-flashcard-section {
@@ -81,6 +88,10 @@
     z-index: 2;
 }
 
+.detail-front h2{
+    color: black;
+}
+
 .detail-back {
     transform: rotateY(180deg);
 }
@@ -100,3 +111,4 @@
 .detail-change-question-button.right {
     right: -50px;
 }
+

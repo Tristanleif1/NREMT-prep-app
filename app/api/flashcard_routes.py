@@ -23,6 +23,13 @@ def all_flashcards():
 
     return {"flashcards":[flashcard.to_dict() for flashcard in flashcards]}
 
+#Get all flashcards belonging to a specific topic
+
+@flashcard_routes.route('/topic/<int:id>')
+def flashcards_by_topic(id):
+    flashcards = Flashcard.query.filter(Flashcard.topicId == id).all()
+    return {'flashcards': [flashcard.to_dict() for flashcard in flashcards]}
+
 #POST a flashcard for authenticatd user '/flashcards/'
 @flashcard_routes.route('/', methods=["POST"])
 @login_required

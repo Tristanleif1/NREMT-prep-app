@@ -2,6 +2,10 @@ html {
     box-sizing: border-box
 }
 
+.set-detail-header{
+    color: white;
+}
+
 .set-detail-page{
     display: flex;
     flex-direction: column;
@@ -67,13 +71,18 @@ html {
     
 }
 
+.set-front h2{
+color: black;
+}
+
 .set-back {
     transform: rotateY(180deg)
 }
 
 .change-question-button{
     font-size: 2rem;
-    cursor: pointer
+    cursor: pointer;
+    color: grey
 }
 
 .card-info {

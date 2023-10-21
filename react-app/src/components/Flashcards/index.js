@@ -9,6 +9,23 @@ const Flashcards = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
+    const [selectedOption, setSelectedOption ] = useState('flashcards')
+
+    const handleOptionSwitch = (e) => {
+        setSelectedOption(e.target.value)
+    }
+
+    const renderFlashcardColor = (topicId) => {
+        const colors = {
+            1: '#ADD8E6', // Light Blue
+            2: '#90EE90', // Light Green
+            3: '#FFFFE0', // Light Yellow
+            4: '#FFB6C1', // Light Pink
+            5: '#D8BFD8', // Light Purple
+        };
+        return colors[topicId] 
+    }
+
     useEffect(() => {
         dispatch(loadFlashcards())
         dispatch(loadFlashcardSets())
@@ -44,13 +61,19 @@ const Flashcards = () => {
 
     return (
        <div className='flashcard-container'>
-        <h2>Flashcards:</h2>
+        <label htmlFor="viewOptions" className='view-label'>What do you want to study?</label>
+        <select id="viewOptions" value={selectedOption} onChange={handleOptionSwitch} className='option-select'>
+            <option value="flashcards">Flashcards</option>
+            <option value="flashcardSets">Flashcard Sets</option>
+        </select>
+        {selectedOption === 'flashcards' && (
         <div className="flashcard-grid">
             {flashcards.map(flashcard => (
                 <div 
                     key={flashcard.id} 
                     className={`flashcard ${flippedCardId === flashcard.id ? 'flipped' : ''}`} 
                     onClick={() => handleCardClick(flashcard.id)}
+                    style={{ backgroundColor: renderFlashcardColor(flashcard.topicId) }}
                 >
                     <div className="flip-container">
                         <div className="front">
@@ -70,6 +93,9 @@ const Flashcards = () => {
                 </div>
             ))}
         </div>
+        )}
+
+        {selectedOption === "flashcardSets" && (
         <div className='flashcard-sets-section'>
             <h2>Flashcard Sets</h2>
             <div className='flashcard-sets-grid'>
@@ -81,8 +107,9 @@ const Flashcards = () => {
                         </div>
                 ))}
             </div>
+            </div>
+            )}
         </div>
-    </div>
     );
 };
 
