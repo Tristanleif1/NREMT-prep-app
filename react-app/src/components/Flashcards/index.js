@@ -61,11 +61,13 @@ const Flashcards = () => {
 
     return (
        <div className='flashcard-container'>
+        <div className='option-container'>
         <label htmlFor="viewOptions" className='view-label'>What do you want to study?</label>
         <select id="viewOptions" value={selectedOption} onChange={handleOptionSwitch} className='option-select'>
             <option value="flashcards">Flashcards</option>
             <option value="flashcardSets">Flashcard Sets</option>
         </select>
+        </div>
         {selectedOption === 'flashcards' && (
         <div className="flashcard-grid">
             {flashcards.map(flashcard => (
@@ -73,15 +75,14 @@ const Flashcards = () => {
                     key={flashcard.id} 
                     className={`flashcard ${flippedCardId === flashcard.id ? 'flipped' : ''}`} 
                     onClick={() => handleCardClick(flashcard.id)}
-                    style={{ backgroundColor: renderFlashcardColor(flashcard.topicId) }}
                 >
                     <div className="flip-container">
-                        <div className="front">
+                        <div className="front" style={{ backgroundColor: renderFlashcardColor(flashcard.topicId) }}>
                             <div className="flashcard-question" style={{ fontSize: handleFontSize(flashcard.question)}}>
                                 {flashcard.question}
                             </div>
                         </div>
-                        <div className="back">
+                        <div className="back" style={{ backgroundColor: renderFlashcardColor(flashcard.topicId) }}>
                             <div className="flashcard-answer" style={{ fontSize: handleFontSize(flashcard.answer)}}>
                                 {flashcard.answer}
                             </div>

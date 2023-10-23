@@ -49,7 +49,6 @@
     box-sizing: border-box;
     word-wrap: break-word;
     border-radius: 10px;
-    background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -185,4 +184,12 @@ h2 {
 
 .option-select:hover {
     border-color: #666;
+}
+
+.option-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* adjust as needed */
 }
