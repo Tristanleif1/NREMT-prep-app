@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from "../../assets/149766631.png"
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded, setSearchBar, searchBar }){
 	const sessionUser = useSelector(state => state.session.user);
+
 
 	return (
         <>
@@ -36,6 +37,15 @@ function Navigation({ isLoaded }){
                         </NavLink>
                     )}
                 </div>
+              <div className='search-bar-container'>
+                <input
+                    type="text"
+                    placeholder="Search flashcards and flashcard sets..."
+                    value={searchBar}
+                    onChange={(e) => setSearchBar(e.target.value)}
+                    className="search-bar" 
+                />
+            </div>
                 {isLoaded && <ProfileButton user={sessionUser} />}
             </div>
             <div className="topic-bar">

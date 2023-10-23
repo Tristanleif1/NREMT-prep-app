@@ -5,7 +5,7 @@ import { loadFlashcards } from '../../store/flashcard';
 import { loadFlashcardSets } from '../../store/flashcardSet';
 import './Flashcards.css'
 
-const Flashcards = () => {
+const Flashcards = ({ searchBar }) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -33,7 +33,19 @@ const Flashcards = () => {
 
     const flashcards = useSelector(state => Object.values(state.flashcard))
     const flashcardSets = useSelector(state => Object.values(state.flashcardSet))
-    console.log(flashcardSets)
+    console.log(flashcardSets);
+
+    const filteredFlashcards = searchBar ? flashcards.filter(flashcard =>
+        flashcard.question.toLowerCase().includes(searchBar.toLowerCase()) ||
+        flashcard.answer.toLowerCase().includes(searchBar.toLowerCase()) 
+    ) : flashcards;
+
+    const filteredFlashcardSets = searchBar ? flashcardSets.filter(set =>
+        set.flashcards.some(flashcard =>
+            flashcard.question.toLowerCase().includes(searchBar.toLowerCase()) ||
+            flashcard.answer.toLowerCase().includes(searchBar.toLowerCase())
+        )
+    ) : flashcardSets;
 
     const [flippedCardId, setFlippedCardId] = useState(null);
 
@@ -66,11 +78,12 @@ const Flashcards = () => {
         <select id="viewOptions" value={selectedOption} onChange={handleOptionSwitch} className='option-select'>
             <option value="flashcards">Flashcards</option>
             <option value="flashcardSets">Flashcard Sets</option>
+            <option value="all">All</option>
         </select>
         </div>
-        {selectedOption === 'flashcards' && (
+        {(selectedOption === 'flashcards' || selectedOption === "all") && (
         <div className="flashcard-grid">
-            {flashcards.map(flashcard => (
+            {filteredFlashcards.map(flashcard => (
                 <div 
                     key={flashcard.id} 
                     className={`flashcard ${flippedCardId === flashcard.id ? 'flipped' : ''}`} 
@@ -96,11 +109,11 @@ const Flashcards = () => {
         </div>
         )}
 
-        {selectedOption === "flashcardSets" && (
+        {(selectedOption === "flashcardSets" || selectedOption ==="all") && (
         <div className='flashcard-sets-section'>
             <h2>Flashcard Sets</h2>
             <div className='flashcard-sets-grid'>
-                {flashcardSets.map(set => (
+                {filteredFlashcardSets.map(set => (
                     <div key={set.id} className='flashcard-set' onClick={(e) => {e.stopPropagation(); redirectToFlashcardSetDetails(set.id)}}>
                         <h3>{set.title}</h3>
                         <p>{set.flashcards?.length} questions</p>

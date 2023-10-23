@@ -19,17 +19,18 @@ import FlashcardsByTopic from "./components/FlashcardsByTopic";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [ searchBar, setSearchBar ] = useState('')
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      <Navigation isLoaded={isLoaded} setSearchBar={setSearchBar} searchBar={searchBar} />
       {isLoaded && (
         <Switch>
           <Route exact path="/">
-            <Flashcards />
+            <Flashcards searchBar={searchBar} />
           </Route>
           <Route path="/flashcards/topic/:topicId">
             <FlashcardsByTopic />
