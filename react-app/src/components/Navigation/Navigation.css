@@ -195,6 +195,10 @@ a {
   font-size: 16px;
   outline: none;
   margin-right: 30px;
+  background-color: #2e3856;
+  font-weight: bold;
+  color: lightgray;
+  font-family: sans-serif;
 }
 
 .search-bar:focus {
