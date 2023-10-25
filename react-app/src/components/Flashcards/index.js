@@ -9,6 +9,12 @@ const Flashcards = ({ searchBar }) => {
     const history = useHistory()
     const dispatch = useDispatch()
 
+    const [quizzes, setQuizzes] = useState([]);
+    useEffect(() => {
+        fetch('/api/quizzes/')
+            .then(response => response.json())
+            .then(data => setQuizzes(data.quizzes))
+    }, [])
     const [selectedOption, setSelectedOption ] = useState('flashcards')
 
     const handleOptionSwitch = (e) => {
@@ -71,13 +77,18 @@ const Flashcards = ({ searchBar }) => {
         history.push(`flashcard-sets/${id}`)
     }
 
+    const redirectToQuiz = (id) => {
+        history.push(`/quizzes/${id}`)
+    }
+
     return (
        <div className='flashcard-container'>
-        <div className='option-container'>
+        <div className='filter-option-container'>
         <label htmlFor="viewOptions" className='view-label'>What do you want to study?</label>
         <select id="viewOptions" value={selectedOption} onChange={handleOptionSwitch} className='option-select'>
             <option value="flashcards">Flashcards</option>
             <option value="flashcardSets">Flashcard Sets</option>
+            <option value="quizzes">Quizzes</option>
             <option value="all">All</option>
         </select>
         </div>
@@ -123,6 +134,18 @@ const Flashcards = ({ searchBar }) => {
             </div>
             </div>
             )}
+            {(selectedOption === "quizzes" || selectedOption ==="all") && (
+            <div className='quizzes-section'>
+                <h2>Quizzes</h2>
+                <div className='quiz-sets-grid'>
+                    {quizzes.map(quiz => (
+                        <div key={quiz.id} className='individual-quiz' onClick={(e) => {e.stopPropagation(); redirectToQuiz(quiz.id)}}>
+                            <h3>{quiz.title}</h3>
+                            </div>
+                    ))}
+                </div>
+                </div>
+            )} 
         </div>
     );
 };

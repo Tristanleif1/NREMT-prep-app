@@ -9,6 +9,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.flashcard_routes import flashcard_routes
 from .api.flashcard_sets_routes import flashcard_sets_routes
+from .api.quiz_routes import quiz_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -35,6 +36,8 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(flashcard_routes, url_prefix='/api/flashcards')
 app.register_blueprint(flashcard_sets_routes, url_prefix='/api/flashcard-sets')
+app.register_blueprint(quiz_routes, url_prefix='/api/quizzes')
+
 db.init_app(app)
 Migrate(app, db)
 
