@@ -16,6 +16,7 @@
 }
 
 .question {
+    position: relative;
     background-color: #f8f8f8;
     border-left: 5px solid #1da1f2;
     width: 80%;
@@ -78,3 +79,21 @@ h5 {
     margin-top: 5px;
 }
 
+.toast-valid{
+    background-color: #4caf50;
+    border-radius: 5px !important;
+    color: white
+}
+
+.toast-invalid{
+    background-color: #F44336;
+    border-radius: 5px !important;
+    color: white
+}
+
+.current-question{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: black;
+}
