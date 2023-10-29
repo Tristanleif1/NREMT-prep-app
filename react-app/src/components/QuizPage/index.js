@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./QuizPage.css"
 import { BsTextCenter } from 'react-icons/bs';
+import rightAnswer from "../../assets/correct_answer.mp3";
+import incorrectAnswer from "../../assets/incorrect_answer.mp3";
+
 
 function QuizPage() {
     const { id } = useParams();
@@ -20,14 +23,24 @@ function QuizPage() {
         seconds: 0
     })
 
+    const correctAnswerSound = new Audio(rightAnswer)
+    const incorrectAnswerSound =  new Audio(incorrectAnswer)
+
     toast.configure()
+
+    const history = useHistory()
 
 
     useEffect(() => {
         fetch(`/api/quizzes/${id}/questions`)
-            .then(response => response.json())
-            .then(data => setQuizQuestions(data.quizQuestions));
-    }, [id]);
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to fetch questions.");
+            }
+            return response.json();
+        })
+        .then(data => setQuizQuestions(data.quizQuestions))
+        .catch(error => console.error(error));}, [id]);
 
     useEffect(() => {
         fetch(`/api/quizzes/${id}`)
@@ -75,6 +88,7 @@ function QuizPage() {
         setCorrectAnswers(prevCorrect => prevCorrect + 1);
         setCurrentQuestionIndex(prevIndex => prevIndex + 1);
         setNumberOfQuestionsAnswered(prevAnswered => prevAnswered + 1)
+        correctAnswerSound.play()
     }
 
     const wrongAnswer = () => {
@@ -88,6 +102,7 @@ function QuizPage() {
         setWrongAnswers(prevCorrect => prevCorrect + 1);
         setCurrentQuestionIndex(prevIndex => prevIndex + 1);
         setNumberOfQuestionsAnswered(prevAnswered => prevAnswered + 1)
+        incorrectAnswerSound.play()
     }
 
     const handleAnswerClick = (e) => {
@@ -100,6 +115,10 @@ function QuizPage() {
             wrongAnswer()
         }
     } 
+
+    const handleQuitSelect = () => {
+        history.push('/')
+    }
 
     const quizTimer = () => {
         const countDownTime =  Date.now() + 300000;   // <-- 5 minutes in milliseconds
@@ -138,8 +157,12 @@ function QuizPage() {
 
     if (isPlaying) {
         const currentQuestion = quizQuestions[currentQuestionIndex]
+        if(!currentQuestion){
+            return <div>Loading...</div>
+        }
         return (
-            <div className="quiz">        
+            <div className="quiz">
+                <div className='quiz-mode'>Quiz Mode</div>       
                     <div className="question">
                         <div className="timer" style={{ color: 'black', position: 'absolute', top: '10px', right: '10px' }}>
                         {time.minutes}:{time.seconds < 10 ? `0${time.seconds}` : time.seconds}
@@ -161,7 +184,8 @@ function QuizPage() {
                             <button className="option" onClick={handleAnswerClick}>{currentQuestion.option4}</button>
                         </div>
                         <div className='navigation-buttons'>
-                        <div className='prev-quesiton-button'> {currentQuestionIndex > 0 && <button onClick={goToPrev}>Previous</button>} </div>
+                            <div className='prev-question-button'> {currentQuestionIndex > 0 && <button onClick={goToPrev}>Previous</button>} </div>
+                            <div className='quit-quiz-button'>< button onClick={handleQuitSelect}>Quit</button></div>
                             <div className='next-question-button'>{currentQuestionIndex < quizQuestions.length - 1 && <button onClick={goToNext}>Next</button>}</div>
                         </div>
                     </div>
@@ -172,9 +196,15 @@ function QuizPage() {
     return (
         <div className="quiz">
             <ToastContainer />
-            <h1>Quiz: {title}</h1>
-            <div className="buttonContainer">
-                <button onClick={startQuiz}>Play</button>
+            <div className='quiz-content'>
+                 <h1>Quiz: {title}</h1>
+                 <div className="buttonContainer">
+                    <ul>
+                        <li>
+                    <button className="play-button" onClick={startQuiz}>Quiz Me!</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     );

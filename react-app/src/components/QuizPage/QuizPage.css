@@ -12,7 +12,21 @@
 
 
 .quiz {
-    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.quiz-content{
+    transform: translateY(-55%);
+}
+
+.quiz h1{
+    color: white;
 }
 
 .question {
@@ -22,6 +36,7 @@
     width: 80%;
     margin: 3rem auto 0 auto;
     padding: 1.5rem 2rem;
+    transform: translateY(-20%);
 }
 
 h5 {
@@ -46,6 +61,7 @@ h5 {
     transition: 0.3s linear all;
     text-align: center;
     width: 90%;
+    display: block;
 }
 
 .option:hover {
@@ -58,15 +74,19 @@ h5 {
 
 .buttonContainer {
     display: flex;
-    justify-content: flex-start;
-    margin: 0 auto 1.5rem auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 2rem;
-    width: 80%;
+    width: 100%;
+    color: black;
+    text-align: center;
+    margin: 1rem 0;
 }
 
 .buttonContainer button {
     border: none;
-    color: #f8f8f8;
+    color: black;
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
     margin-right: 2rem;
@@ -76,7 +96,20 @@ h5 {
 .navigation-buttons{
     display: flex;
     justify-content: space-between;
-    margin-top: 5px;
+    margin-top: 1rem auto;
+    width: 100%;
+}
+
+.prev-question-button {
+    flex: 1;
+    text-align: left;
+    padding-left: 2rem; 
+}
+
+.next-question-button {
+    flex: 1;
+    text-align: right;
+    padding-right: 2rem; 
 }
 
 .toast-valid{
@@ -97,3 +130,64 @@ h5 {
     left: 10px;
     color: black;
 }
+
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+
+.buttonContainer ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.buttonContainer li{
+    padding: 0;
+    margin: 0;
+}
+
+.play-button {
+    background-color: lightgreen;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    justify-content: center;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    width: 300px;
+}
+
+.play-button:hover {
+    background-color: #0056b3;
+}
+
+.quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+.quiz-mode{
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    position: absolute;
+    bottom: 10%;
+    top: 1.5%;
+    transform: translateX(-5%);
+}
+
