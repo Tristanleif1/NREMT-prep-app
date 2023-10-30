@@ -1,0 +1,105 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+/* Overall Font */
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Main Results Container */
+.results {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading */
+.results h1 {
+    color: #57b846;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.check-icon {
+    fill: green;
+}
+
+/* Quiz Results Container */
+.quiz-results {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+}
+
+/* Stats Section */
+.quiz-results h3 {
+    color: #595959;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.stat {
+    color: #333;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+/* Clear floats */
+.quiz-results::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Buttons */
+section ul {
+    list-style-type: none;
+    padding-top: 20px;
+}
+
+.play-again .home-button {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0c7abf;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .results h1 {
+        font-size: 2rem;
+    }
+
+    .quiz-results {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .stat {
+        font-size: 1rem;
+    }
+}
