@@ -68,7 +68,7 @@
     transform: rotateY(0deg);
 }
 
-.edit-icon, .ellipsis {
+.edit-icon {
     position: absolute;
     bottom: 10px;
     cursor: pointer;
@@ -90,6 +90,18 @@
 
 .ellipsis {
     right: 10px;
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    background-color: white;
+    width: 30px;   /* Added this line */
+    height: 30px;  /* Added this line */
+    display: flex; /* Added this line */
+    justify-content: center; /* Added this line to horizontally center the ... */
+    align-items: center; /* Added this line to vertically center the ... */
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
 .delete-icon {

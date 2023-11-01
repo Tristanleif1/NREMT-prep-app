@@ -27,7 +27,7 @@
     position: relative;
     width: 600px;
     height: 400px;
-    background-color: rgba(255, 99, 97, 0.8);
+    background-color: rgb(173, 193, 230);
     margin: 1em;
     border-radius: 24px;
 }

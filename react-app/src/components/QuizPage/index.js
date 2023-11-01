@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +11,7 @@ import QuizResults from '../QuizResults';
 
 function QuizPage() {
     const { id } = useParams();
+    const timeRef = useRef(null);
     const [rearrangedQuestions, setRearrangedQuestions] = useState([]);
     const [isPlaying, setIsPlaying] = useState(false);
     const [title, setTitle] = useState("")
@@ -28,7 +29,7 @@ function QuizPage() {
     useEffect(() => {
         fetch(`/api/quizzes/${id}/questions`)
         .then(response => {
-            if (!response.ok) {
+            if (!response.ok) {  
                 throw new Error("Failed to fetch questions.");
             }
             return response.json();
@@ -72,6 +73,7 @@ function QuizPage() {
         if(numberOfQuestionsAnswered === rearrangedQuestions.length){
             setIsPlaying(false);
             console.log(isPlaying);
+            if(timeRef.current) clearInterval(timeRef.current)
         }
     }
 
@@ -91,10 +93,11 @@ function QuizPage() {
     useEffect(() => {
         let interval;
         if(isPlaying){
+            if(timeRef.current) clearInterval(timeRef.current)
             quizTimer()
         }
         return () => {
-            if(interval)clearInterval(interval)
+            if(timeRef.current)clearInterval(timeRef.current)
         }
     }, [isPlaying])
 
@@ -166,13 +169,14 @@ function QuizPage() {
     } 
 
     const handleQuitSelect = () => {
-        resetQuizQuestions();
+        setIsPlaying(false);
+        if(timeRef.current) clearInterval(timeRef.current)
         history.push('/')
     }
 
     const quizTimer = () => {
         const countDownTime =  Date.now() + 300000;   // <-- 5 minutes in milliseconds
-        const interval = setInterval(() => {
+        timeRef.current = setInterval(() => {
             const now = new Date();
             const distance = countDownTime - now;
 
@@ -180,7 +184,7 @@ function QuizPage() {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             if(distance < 0){
-                clearInterval(interval);
+                clearInterval(timeRef.current);
                 setTime({
                     minutes: 0,
                     seconds: 0
@@ -200,6 +204,7 @@ function QuizPage() {
     const endGame = () => {
         setIsPlaying(false);
         setIsTimeOut(true);
+        if(timeRef.current) clearInterval(timeRef.current)
         toast.warn("Time's up!", {
             positon: 'top-center',
             autoClose: 1800

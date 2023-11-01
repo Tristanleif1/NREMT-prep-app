@@ -28,6 +28,18 @@ const MyFlashcards = () => {
         setFlippedCardId(prevId => prevId === id ? null : id);
     };
 
+    const renderFlashcardColor = (topicId) => {
+        const colors = {
+            1: '#ADD8E6', // Light Blue
+            2: '#90EE90', // Light Green
+            3: '#FFFFE0', // Light Yellow
+            4: '#FFB6C1', // Light Pink
+            5: '#D8BFD8', // Light Purple
+        };
+        return colors[topicId] 
+    }
+
+
     const handleFontSize = (text) => {
         const length =  text.length;
         if(length <= 10) return '1.5rem';
@@ -65,12 +77,12 @@ const MyFlashcards = () => {
                     onClick={() => handleCardClick(flashcard.id)}
                 >
                     <div className="flip-container">
-                        <div className="front">
+                        <div className="front" style={{ backgroundColor: renderFlashcardColor(flashcard.topicId) }}>
                             <div className="flashcard-question" style={{ fontSize: handleFontSize(flashcard.question)}}>
                                 {flashcard.question}
                             </div>
                         </div>
-                        <div className="back">
+                        <div className="back" style={{ backgroundColor: renderFlashcardColor(flashcard.topicId) }}>
                             <div className="flashcard-answer" style={{ fontSize: handleFontSize(flashcard.answer)}}>
                                 {flashcard.answer}
                             </div>

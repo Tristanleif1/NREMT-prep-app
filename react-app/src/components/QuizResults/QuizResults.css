@@ -33,7 +33,7 @@ body {
     fill: green;
 }
 
-/* Quiz Results Container */
+
 .quiz-results {
     background-color: #f8f8f8;
     border-radius: 10px;
@@ -43,9 +43,10 @@ body {
     max-width: 600px;
     width: 100%;
     margin: auto;
+    margin-bottom: 20px;
 }
 
-/* Stats Section */
+
 .quiz-results h3 {
     color: #595959;
     margin-bottom: 1rem;
@@ -60,25 +61,36 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Clear floats */
+
 .quiz-results::after {
     content: "";
     display: table;
     clear: both;
 }
 
-/* Buttons */
+
 section ul {
     list-style-type: none;
     padding-top: 20px;
 }
 
-.play-again .home-button {
+.play-again-button{
+    background-color: #4ab364;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 15px;  
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.home-button {
     background-color: #1da1f2;
     color: white;
     border: none;
     padding: 10px 20px;
-    margin: 5px;
+    margin: 15px;  
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -86,6 +98,14 @@ section ul {
 
 button:hover {
     background-color: #0c7abf;
+}
+
+.stat-score-middle {
+    font-size: 30px;
+    color: rgb(0, 132, 255);
+    margin: 1rem auto;
+    width: fit-content;
+    display: block;
 }
 
 /* Responsive Design */

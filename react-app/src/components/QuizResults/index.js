@@ -37,9 +37,9 @@ function QuizResults(props){
             <div className='quiz-results'>
                 <h3>{comment}</h3>
                 <div className='quiz-stats-section'>
-                    <div className="stat">
+                    <div className="stat-score-middle">
                         <span className="left">Your Score:</span> 
-                        <span className="right">{scorePercentage}%</span>
+                        <span className="right">         {scorePercentage}%</span>
                     </div>
                     <div className="stat">
                         <span className="left">Total Number of Questions:</span> 
