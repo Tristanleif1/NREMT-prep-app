@@ -51,7 +51,7 @@ function FlashcardForm(){
 
     return (
          <div>
-            <form onSubmit={handleSubmit}>
+            <form className="flashcard-form" onSubmit={handleSubmit}>
                 <div>
                     <label>Topic</label>
                     <select 
@@ -79,6 +79,7 @@ function FlashcardForm(){
                 <div>
                     <label>Answer</label>
                     <input 
+                        className="answer-input"
                         type="text" 
                         value={formData.answer}
                          onChange={(e) => setFormData({ ...formData, answer: e.target.value })}
@@ -86,7 +87,7 @@ function FlashcardForm(){
                     {errors?.answer && <div className="error-validation">{errors?.answer}</div>}
                 </div>
         
-                <button type="submit">Submit</button>
+                <button type="create">Create</button>
             </form>
         </div>
     );

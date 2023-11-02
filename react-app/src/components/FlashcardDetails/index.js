@@ -12,8 +12,20 @@ function FlashcardDetails() {
     const flashcard = useSelector(state => state.flashcard[id]);
     const flashcardIds = useSelector(state => Object.keys(state.flashcard).map(Number));
     const [flipped, setFlipped] = useState(false);
+    const { topicId } = useParams();
 
     const currentIndex = flashcardIds.indexOf(Number(id));
+
+    const renderFlashcardColor = (topicId) => {
+        const colors = {
+            1: '#ADD8E6', // Light Blue
+            2: '#90EE90', // Light Green
+            3: '#FFFFE0', // Light Yellow
+            4: '#FFB6C1', // Light Pink
+            5: '#D8BFD8', // Light Purple
+        };
+        return colors[topicId] 
+    }
 
     useEffect(() => {
         dispatch(getSingleFlashcard(id))
@@ -38,7 +50,7 @@ function FlashcardDetails() {
     return (
         <div className="detail-flashcard-detail-page">
             <h1 className='detail-flashcard-detail-header'>Flashcard Review!</h1>
-            <div className='detail-flashcard-section'>
+            <div className='detail-flashcard-section' style={{backgroundColor: renderFlashcardColor(flashcard.topicId)}}>
                 <BsCaretLeftFill className='detail-change-question-button left' onClick={goToPrevious} />
                 <div className={`detail-flashcard-detail ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped(!flipped)}>
                     <div className="detail-flip-container">

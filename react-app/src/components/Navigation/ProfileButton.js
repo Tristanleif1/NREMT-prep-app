@@ -50,7 +50,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="profile-icon-button"onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>
       <ul className={user ? ulClassName : `${ulClassName} no-user`} ref={ulRef}>

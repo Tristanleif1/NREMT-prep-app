@@ -7,7 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Flashcards from "./components/Flashcards";
 import FlashcardDetails from "./components/FlashcardDetails";
-import FlashcardForm from "./components/FlashcardForm";
+import NewFlashcardForm from "./components/FlashcardForm";
 import EditFlashcard from "./components/EditFlashcard";
 import MyFlashcards from "./components/MyFlashcardsPage";
 import FlashcardSetForm from "./components/FlashcardSetForm";
@@ -43,7 +43,7 @@ function App() {
             <FlashcardDetails />
           </Route>
           <Route path="/new-flashcard">
-            <FlashcardForm />
+            <NewFlashcardForm />
           </Route>
           <Route path="/new-flashcard-set">
             <FlashcardSetForm />

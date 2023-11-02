@@ -1,55 +1,76 @@
-form {
-    max-width: 500px;
-    margin:  auto;
+.flashcard-set-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.flashcard-set-form {
+    max-width: 500px; 
+    width: 90%;
+    margin: auto;
     padding: 25px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    transform: translateY(-20%);
 }
 
-label {
+.label-class {
     display: block;
+    width: 100%;
     margin-bottom: 8px;
     color: #333;
-    font-size: 1.1em
+    font-size: 1.1em;
 }
 
-input[type="text"]{
-    width: calc(100% - 16px);
+input[type="text"] {
+    width: 100%;
     padding: 8px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 3px;
 }
 
-button{
+.create-flashcard-set-button {
     padding: 10px 20px;
     font-size: 1em;
     border: none;
     border-radius: 2px;
     cursor: pointer;
-    transition: background-color 0.3s
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Spacing between buttons */
 }
 
-
-button[type="button"]{
-    background-color: crimson;
+button[type="button"] {
+    background-color: rgb(35, 134, 199);
     color: white;
-    margin-left: 95px;
+    width: 50%;
 }
 
-button[type="submit"]{
-    background-color: red;
-    color: white
+button[type="submit"] {
+    background-color: rgb(35, 134, 199);
+    color: white;
+    width: 50%;
+    margin-right: 19px;
 }
+
+button + button {
+    margin-left: 20px; /* Spacing between the "Add Card" button and the "Submit" button */
+}
+
 button:hover {
     opacity: 0.8;
 }
 
-p, .set-error-validation {
+.set-error-validation {
     color: red;
     font-size: 14px;
+    width: 100%;
+    text-align: center; /* Centering error validation message */
     margin-top: 5px;
 }

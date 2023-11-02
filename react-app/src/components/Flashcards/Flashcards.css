@@ -6,6 +6,11 @@
     padding: 20px;
 }
 
+.options-view-label {
+    color: #f6f7fb;
+    font-size: 1.2rem;
+}
+
 .flashcard {
     position: relative;
     width: 100%;
@@ -206,6 +211,9 @@ h2 {
     margin-bottom: 20px; /* adjust as needed */
 }
 
+.filter-option-container .options-view-label{
+    margin-bottom: 15px;
+}
 
 
 /* Quizzes css on homepage */

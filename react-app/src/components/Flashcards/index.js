@@ -84,7 +84,7 @@ const Flashcards = ({ searchBar }) => {
     return (
        <div className='flashcard-container'>
         <div className='filter-option-container'>
-        <label htmlFor="viewOptions" className='view-label'>What do you want to study?</label>
+        <label htmlFor="viewOptions" className='options-view-label'>What do you want to study?</label>
         <select id="viewOptions" value={selectedOption} onChange={handleOptionSwitch} className='option-select'>
             <option value="flashcards">Flashcards</option>
             <option value="flashcardSets">Flashcard Sets</option>

@@ -1,46 +1,48 @@
-form {
-    width: 300px;
+.flashcard-form {
+    width: 400px;
+    margin: 0 auto;
     padding: 20px;
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    background-color: #f9f9f9;
-    margin: 0 auto
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    transform: translateY(30%);
+    border-radius: 25px;
 }
 
-div {
-    margin-bottom: 20px;
+.flashcard-form > div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows each div to grow and fill the space */
+    margin-bottom: 20px; /* Consistent margin for all divs */
 }
 
 label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input[type="text"], select {
-    width: 100%;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    font-size: 16px
+    font-size: 16px;
 }
 
-button[type="submit"]{
-    background-color: #007bff;
+button[type="create"] {
+    background-color: #0056b3;
     color: #fff;
-    padding: 10px 20px ;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
-    display: block;
-    margin: 0 auto;
 }
+
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-p, .error-validation {
+.error-validation {
     color: red;
     font-size: 14px;
     margin-top: 5px;

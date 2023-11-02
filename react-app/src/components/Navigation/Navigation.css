@@ -8,6 +8,10 @@
   color: #656969;
 }
 
+.profile-icon-button{
+  margin-bottom: 10px;
+}
+
 .fa-user-circle:hover {
   color: #0b7564;
   cursor: pointer;
@@ -19,7 +23,7 @@
   list-style-type: none;
   text-align: center;
   padding: 10px;
-  background-color: pink;
+  background-color: rgb(125, 194, 226);
   border-radius: 10px;
   color: #000000;
   z-index: 100;
@@ -209,4 +213,5 @@ a {
   flex-grow: 2;
   max-width: 500px;
   margin: 0 auto;
+  margin-top: 12px;
 }
