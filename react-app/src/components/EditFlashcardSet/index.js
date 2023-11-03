@@ -90,37 +90,41 @@ const EditFlashcardSet = () => {
         history.push(`/flashcard-sets/${id}`);
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Title:
-                <input type="text" value={formData.title} onChange={handleTitleChange}/>
-                {errors?.title && <div className='set-error-validation'>{errors?.title}</div> }
-            </label>
+        <div className='flashcard-set-form-container'> {/* Use the same container class for styling */}
+            <form className="flashcard-set-form" onSubmit={handleSubmit}>
+                <label className='label-class'>
+                    Title:
+                    <input type="text" className='title-field' value={formData.title} onChange={handleTitleChange}/>
+                    {errors?.title && <div className='set-error-validation'>{errors?.title}</div> }
+                </label>
 
-            {formData.flashcards.map((flashcard, idx) => (
-                <div key={idx}>
-                    {['question', 'answer'].map(field => (
-                        <label key={field}>
-                            {`${field.charAt(0).toUpperCase() + field.slice(1)} ${idx + 1}:`}
-                            <input 
-                                type="text" 
-                                value={flashcard[field]} 
-                                onChange={(e) => handleFlashcardAddition(e, idx, field)}
-                            />
-                        </label>
-                    ))}
-                </div>
-            ))}
-            {errors?.flashcards && <div className='set-error-validation'>{errors?.flashcards}</div>}
+                {formData.flashcards.map((flashcard, idx) => (
+                    <div className="question-answer-label" key={idx}> {/* Use the same class for styling */}
+                        {['question', 'answer'].map(field => (
+                            <label key={field}>
+                                {`${field.charAt(0).toUpperCase() + field.slice(1)} ${idx + 1}:`}
+                                <input 
+                                    type="text"
+                                    className='title-field' // Use the same input class for styling
+                                    value={flashcard[field]} 
+                                    onChange={(e) => handleFlashcardAddition(e, idx, field)}
+                                />
+                            </label>
+                        ))}
+                    </div>
+                ))}
+                {errors?.flashcards && <div className='set-error-validation'>{errors?.flashcards}</div>}
 
-            {formData.flashcards.length < 20 && (
-                <button type='button' onClick={handleAddCard}>Add Card</button>
-            )}
-            
-            <button type="submit">Update Flashcard Set!</button>
-        </form>
+                {formData.flashcards.length < 20 && (
+                    <button className='create-flashcard-set-button' type='button' onClick={handleAddCard}>Add Card</button>
+                )}
+                
+                <button className='create-flashcard-set-button' type="submit">Update Flashcard Set!</button>
+            </form>
+        </div>
     );
-}
+};
+
 
 
 export default EditFlashcardSet

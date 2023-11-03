@@ -43,7 +43,7 @@ function Navigation({ isLoaded, setSearchBar, searchBar }){
                         <AiOutlineSearch className="search-icon" />
                         <input
                             type="text"
-                            placeholder=" Search flashcards and flashcard sets..."
+                            placeholder=" Search flashcards, flashcard sets and quizzes..."
                             value={searchBar}
                             onChange={(e) => setSearchBar(e.target.value)}
                             className="search-bar" 

@@ -58,15 +58,16 @@ const EditFlashcard = () => {
         history.push(`/flashcards/${id}`);
     };
 
-     return (
+    return (
         <div>
-            <form onSubmit={handleSubmit}>
-                 <div>
+            <form className="flashcard-form" onSubmit={handleSubmit}>
+                <div>
                     <label>Topic</label>
-                    <select 
+                    <select
+                        className="topic-select" // added class for styling
                         value={formData.topicId}
                         onChange={(e) => setFormData({ ...formData, topicId: e.target.value })}
-                     >
+                    >
                         <option value="" disabled>Select a topic</option>
                         {topics.map(topic => (
                             <option key={topic.id} value={topic.id}>{topic.name}</option>
@@ -74,28 +75,30 @@ const EditFlashcard = () => {
                     </select>
                     {errors?.topicId && <div className="error-validation">{errors?.topicId}</div>}
                 </div>
-                           
+
                 <div>
                     <label>Question</label>
-                    <input 
-                        type="text" 
+                    <input
+                        className="question-input" // added class for styling
+                        type="text"
                         value={formData.question}
                         onChange={(e) => setFormData({ ...formData, question: e.target.value })}
                     />
                     {errors?.question && <div className="error-validation">{errors?.question}</div>}
                 </div>
-               
+
                 <div>
                     <label>Answer</label>
-                    <input 
-                        type="text" 
+                    <input
+                        className="answer-input" // added class for styling
+                        type="text"
                         value={formData.answer}
                         onChange={(e) => setFormData({ ...formData, answer: e.target.value })}
                     />
                     {errors?.answer && <div className="error-validation">{errors?.answer}</div>}
                 </div>
-               
-                <button type="submit">Update!</button>
+
+                <button type="submit" className="update-button">Update!</button> {/* You might need to add additional styling for this button */}
             </form>
         </div>
     );
