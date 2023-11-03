@@ -85,7 +85,7 @@ def seed_questions():
         correct_answer="By energy transferring off of the projectile"
     )
     question10 = Question(
-        quizId=2,
+        quizId=1,
         question="The way a patient is injured is often referred to as the _______________?",
         option1="mechanism of injury",
         option2="energy transfer",
