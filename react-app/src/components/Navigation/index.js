@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from "../../assets/rescue-ready-logo.png"
+import { AiOutlineSearch } from "react-icons/ai";
 
 function Navigation({ isLoaded, setSearchBar, searchBar }){
 	const sessionUser = useSelector(state => state.session.user);
@@ -37,15 +38,18 @@ function Navigation({ isLoaded, setSearchBar, searchBar }){
                         </NavLink>
                     )}
                 </div>
-              <div className='search-bar-container'>
-                <input
-                    type="text"
-                    placeholder="Search flashcards and flashcard sets..."
-                    value={searchBar}
-                    onChange={(e) => setSearchBar(e.target.value)}
-                    className="search-bar" 
-                />
-            </div>
+                <div className='search-bar-container'>
+                    <div className="search-input-wrapper">
+                        <AiOutlineSearch className="search-icon" />
+                        <input
+                            type="text"
+                            placeholder=" Search flashcards and flashcard sets..."
+                            value={searchBar}
+                            onChange={(e) => setSearchBar(e.target.value)}
+                            className="search-bar" 
+                            />
+                        </div>
+                    </div>
                 {isLoaded && <ProfileButton user={sessionUser} />}
             </div>
             <div className="topic-bar">

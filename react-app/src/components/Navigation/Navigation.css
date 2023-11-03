@@ -191,27 +191,52 @@ a {
   width: 100%;
 }
 
-.search-bar{
-  height: 30px;
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 450px;
+  border-radius: 30px;
+  /* Ensure the search bar takes the full width of its parent container */
+}
+
+.search-input-wrapper {
+  flex-grow: 1; /* This will make the input wrapper take up available space */
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0; /* Place it at the very left of the search bar container */
+  top: 50%; /* Start at the vertical middle of the search bar */
+  transform: translateY(-79%); /* Center it vertically */
+  z-index: 10; /* Ensure it's above the input */
+  font-size: 20px; 
+  color: white;/* Adjust the size of the icon as needed */
+  /* Ensure the width and height match your search bar height */
+  width: 23px; /* Example width, should be the same as your search bar height */
+  height: 35px; /* Example height, should be the same as your search bar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.search-bar {
+  height: 40px; /* Example height, can adjust as needed */
+  padding-left: 0px; /* Adjust this value to match the width of .search-icon plus some extra space */
+  font-size: 16px;
+  text-indent: 30px;
+  outline: none;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 0 10px;
-  font-size: 16px;
-  outline: none;
-  margin-right: 30px;
   background-color: #2e3856;
-  font-weight: bold;
   color: lightgray;
   font-family: sans-serif;
+  width: 100%; /* Set the width to 100% to take up the full width of its parent container */
+  box-sizing: border-box; /* This ensures padding does not affect the total width */
 }
 
-.search-bar:focus {
-  border-color: #007bff
-}
-
-.search-bar-container{
-  flex-grow: 2;
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 12px;
+.search-bar .placeholder{
+  color: var(--gray-800-gray-400);
 }

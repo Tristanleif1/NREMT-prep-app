@@ -88,7 +88,7 @@ const FlashcardSetForm = () => {
                 </label>
 
                 {formData.flashcards.map((flashcard, idx) => (
-                    <div key={idx}>
+                    <div className= "question-answer-label" key={idx}>
                         {['question', 'answer'].map(field => (
                             <label key={field}>
                                 {`${field.charAt(0).toUpperCase() + field.slice(1)} ${idx + 1}:`}

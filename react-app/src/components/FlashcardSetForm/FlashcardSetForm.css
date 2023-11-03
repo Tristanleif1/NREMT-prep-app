@@ -43,7 +43,7 @@ input[type="text"] {
     border-radius: 2px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 10px; /* Spacing between buttons */
+    margin-top: 10px;/* Spacing between buttons */
 }
 
 button[type="button"] {
@@ -73,4 +73,8 @@ button:hover {
     width: 100%;
     text-align: center; /* Centering error validation message */
     margin-top: 5px;
+}
+
+.question-answer-label label {
+    color: black; /* setting the color to black */
 }

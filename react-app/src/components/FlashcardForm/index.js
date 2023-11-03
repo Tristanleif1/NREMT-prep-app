@@ -55,6 +55,7 @@ function FlashcardForm(){
                 <div>
                     <label>Topic</label>
                     <select 
+                        className="topic-select"
                         value={formData.topicId}
                         onChange={(e) => setFormData({ ...formData, topicId: e.target.value })}
                     >
@@ -69,6 +70,7 @@ function FlashcardForm(){
                 <div>
                     <label>Question</label>
                     <input 
+                        className="question-input"
                         type="text" 
                         value={formData.question}
                         onChange={(e) => setFormData({ ...formData, question: e.target.value })}
