@@ -85,13 +85,104 @@ def seed_questions():
         correct_answer="By energy transferring off of the projectile"
     )
     question10 = Question(
-        quizId=1,
+        quizId=2,
         question="The way a patient is injured is often referred to as the _______________?",
         option1="mechanism of injury",
-        option2="mechanics of injury",
+        option2="energy transfer",
         option3="injury pattern",
         option4="By unspent gun powder",
-        correct_answer="energy transfer"
+        correct_answer="mechanism of injury"
+    )
+
+    question11 = Question(
+        quizId=2,
+        question="You have just arrived on scene of a single vehicle accident involving a truck that has slid off the road and rolled. Your patient was driving about 40 mph when he hit an icy spot and went off the road rolling the vehicle one time. After completing your scene size up, which of the following treatment choices would be the most appropriate?",
+        option1="Check baseline vitals, do a focused exam on the patient's chief complaint",
+        option2="Get a SAMPLE history and do a focused physical examination",
+        option3="Perform a rapid trauma assessment",
+        option4="Perform a detailed physical examination to uncover any life threatening injuries",
+        correct_answer="Perform a rapid trauma assessment"
+    )
+    question12 = Question(
+        quizId=2,
+        question="A man had both legs burned on the front and back, along with the fronts of both arms. Approximately what percentage of his body was burned?",
+        option1="36%",
+        option2="45%",
+        option3="50%",
+        option4="54%",
+        correct_answer="45%"
+    )
+    question13 = Question(
+        quizId=2,
+        question="Why does Nitroglycerin lower the blood pressure?",
+        option1="Because it reduces the workload on the veins",
+        option2="Because it dilates the vessels reducing the preload on the heart",
+        option3="Because the veins are constricted reducing workload on the heart",
+        option4="It doesn't, it raises it",
+        correct_answer="Because it dilates the vessels reducing the preload on the heart"
+    )
+    question14 = Question(
+        quizId=2,
+        question="You arrive on scene with your partner Levi to transport a patient that has been throwing up blood that looked like coffee grounds. This sign would lead you to believe that patient has what?",
+        option1="Esophageal Veracies",
+        option2="Pancytopenia",
+        option3="GI bleed",
+        option4="Hemophagocytic syndrome",
+        correct_answer="GI bleed"
+    )
+    question15 = Question(
+        quizId=2,
+        question="A 57 year old woman is complaining of chest pain. Her blood pressure is 109/88 and her respirations are at 22 per minute. What condition does the patient's blood pressure indicate?",
+        option1="Paradoxical pressure",
+        option2="Systolic trans cardiac eschemia",
+        option3="Martiners Rules",
+        option4="Low pulse pressure",
+        correct_answer="Low pulse pressure"
+    )
+    question16 = Question(
+        quizId=2,
+        question="Which list includes only the Five Rights of medication administration?",
+        option1="Patient, medication, indication, dose, and time",
+        option2="Medication, dose, time, route, and documentation",
+        option3="Patient, medication, dose, route, and time",
+        option4="Medication, dose, generic name, route and documentation",
+        correct_answer="Patient, medication, dose, route and time"
+    )
+    question17 = Question(
+        quizId=2,
+        question="You have requested helicopter transportation of a critical burn patient. The remote nature of the accident will force the helicopter to land on an incline. From which direction should you approach the helicopter?",
+        option1="The back",
+        option2="The front",
+        option3="The uphill side",
+        option4="The downhill side",
+        correct_answer="The downhill side"
+    )
+    question18 = Question(
+        quizId=2,
+        question="Which space in the body will you find the pancreas?",
+        option1="Subatrial space",
+        option2="Retroperitoneal space",
+        option3="Pericardial space",
+        option4="Peritoneal space",
+        correct_answer="Retroperitoneal space"
+    )
+    question19 = Question(
+        quizId=2,
+        question="Of the following where shouldn't attention be focused during the secondary assessment of the arms?",
+        option1="Distal circulation",
+        option2="Accessory muscle use",
+        option3="Motor function",
+        option4="Medical jewelry",
+        correct_answer="Accessory muscle use"
+    )
+    question20 = Question(
+        quizId=2,
+        question="What is the area of hazardous contamination known as?",
+        option1="Green zone",
+        option2="Yellow zone",
+        option3="Hot zone",
+        option4="Black zone",
+        correct_answer="Hot zone"
     )
 
     db.session.add(question1)
@@ -104,6 +195,16 @@ def seed_questions():
     db.session.add(question8)
     db.session.add(question9)
     db.session.add(question10)
+    db.session.add(question11)
+    db.session.add(question12)
+    db.session.add(question13)
+    db.session.add(question14)
+    db.session.add(question15)
+    db.session.add(question16)
+    db.session.add(question17)
+    db.session.add(question18)
+    db.session.add(question19)
+    db.session.add(question20)
     db.session.commit()
 
 

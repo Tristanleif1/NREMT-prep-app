@@ -13,7 +13,7 @@ def seed_flashcards():
         topicId=2,
         userId=1,
         flashcardSetId=3,
-        question="What is the correct folow of blood through the heart and lungs?",
+        question="What is the correct flow of blood through the heart and lungs?",
         answer="inferior/superior vena cavae, right atrium, right ventricle, lungs, left ventricle, aorta",
     )
 
