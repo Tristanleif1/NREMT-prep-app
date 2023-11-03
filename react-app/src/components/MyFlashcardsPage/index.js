@@ -29,15 +29,19 @@ const MyFlashcards = () => {
     };
 
     const renderFlashcardColor = (topicId) => {
-        const colors = {
-            1: '#ADD8E6', // Light Blue
-            2: '#90EE90', // Light Green
-            3: '#FFFFE0', // Light Yellow
-            4: '#FFB6C1', // Light Pink
-            5: '#D8BFD8', // Light Purple
-        };
-        return colors[topicId] 
-    }
+        if (topicId) {
+            const colors = {
+                1: '#ADD8E6', // Light Blue
+                2: '#90EE90', // Light Green
+                3: '#FFFFE0', // Light Yellow
+                4: '#FFB6C1', // Light Pink
+                5: '#D8BFD8', // Light Purple
+            };
+            return colors[topicId];
+        } else {
+            return '#FFFFFF'; // White
+        }
+    };
 
 
     const handleFontSize = (text) => {

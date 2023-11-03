@@ -75,4 +75,4 @@ function Navigation({ isLoaded, setSearchBar, searchBar }){
     );
 }
 
-export default Navigation;
+export default Navigation;                               

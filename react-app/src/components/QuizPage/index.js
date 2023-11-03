@@ -45,6 +45,12 @@ function QuizPage() {
     const incorrectAnswerSound =  new Audio(incorrectAnswer)
 
     const resetQuizQuestions = () => {
+
+        if (timeRef.current) {
+            clearInterval(timeRef.current);
+            timeRef.current = null; 
+        }
+
         setCurrentQuestionIndex(0);
         setCorrectAnswers(0);
         setScore(0);
@@ -92,14 +98,16 @@ function QuizPage() {
 
     useEffect(() => {
         let interval;
-        if(isPlaying){
-            if(timeRef.current) clearInterval(timeRef.current)
-            quizTimer()
+        if (isPlaying) {
+            if (timeRef.current) clearInterval(timeRef.current);
+            quizTimer();
+        } else {
+            if (timeRef.current) clearInterval(timeRef.current);
         }
         return () => {
-            if(timeRef.current)clearInterval(timeRef.current)
-        }
-    }, [isPlaying])
+            if (timeRef.current) clearInterval(timeRef.current);
+        };
+    }, [isPlaying]);
 
     const numberOfQuestions = rearrangedQuestions.length
 
@@ -220,6 +228,7 @@ function QuizPage() {
                 correctAnswers={correctAnswers}
                 wrongAnswers={wrongAnswers}
                 resetQuiz={resetQuizQuestions}
+                setIsPlaying={setIsPlaying}
                 />
     }
 

@@ -8,7 +8,8 @@ function QuizResults(props){
 
     const retry = () => {
         resetQuiz();
-        history.push(`/quizzes/${id}`)
+        history.push(`/quizzes/${id}`);
+        window.location.reload();
     }
 
     const home = () => {
