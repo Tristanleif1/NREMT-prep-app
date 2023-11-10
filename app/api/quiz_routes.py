@@ -77,7 +77,7 @@ def delete_quiz(id):
      """
      Delete an existing quiz belonging to the authenticated user
      """
-     selectedQuiz = Quiz.query.get(id):
+     selectedQuiz = Quiz.query.get(id)
 
      if not selectedQuiz:
           return jsonify({"error": "Quiz not found"})
@@ -90,4 +90,6 @@ def delete_quiz(id):
      
      else:
           return jsonify({"error": "Could not complete delete request"})
+     
+
      
