@@ -92,4 +92,47 @@ def delete_quiz(id):
           return jsonify({"error": "Could not complete delete request"})
      
 
+@quiz_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def update_quiz(id):
+     quiz = Quiz.query.get(id)
+     if not quiz:
+          return jsonify({"error": "Quiz not found"}), 404
+     
+     if quiz.userId != current_user.id:
+          return jsonify({"error": "Unauthorized"}), 403
+     
+     data = request.json
+
+     if 'title' in data:
+          quiz.title = data['title']
+
+     if 'questions' in data:
+          quiz_question_ids = {question.id for question in quiz.question}
+          for question_data in data["questions"]:
+               question_id = question_data.get('id')
+               if question_id in quiz_question_ids:
+
+                    question = Question.query.get(question_id)
+                    question.question = question_data['question']
+                    question.option1 = question_data['option1']
+                    question.option2 = question_data['option2']
+                    question.option3 = question_data['option3']
+                    question.option4 = question_data['option4']
+               else:
+                    new_question = Question(
+                         quizId=id,
+                         question=question_data['question'],
+                         option1 = question_data['option1'],
+                         option2 = question_data['option2'],
+                         option3=question_data['option3'],
+                         option4=question_data['option4'],
+                         correct_answer=question_data['correct_answer']
+                    )
+                    db.session.add(new_question)
+          db.session.commit()
+          return quiz.to_dict(), 200
+
+     
+
      

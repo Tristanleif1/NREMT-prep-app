@@ -19,10 +19,11 @@ class Quiz(db.Model):
     user = db.relationship('User', back_populates='quiz')
     #Internal-model relations(Primary-key)
     topics = db.relationship('Topic', secondary=quiz_topics, back_populates='quizzes')
-    question = db.relationship('Question', back_populates='quiz')
+    question = db.relationship('Question', back_populates='quiz', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
             'id': self.id,
-            'title': self.title
+            'title': self.title,
+            'questions': [question.to_dict() for question in self.question]
         }
