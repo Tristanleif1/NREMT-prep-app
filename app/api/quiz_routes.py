@@ -108,7 +108,7 @@ def update_quiz(id):
           quiz.title = data['title']
 
      if 'questions' in data:
-          quiz_question_ids = {question.id for question in quiz.question}
+          quiz_question_ids = {question.id for question in quiz.questions}
           for question_data in data["questions"]:
                question_id = question_data.get('id')
                if question_id in quiz_question_ids:
@@ -119,6 +119,7 @@ def update_quiz(id):
                     question.option2 = question_data['option2']
                     question.option3 = question_data['option3']
                     question.option4 = question_data['option4']
+                    question.correct_answer = question_data['correct_answer']
                else:
                     new_question = Question(
                          quizId=id,

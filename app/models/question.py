@@ -18,7 +18,7 @@ class Question(db.Model):
     created_at = db.Column(db.DateTime, nullable=False, default=func.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=func.now(), onupdate=func.now())
 
-    quiz = db.relationship('Quiz', back_populates='question')
+    quiz = db.relationship('Quiz', back_populates='questions')
 
     def to_dict(self):
         return {
