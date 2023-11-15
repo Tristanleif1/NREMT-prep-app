@@ -16,6 +16,7 @@ import MyFlashcardSets from "./components/MyFlashcardSets";
 import EditFlashcardSet from "./components/EditFlashcardSet";
 import FlashcardsByTopic from "./components/FlashcardsByTopic";
 import QuizPage from "./components/QuizPage";
+import QuizForm from "./components/QuizForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +63,9 @@ function App() {
           </Route>
           <Route path="/quizzes/:id">
             <QuizPage />
+          </Route>
+          <Route path="/new-quiz">
+            <QuizForm />
           </Route>
           <Route path="/login" >
             <LoginFormPage />

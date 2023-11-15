@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import { flashcardsReducer } from './flashcard';
 import { flashcardSetsReducer } from './flashcardSet';
+import { quizReducer } from './quiz';
 
 const rootReducer = combineReducers({
   session,
   flashcard: flashcardsReducer,
-  flashcardSet: flashcardSetsReducer
+  flashcardSet: flashcardSetsReducer,
+  quiz: quizReducer
 });
 
 

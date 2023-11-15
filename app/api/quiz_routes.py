@@ -40,22 +40,38 @@ def quiz_questions(id):
 @quiz_routes.route('/', methods=["POST"])
 @login_required
 def post_quiz():
-     """
-     Create a new quiz for the authenticated user
-     """
-     form = QuizForm()
-     form['csrf_token'].data = request.cookies['csrf_token']
-     if form.validate_on_submit():
-          new_quiz = Quiz(
-               userId = current_user.id,
-               title=form.data["title"]
-          )
-          db.session.add(new_quiz)
-          db.session.commit()
+    """
+    Create a new quiz for the authenticated user with questions
+    """
+    form = QuizForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_quiz = Quiz(
+            userId=current_user.id,
+            title=form.data["title"]
+        )
+        db.session.add(new_quiz)
+        db.session.flush()  # Flush to get the new quiz ID
 
-          return new_quiz.to_dict()
-     else:
-          return jsonify({"error": "Invalid form data", "form_errors": form.errors}), 400
+        # Add questions if they are included in the request
+        questions_dictionaries = request.json.get('questions', [])
+        for q_object in questions_dictionaries:
+            new_question = Question(
+                quizId=new_quiz.id,
+                question=q_object['question'],
+                option1=q_object['option1'],
+                option2=q_object['option2'],
+                option3=q_object['option3'],
+                option4=q_object['option4'],
+                correct_answer=q_object['correct_answer']
+            )
+            db.session.add(new_question)
+
+        db.session.commit()
+        return jsonify(new_quiz.to_dict()), 201
+
+    else:
+        return jsonify({"error": "Invalid form data", "form_errors": form.errors}), 400
      
 
 @quiz_routes.route('/my-quizzes')
