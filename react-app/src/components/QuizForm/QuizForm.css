@@ -1,51 +1,87 @@
-.quiz-form {
-    max-width: 600px;
-    margin: 20px auto;
+.quiz-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    background-color: #f4f4f4;
+}
+
+.quiz-form {
+    width: 100%;
+    max-width: 550px; 
+    margin: auto;
+    padding: 20px;
+    background-color: #ADD8E6;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.quiz-form label {
+.quiz-form label, .quiz-title, .question-block > label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    color: black;
 }
 
-.quiz-form input[type='text'],
-.quiz-form select {
-    width: 100%;
+.quiz-option-label {
+    justify-content: center;
+    align-items: center;
+    margin-left: 66px;
+}
+.question-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.quiz-form .quiz-title-input,
+.quiz-form .quiz-option-input,
+.quiz-form .quiz-correct-answer-input {
+    width: 80%; 
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
+.quiz-form .quiz-question-input{
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
 /* Button Styling */
-.button {
+.quiz-form .quiz-button,
+.quiz-form .quiz-create-button, .quiz-button-add-question-btn[type="button"] {
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     background-color: #007bff;
     color: white;
     cursor: pointer;
+    margin-top: 10px;
+    margin-left: 132px;
 }
 
-.button:hover {
+.quiz-form .quiz-button:hover,
+.quiz-form .quiz-create-button:hover {
     background-color: #0056b3;
 }
 
-.add-question-btn {
-    background-color: #28a745;
+/* .quiz-form .add-question-btn {
+    background-color: #0056b3;
 }
 
-.add-question-btn:hover {
-    background-color: #218838;
-}
+.quiz-form .add-question-btn:hover {
+    background-color: #0056b3;
+} */
 
 /* Question Blocks */
-.question-block {
+.quiz-form .question-block {
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
@@ -53,7 +89,30 @@
 }
 
 /* Error Message Styling */
-.error-validation {
+.quiz-form .error-validation {
     color: red;
     margin-bottom: 10px;
+}
+
+.correct-answer-label{
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
+}
+
+.quiz-title-input{
+    margin-left: 50px;
+}
+
+.quiz-title-label {
+    margin-left: 240px;
+}
+
+.delete-question-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
 }

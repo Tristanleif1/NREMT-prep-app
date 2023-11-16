@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createQuiz } from '../../store/quiz';
+import { FiXSquare } from "react-icons/fi";
+import './QuizForm.css'
 
 function QuizForm() {
     const history = useHistory();
@@ -13,6 +15,11 @@ function QuizForm() {
         { question: '', option1: '', option2: '', option3: '', option4: '', correct_answer: '' },
         { question: '', option1: '', option2: '', option3: '', option4: '', correct_answer: '' }
     ]);
+
+    const handleRemoveQuestion = (index) => {
+        const newQuestions = questions.filter((_, i) => i !== index);
+        setQuestions(newQuestions)
+    }
 
     const [errors, setErrors] = useState({});
 
@@ -39,7 +46,7 @@ function QuizForm() {
         let formErrors = {};
         if (!title) formErrors.title = "Title is required";
 
-        if(questions.length > 2){
+        if(questions.length < 2){
             formErrors.questions = "At least two questions are required"
         }
         questions.forEach((q, index) => {
@@ -52,41 +59,77 @@ function QuizForm() {
             return;
         }
 
-        const quizData = { title, questions };
-        const response = await dispatch(createQuiz(quizData));
+        const quizForm = { title, questions };
+        const newQuiz = await dispatch(createQuiz(quizForm));
+        console.log(newQuiz)
         
         // Assume response includes quiz ID upon successful creation
-        if (response.id) {
-            history.push(`/quizzes/${response.id}`);
+        if (newQuiz.id) {
+            history.push(`/quizzes/${newQuiz.id}`);
         } else {
             // Handle backend validation errors
-            setErrors(response.formErrors);
+            setErrors(newQuiz.formErrors);
         }
     };
 
     return (
-        <div>
+        <div className="quiz-form-container">
             <form className="quiz-form" onSubmit={handleSubmit}>
                 <div>
-                    <label>Title</label>
-                    <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <label className='quiz-title-label'>Quiz Title</label>
+                    <input className='quiz-title-input' type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                     {errors?.title && <div className="error-validation">{errors?.title}</div>}
                 </div>
 
                 {questions.map((q, index) => (
                     <div key={index} className="question-block">
+                        {index >= 2 && (
+                            <FiXSquare
+                                className="delete-question-icon"
+                                onClick={() => handleRemoveQuestion(index)}
+                            />
+                        )}
                         <label>Question {index + 1}</label>
-                        <input type="text" value={q.question} onChange={(e) => handleQuestionChange(index, 'question', e.target.value)} />
+                        <input 
+                            className='quiz-question-input'
+                            type="text" 
+                            value={q.question} 
+                            onChange={(e) => handleQuestionChange(index, 'question', e.target.value)}
+                        />
                         {errors?.[`question${index}`] && <div className="error-validation">{errors[`question${index}`]}</div>}
-                        {/* Add inputs for options and correct answer */}
-                     </div>
+
+                        {['option1', 'option2', 'option3', 'option4'].map(option => (
+                            <div key={option}>
+                                <label className='quiz-option-label'>{`Option ${option.charAt(option.length - 1)}`}</label>
+                                <input 
+                                    className='quiz-option-input'
+                                    type="text" 
+                                    value={q[option]} 
+                                    onChange={(e) => handleQuestionChange(index, option, e.target.value)}
+                                />
+                                {errors?.[`${option}${index}`] && <div className="error-validation">{errors[`${option}${index}`]}</div>}
+                            </div>
+                        ))}
+
+                        <div>
+                            <label className='correct-answer-label'>Correct Answer</label>
+                            <input 
+                                className='quiz-correct-answer-input'
+                                type="text" 
+                                value={q.correct_answer} 
+                                onChange={(e) => handleQuestionChange(index, 'correct_answer', e.target.value)}
+                            />
+                            {errors?.[`correct_answer${index}`] && <div className="error-validation">{errors[`correct_answer${index}`]}</div>}
+                        </div>
+                    </div>
                 ))}
 
-                <button className="button add-question-btn" type="button" onClick={handleAddQuestion}>+</button>
-                <button className="button" type="submit">Create Quiz</button>
+                <button className="quiz-button-add-question-btn" type="button" onClick={handleAddQuestion}>+</button>
+                <button className="quiz-create-button" type="submit" onClick={handleSubmit}>Create Quiz</button>
             </form>
         </div>
     );
 }
+
 
 export default QuizForm;

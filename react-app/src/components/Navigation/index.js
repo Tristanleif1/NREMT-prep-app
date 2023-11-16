@@ -50,6 +50,17 @@ function Navigation({ isLoaded, setSearchBar, searchBar }){
                             />
                         </div>
                     </div>
+                <div className='create-quiz-link'>
+                    {sessionUser ? (
+                        <NavLink className="create-quiz" exact to="/new-quiz">
+                            Create a Quiz
+                        </NavLink>
+                    ) : (
+                        <NavLink exact to="/login" className="create-quiz">
+                            Create a Flashcard
+                        </NavLink>
+                    )}
+                </div>
                 {isLoaded && <ProfileButton user={sessionUser} />}
             </div>
             <div className="topic-bar">

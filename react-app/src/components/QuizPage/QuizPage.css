@@ -23,6 +23,10 @@
 
 .quiz-content{
     transform: translateY(-55%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .quiz h1{

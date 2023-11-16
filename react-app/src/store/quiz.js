@@ -69,9 +69,11 @@ export const createQuiz = (quizForm) => async dispatch => {
     if(response.ok){
         const quiz = await response.json();
         dispatch(addQuiz(quiz))
+        return quiz
     } else {
-        console.log(response, "Failed");
-        return response
+        const errors = await response.json();
+        console.log(errors, "Failed");
+        return errors
     }
 };
 

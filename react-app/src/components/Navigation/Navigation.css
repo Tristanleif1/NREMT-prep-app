@@ -12,7 +12,7 @@
   margin-bottom: 10px;
 }
 
-.fa-user-circle:hover {
+.fa-user3-circle:hover {
   color: #0b7564;
   cursor: pointer;
 }
@@ -65,10 +65,10 @@
 
 
 
-.create-flashcard:hover {
+/* .create-flashcard:hover {
   color: #0b7564;
   text-decoration: none;
-}
+} */
 
 .logo img {
   width: 18.75rem;
@@ -110,47 +110,55 @@ a {
 
 .flashcard-links {
   display: flex;
-  flex-direction: row;
-  position: absolute;
-  top: 20px;
-  left: calc(150px + 40px);
-  padding: 5px;
+  gap: 20px;
+  flex-grow: 1;
+  margin-left: 170px 
 }
 
 .create-flashcard,
-.create-flashcard-set {
+.create-flashcard-set,
+.create-quiz {
+    display: inline-block; /* Ensures the width matches the text */
     margin-bottom: 5px;
     color: white;
     margin-right: 20px;
     font-weight: bold;
+    position: relative; 
 }
 
-.create-flashcard:hover,
-.create-flashcard-set:hover {
+.create-quiz{
+  margin-bottom: 5px;
+  color: white;
+  margin-right: 20px;
+  font-weight: bold;
+  transform: translateX(110%);
+}
+
+.create-quiz-link{
+margin-left: auto;
+display: flex;
+align-items: center;
+margin-right: 130px;
+}
+
+/* .create-flashcard:hover,
+.create-flashcard-set:hover,
+.create-quiz:hover {
     color: white;
     text-decoration: none;
-}
-
-.create-flashcard:hover::after {
-    content: "";
+} */
+.create-flashcard:hover::after,
+.create-flashcard-set:hover::after,
+.create-quiz:hover::after {
+    content: '';
     display: block;
     height: 2px;
-    width: 40%;
     background-color: #7583ff;
     position: absolute;
     bottom: -10px;
     left: 0;
-}
-
-.create-flashcard-set:hover::after {
-  content: "";
-  display: block;
-  height: 2px;
-  width: 50%;
-  background-color: #7583ff;
-  position: absolute;
-  bottom: -10px;
-  left: 150px;
+    right: 0;
+    width: 100%; 
 }
 
 .topic-bar{
@@ -197,25 +205,26 @@ a {
   position: relative;
   width: 450px;
   border-radius: 30px;
-  /* Ensure the search bar takes the full width of its parent container */
+  margin-top: 10px;
+  padding-right: 400px;
+  padding-left: 50px;
 }
 
 .search-input-wrapper {
-  flex-grow: 1; /* This will make the input wrapper take up available space */
+  flex-grow: 1; 
   position: relative;
 }
 
 .search-icon {
   position: absolute;
-  left: 0; /* Place it at the very left of the search bar container */
-  top: 50%; /* Start at the vertical middle of the search bar */
-  transform: translateY(-79%); /* Center it vertically */
-  z-index: 10; /* Ensure it's above the input */
+  left: 0; 
+  top: 50%; 
+  transform: translateY(-79%); 
+  z-index: 10; 
   font-size: 20px; 
-  color: white;/* Adjust the size of the icon as needed */
-  /* Ensure the width and height match your search bar height */
-  width: 23px; /* Example width, should be the same as your search bar height */
-  height: 35px; /* Example height, should be the same as your search bar height */
+  color: white;
+  width: 23px; 
+  height: 35px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,8 +232,8 @@ a {
 }
 
 .search-bar {
-  height: 40px; /* Example height, can adjust as needed */
-  padding-left: 0px; /* Adjust this value to match the width of .search-icon plus some extra space */
+  height: 40px; 
+  padding-left: 0px; 
   font-size: 16px;
   text-indent: 30px;
   outline: none;
@@ -233,8 +242,8 @@ a {
   background-color: #2e3856;
   color: lightgray;
   font-family: sans-serif;
-  width: 100%; /* Set the width to 100% to take up the full width of its parent container */
-  box-sizing: border-box; /* This ensures padding does not affect the total width */
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 .search-bar .placeholder{

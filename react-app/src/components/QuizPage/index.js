@@ -21,6 +21,7 @@ function QuizPage() {
     const [numberOfQuestionsAnswered, setNumberOfQuestionsAnswered] =  useState(0);
     const [wrongAnswers, setWrongAnswers] = useState(0);
     const [isTimeOut, setIsTimeOut] = useState(false);
+    const [isQuizLoaded, setIsQuizLoaded] = useState(false);
     const [time, setTime] = useState({
         minutes: 5,
         seconds: 0
@@ -38,6 +39,7 @@ function QuizPage() {
              const rearrangedQuestions = shuffleQuestions(data.quizQuestions);
              console.log("Number of Quiz questions:", rearrangedQuestions.length)
              setRearrangedQuestions(rearrangedQuestions);
+             setIsQuizLoaded(true)
         })
         .catch(error => console.error(error));}, [id]);
 
@@ -219,7 +221,7 @@ function QuizPage() {
         })
     }
 
-    if(numberOfQuestionsAnswered === rearrangedQuestions.length || isTimeOut){
+    if((numberOfQuestionsAnswered === rearrangedQuestions.length || isTimeOut) && isQuizLoaded){
         return <QuizResults
                 id={id}
                 score={score}
