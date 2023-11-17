@@ -89,17 +89,25 @@ export const createQuiz = (quizForm) => async dispatch => {
 };
 
 export const updateQuiz = (id, quizData) => async dispatch => {
-    const response = await fetch(`/api/quizzes/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(quizData),
-    });
-    if(response.ok){
-        const quiz = await response.json();
-        dispatch(editQuiz(quiz))
-    } else {
-        console.log(response, "Failed");
-        return response
+    try {
+        const response = await fetch(`/api/quizzes/${id}`, { 
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(quizData),
+        });
+        
+        if (response.ok) {
+            const updatedQuiz = await response.json();
+            dispatch(editQuiz(updatedQuiz)); 
+            return updatedQuiz;
+        } else {
+            const error = await response.json();
+            console.error("Update quiz failed:", error);
+            return { error };
+        }
+    } catch (error) {
+        console.error("Update quiz exception:", error);
+        return { error };
     }
 };
 

@@ -75,7 +75,7 @@ const EditQuizForm = () => {
         }
 
         const updatedQuiz = { id, title, questions };
-        const result = await dispatch(updateQuiz(updatedQuiz));
+        const result = await dispatch(updateQuiz(id.toString(), { title, questions }));
 
         if (result.id) {
             history.push(`/quizzes/${result.id}`);
