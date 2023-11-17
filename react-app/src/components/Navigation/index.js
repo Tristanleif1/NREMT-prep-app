@@ -57,7 +57,7 @@ function Navigation({ isLoaded, setSearchBar, searchBar }){
                         </NavLink>
                     ) : (
                         <NavLink exact to="/login" className="create-quiz">
-                            Create a Flashcard
+                            Create a Quiz
                         </NavLink>
                     )}
                 </div>

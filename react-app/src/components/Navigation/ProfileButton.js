@@ -68,6 +68,11 @@ function ProfileButton({ user }) {
                 View My Flashcard Sets
               </Link>
             </li>
+            <li className="user-information">
+              <Link to='/my-quizzes'>
+                View My Quizzes
+              </Link>
+            </li>
             <li className="list-button">
               <button onClick={handleLogout}>Log Out</button>
             </li>

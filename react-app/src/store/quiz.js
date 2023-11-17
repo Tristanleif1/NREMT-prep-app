@@ -26,9 +26,9 @@ const editQuiz = (quiz) => ({
     quiz
 })
 
-const deleteQuiz = (quiz) => ({
+const deleteQuiz = (id) => ({
     type: DELETE_QUIZ,
-    quiz
+    id
 })
 
 const addQuestionToQuiz = (question, quizId) => ({
@@ -48,6 +48,17 @@ export const getQuizzes = () => async dispatch => {
         return response
     }
 };
+
+export const getMyQuizzes = () => async dispatch => {
+    const response = await fetch('/api/quizzes/my-quizzes');
+    if(response.ok){
+        const data = await response.json();
+        dispatch(setQuizzes(data.my_quizzes));
+    } else {
+        console.log(response, "Failed");
+        return response
+    }
+}
 
 export const getQuiz = (id) => async dispatch => {
     const response = await fetch(`/api/quizzes/${id}`);
@@ -113,7 +124,7 @@ export const quizReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_QUIZZES:
             const allQuizzes = {};
-            action.quizzes.forEach(quiz => {
+            action.quizzes?.forEach(quiz => {
                 allQuizzes[quiz.id] = quiz;
             });
             return { ...state, quizzes: allQuizzes };
@@ -124,9 +135,9 @@ export const quizReducer = (state = initialState, action) => {
         case EDIT_QUIZ:
             return { ...state, quizzes: {...state.quizzes, [action.quiz.id]: action.quiz }};
         case DELETE_QUIZ:
-            const newState = { ...state };
-            delete newState.quizzes[action.quiz.id];
-            return newState;
+            const updatedQuizzes = { ...state.quizzes};
+            delete updatedQuizzes[action.id];
+            return {...state, quizzes: updatedQuizzes};
         default:
             return state;
     }
