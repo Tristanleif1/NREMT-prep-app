@@ -56,7 +56,7 @@ Authenticated users enjoy a variety of functions and permissions, from creating 
 </p>
   
 <p align="center">
-Even guests can enjoy the platform, browsing all seeded flashcard, flashcard sets, and quizzes all while being able to perform searches by name or topic. Pledge Palooza is an excellent studying tool to ensure that you do not need to take the NREMT more than once because you will ace it the first time with flying colors!
+Even guests can enjoy the platform, browsing all flashcards, flashcard sets, and quizzes all while being able to perform searches by name or topic. Rescue Ready is an excellent studying tool to ensure that you do not need to take the NREMT more than once because you will ace it the first time with flying colors!
 </p>
 
 
