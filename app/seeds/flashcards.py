@@ -175,6 +175,37 @@ def seed_flashcards():
         question="If the left side of the chest moves opposite to the right. This is called__:",
         answer="paradoxical movement",
     )
+    flashcard26 = Flashcard(
+        topicId=4,
+        userId=2,
+        question="What is name of the muscular organ in which baby develops during pregnancy?",
+        answer="Uterus",
+    )
+    flashcard27 = Flashcard(
+        topicId=4,
+        userId=2,
+        question="What is name of developing baby inside mother's uterus?",
+        answer="Fetus",
+    )
+    flashcard28 = Flashcard(
+        topicId=4,
+        userId=2,
+        question="What is name of temporary organ inside uterus that nourishes fetus through umbilical cord?",
+        answer="Placenta",
+    )
+    flashcard29 = Flashcard(
+        topicId=4,
+        userId=3,
+        question="What is name of Bag of Waters (BOW) that cushions fetus in uterus?",
+        answer="Amniotic Sac",
+    )
+    flashcard30 = Flashcard(
+        topicId=4,
+        userId=3,
+        question="What color should amniotic fluid be?",
+        answer="Clear & colorless",
+    )
+
 
 
     db.session.add(flashcard1)
@@ -202,6 +233,11 @@ def seed_flashcards():
     db.session.add(flashcard23)
     db.session.add(flashcard24)
     db.session.add(flashcard25)
+    db.session.add(flashcard26)
+    db.session.add(flashcard27)
+    db.session.add(flashcard28)
+    db.session.add(flashcard29)
+    db.session.add(flashcard30)
     
 
     db.session.commit()

@@ -19,6 +19,8 @@ import QuizPage from "./components/QuizPage";
 import QuizForm from "./components/QuizForm";
 import MyQuizzes from "./components/MyQuizzes";
 import EditQuizForm from "./components/EditQuizForm";
+import LoginFormModal from "./components/LoginFormModal";
+import SignupFormModal from "./components/SignupFormModal";
 
 function App() {
   const dispatch = useDispatch();
@@ -76,10 +78,10 @@ function App() {
             <MyQuizzes />
           </Route>
           <Route path="/login" >
-            <LoginFormPage />
+            <LoginFormModal/>
           </Route>
           <Route path="/signup">
-            <SignupFormPage />
+            <SignupFormModal />
           </Route>
         </Switch>
       )}
