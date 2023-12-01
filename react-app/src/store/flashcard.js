@@ -54,7 +54,6 @@ export const createFlashcard = (flashcard) => async (dispatch) => {
         dispatch(addFlashcard(createdFlashcard))
         return createdFlashcard;
     } else {
-        console.log(response, "Failed");
         return response
     }
 }

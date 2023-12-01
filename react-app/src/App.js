@@ -39,7 +39,7 @@ function App() {
             <Flashcards searchBar={searchBar} />
           </Route>
           <Route path="/flashcards/topic/:topicId">
-            <FlashcardsByTopic />
+            <FlashcardsByTopic searchBar={searchBar}/>
           </Route>
           <Route exact path="/flashcards/:id/edit">
             <EditFlashcard />

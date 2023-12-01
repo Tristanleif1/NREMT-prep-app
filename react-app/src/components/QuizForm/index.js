@@ -61,7 +61,6 @@ function QuizForm() {
 
         const quizForm = { title, questions };
         const newQuiz = await dispatch(createQuiz(quizForm));
-        console.log(newQuiz)
         
         // Assume response includes quiz ID upon successful creation
         if (newQuiz.id) {

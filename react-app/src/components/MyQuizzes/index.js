@@ -22,7 +22,6 @@ const MyQuizzes = () => {
     }, [dispatch])
 
     const quizzes = useSelector(state => Object.values(state.quiz.quizzes));
-    console.log(quizzes);
 
     const redirectToQuizDetails = (id) => {
         history.push(`/quizzes/${id}`)

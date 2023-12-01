@@ -44,7 +44,6 @@ export const getQuizzes = () => async dispatch => {
         const quizzes = await response.json();
         dispatch(setQuizzes(quizzes));
     } else {
-        console.log(response, "Failed");
         return response
     }
 };
@@ -55,7 +54,6 @@ export const getMyQuizzes = () => async dispatch => {
         const data = await response.json();
         dispatch(setQuizzes(data.my_quizzes));
     } else {
-        console.log(response, "Failed");
         return response
     }
 }
@@ -66,7 +64,6 @@ export const getQuiz = (id) => async dispatch => {
         const quiz = await response.json();
         dispatch(setQuiz(quiz));
     } else {
-        console.log(response, "Failed");
         return response
     }
 };
@@ -83,7 +80,6 @@ export const createQuiz = (quizForm) => async dispatch => {
         return quiz
     } else {
         const errors = await response.json();
-        console.log(errors, "Failed");
         return errors
     }
 };
@@ -118,7 +114,6 @@ export const removeQuiz = (id) => async dispatch => {
     if(response.ok){
         dispatch(deleteQuiz(id));
     } else {
-        console.log(response, "Failed");
         return response
     }
 }
