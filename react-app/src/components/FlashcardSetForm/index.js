@@ -55,7 +55,6 @@ const FlashcardSetForm = () => {
         }
         try {
             const newSet = await dispatch(createFlashcardSet({ title }));
-            console.log("New Set: ", newSet);  // Added this line for debugging
     
             if (newSet && newSet.id) {
                 const flashcardsPromises = flashcards.map((flashcard) => {
@@ -67,7 +66,6 @@ const FlashcardSetForm = () => {
                 });
     
                const addedFlashcards = await Promise.all(flashcardsPromises); 
-               console.log('Added Flashcards:', addedFlashcards)
     
                 history.push(`/flashcard-sets/${newSet.id}`);
             } else {

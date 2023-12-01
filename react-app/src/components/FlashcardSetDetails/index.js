@@ -16,7 +16,6 @@ function FlashcardSetDetails() {
         }
     }, [dispatch, id]);
     // const flashcardSets = useSelector((state) => Object.values(state.flashcardSet));
-    // console.log(flashcardSets);
 
     const flashcardSet = useSelector(state => state.flashcardSet[id]);
     const [currentIndex, setCurrentIndex] = useState(0);

@@ -61,7 +61,6 @@ export const createFlashcardSet = (flashcardSet) => async (dispatch) => {
         dispatch(addFlashcardSet(createdFlashcardSet));
         return createdFlashcardSet
     } else {
-        console.log(response, "Failed");
         return response
     }
  }

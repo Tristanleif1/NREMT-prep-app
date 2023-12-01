@@ -8,7 +8,6 @@ const DeleteQuizModal = ({ quizId }) => {
     const { closeModal } = useModal();
 
     const handleQuizDelete = () => {
-        // console.log("Deleting quiz with id:", quiz.id)
         dispatch(removeQuiz(quizId));
         closeModal();
     };

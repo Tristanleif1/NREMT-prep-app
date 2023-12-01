@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from "react-router-dom"
 import { loadFlashcards } from '../../store/flashcard';
 import { loadFlashcardSets } from '../../store/flashcardSet';
-import './Flashcards.css'
+import './Flashcards.css';
+import Footer from '../Footer';
 
 const Flashcards = ({ searchBar }) => {
     const history = useHistory()
@@ -43,7 +44,6 @@ const Flashcards = ({ searchBar }) => {
 
     const flashcards = useSelector(state => Object.values(state.flashcard))
     const flashcardSets = useSelector(state => Object.values(state.flashcardSet))
-    console.log(flashcardSets);
 
     const filteredFlashcards = searchBar ? flashcards.filter(flashcard =>
         flashcard.question.toLowerCase().includes(searchBar.toLowerCase()) ||
@@ -86,6 +86,7 @@ const Flashcards = ({ searchBar }) => {
     }
 
     return (
+       <>
        <div className='flashcard-container'>
         <div className='filter-option-container'>
         <label htmlFor="viewOptions" className='options-view-label'>What do you want to study?</label>
@@ -151,6 +152,8 @@ const Flashcards = ({ searchBar }) => {
                 </div>
             )} 
         </div>
+        <Footer />
+       </>
     );
 };
 

@@ -3,14 +3,13 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useParams, useHistory } from "react-router-dom";
 
-function FlashcardsByTopic(){
+function FlashcardsByTopic({ searchBar }){
     const flashcards = useSelector(state => Object.values(state.flashcard))
     const [topicFlashcards, setTopicFlashcards] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
     const [flippedCardId, setFlippedCardId] = useState(null);
     const history = useHistory();
     const { topicId}  = useParams()
-    console.log(flashcards)
 
     const handleCardClick = (id) => {
         // Toggle the card. If it's already flipped, set to null. Otherwise, set to the clicked card's ID.
@@ -55,14 +54,19 @@ function FlashcardsByTopic(){
         .catch(error => console.error("Error:", error));
     }, [topicId]);
 
+    const filteredFlashcards = searchBar ? topicFlashcards.filter(flashcard =>
+        flashcard.question.toLowerCase().includes(searchBar.toLowerCase()) ||
+        flashcard.answer.toLowerCase().includes(searchBar.toLowerCase()) 
+    ) : topicFlashcards;
 
-console.log(topicFlashcards)
+
+
 
 
 return (
     <div className='flashcard-container'>
      <div className="flashcard-grid">
-            {topicFlashcards.map(flashcard => (
+            {filteredFlashcards.map(flashcard => (
                 <div 
                     key={flashcard.id} 
                     className={`flashcard ${flippedCardId === flashcard.id ? 'flipped' : ''}`} 

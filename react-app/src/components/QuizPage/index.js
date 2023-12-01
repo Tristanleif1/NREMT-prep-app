@@ -37,7 +37,6 @@ function QuizPage() {
         })
         .then(data => {
              const rearrangedQuestions = shuffleQuestions(data.quizQuestions);
-             console.log("Number of Quiz questions:", rearrangedQuestions.length)
              setRearrangedQuestions(rearrangedQuestions);
              setIsQuizLoaded(true)
         })
@@ -80,7 +79,6 @@ function QuizPage() {
     const checkEndGame = () => {
         if(numberOfQuestionsAnswered === rearrangedQuestions.length){
             setIsPlaying(false);
-            console.log(isPlaying);
             if(timeRef.current) clearInterval(timeRef.current)
         }
     }
@@ -143,7 +141,6 @@ function QuizPage() {
         setCorrectAnswers(prevCorrect => prevCorrect + 1);
         setCurrentQuestionIndex(prevIndex => prevIndex + 1);
         setNumberOfQuestionsAnswered(prevAnswered => prevAnswered + 1);
-        console.log('Correct answer for question index:', currentQuestionIndex, 'Number of answered questions:', numberOfQuestionsAnswered + 1);
         correctAnswerSound.play();
         checkEndGame()
     }
@@ -159,7 +156,6 @@ function QuizPage() {
         setWrongAnswers(prevCorrect => prevCorrect + 1);
         setCurrentQuestionIndex(prevIndex => prevIndex + 1);
         setNumberOfQuestionsAnswered(prevAnswered => prevAnswered + 1);
-        console.log('Correct answer for question index:', currentQuestionIndex, 'Number of answered questions:', numberOfQuestionsAnswered + 1);
         incorrectAnswerSound.play();
         checkEndGame()
     }
@@ -167,11 +163,9 @@ function QuizPage() {
     const handleAnswerClick = (e) => {
         const selectedAnswer = e.target.innerHTML.toLowerCase();
         const correctAnswerValue = rearrangedQuestions[currentQuestionIndex].correct_answer.toLowerCase();
-        console.log('Handling answer click for question index:', currentQuestionIndex);
 
         if(selectedAnswer === correctAnswerValue){
             correctAnswer()
-            console.log(numberOfQuestionsAnswered)
         } else {
             wrongAnswer()
             
