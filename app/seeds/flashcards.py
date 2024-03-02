@@ -205,6 +205,24 @@ def seed_flashcards():
         question="What color should amniotic fluid be?",
         answer="Clear & colorless",
     )
+    flashcard31 = Flashcard(
+        topicId=5,
+        userId=2,
+        question="During your rapid trauma assessment of a critically-injured patient, you should assess the chest for",
+        answer="symmetry and pain",
+    )
+    flashcard32 = Flashcard(
+        topicId=5,
+        userId=5,
+        question="Initial care of a large avulsion includes",
+        answer="controlling any bleeding",
+    )
+    flashcard33 = Flashcard(
+        topicId=5,
+        userId=1,
+        question="Basic shock management consists of__",
+        answer="applying oxygen, elevating the lower extremities, and providing warmth",
+    )
 
 
 
@@ -238,6 +256,9 @@ def seed_flashcards():
     db.session.add(flashcard28)
     db.session.add(flashcard29)
     db.session.add(flashcard30)
+    db.session.add(flashcard31)
+    db.session.add(flashcard32)
+    db.session.add(flashcard33)
     
 
     db.session.commit()
