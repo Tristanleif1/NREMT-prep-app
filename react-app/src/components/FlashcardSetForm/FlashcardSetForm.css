@@ -56,10 +56,9 @@ button[type="submit"] {
     background-color: rgb(35, 134, 199);
     color: white;
     width: 50%;
-    margin-right: 19px;
 }
 
-button + button {
+.create-flashcard-set-button button + button {
     margin-left: 20px; /* Spacing between the "Add Card" button and the "Submit" button */
 }
 

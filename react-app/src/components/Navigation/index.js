@@ -1,14 +1,33 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import logo from "../../assets/rescue-ready-logo.png"
 import { AiOutlineSearch } from "react-icons/ai";
+import LoginFormModal from "../LoginFormModal";
+import OpenModalButton from "../OpenModalButton"
 
 function Navigation({ isLoaded, setSearchBar, searchBar }){
 	const sessionUser = useSelector(state => state.session.user);
+    const [showMenu, setShowMenu] = useState(false);
+    const ulRef = useRef();
 
+    useEffect(() => {
+        if (!showMenu) return;
+    
+        const closeMenu = (e) => {
+          if (!ulRef.current.contains(e.target)) {
+            setShowMenu(false);
+          }
+        };
+    
+        document.addEventListener("click", closeMenu);
+    
+        return () => document.removeEventListener("click", closeMenu);
+      }, [showMenu]);
+
+      const closeMenu = () => setShowMenu(false);
 
 	return (
         <>
@@ -24,18 +43,26 @@ function Navigation({ isLoaded, setSearchBar, searchBar }){
                             Create a Flashcard
                         </NavLink>
                     ) : (
-                        <NavLink exact to="/login" className="create-flashcard">
-                            Create a Flashcard
-                        </NavLink>
+                        <div>
+                         <OpenModalButton
+                            buttonText="Create a Flashcard"
+                            onItemClick={closeMenu}
+                            modalComponent={<LoginFormModal />}
+                        />
+                        </div>
                     )}
                     {sessionUser ? (
                         <NavLink className="create-flashcard-set" exact to="/new-flashcard-set">
                             Create a Flashcard Set
                         </NavLink>
                     ) : (
-                        <NavLink exact to="/login" className="create-flashcard">
-                            Create a Flashcard Set
-                        </NavLink>
+                        <div className="create-flashcard-set">
+                         <OpenModalButton
+                            buttonText="Create a Flashcard Set"
+                            onItemClick={closeMenu}
+                            modalComponent={<LoginFormModal />}
+                        />
+                        </div>
                     )}
                 </div>
                 <div className='search-bar-container'>
@@ -56,9 +83,13 @@ function Navigation({ isLoaded, setSearchBar, searchBar }){
                             Create a Quiz
                         </NavLink>
                     ) : (
-                        <NavLink exact to="/login" className="create-quiz">
-                            Create a Quiz
-                        </NavLink>
+                        <div className="create-quiz">
+                         <OpenModalButton
+                            buttonText="Create a Quiz"
+                            onItemClick={closeMenu}
+                            modalComponent={<LoginFormModal />}
+                        />
+                        </div>
                     )}
                 </div>
                 {isLoaded && <ProfileButton user={sessionUser} />}
