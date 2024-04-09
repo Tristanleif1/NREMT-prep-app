@@ -19,9 +19,22 @@ def all_flashcards():
     """
     Query for all the flashcards and returns in a list of dictionaries
     """
-    flashcards = Flashcard.query.all()
 
-    return {"flashcards":[flashcard.to_dict() for flashcard in flashcards]}
+    page = request.args.get('page', 1, type=int)
+    per_page = request.args.get('size', 20, type=int)
+    paginated_flashcards = Flashcard.query.paginate(page=page, per_page=per_page, error_out=False)
+    flashcards = paginated_flashcards.items
+
+    total = paginated_flashcards.total
+    pages = paginated_flashcards.pages
+
+    return {
+        "flashcards":[flashcard.to_dict() for flashcard in flashcards],
+        "page": page,
+        "size": per_page,
+        "total": total,
+        "pages": pages
+        }
 
 #Get all flashcards belonging to a specific topic
 
