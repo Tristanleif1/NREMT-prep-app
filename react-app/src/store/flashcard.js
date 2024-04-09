@@ -1,4 +1,3 @@
-
 const SET_FLASHCARDS = "flashcard/SET_FLASHCARDS"
 const SET_SINGLE_FLASHCARD ="flashcard/SET_SINGLE_FLASHCARD"
 const ADD_FLASHCARD = "flashcard/ADD_FLASHCARD"
@@ -31,11 +30,12 @@ const setFlashcard = (flashcard) => ({
 })
 
 
-export const loadFlashcards = () => async (dispatch) => {
-    const response = await fetch('/api/flashcards/')
+export const loadFlashcards = (page = 1) => async (dispatch) => {
+    const response = await fetch(`/api/flashcards/?page=${page}&size=20`)
     if(response.ok){
         const data = await response.json();
-        dispatch(setFlashcards(data.flashcards))
+        dispatch(setFlashcards(data.flashcards));
+        return data
     } else {
         console.error("Failed to load flashcards")
     }

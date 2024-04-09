@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from "react-router-dom"
 import { loadFlashcards } from '../../store/flashcard';
 import { loadFlashcardSets } from '../../store/flashcardSet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import './Flashcards.css';
 import Footer from '../Footer';
 
@@ -17,6 +19,9 @@ const Flashcards = ({ searchBar }) => {
             .then(data => setQuizzes(data.quizzes))
     }, [])
     const [selectedOption, setSelectedOption ] = useState('flashcards')
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
 
     const handleOptionSwitch = (e) => {
         setSelectedOption(e.target.value)
@@ -38,9 +43,17 @@ const Flashcards = ({ searchBar }) => {
     };
 
     useEffect(() => {
-        dispatch(loadFlashcards())
-        dispatch(loadFlashcardSets())
-    }, [dispatch])
+        const fetchFlashcards = async () => {
+            const response = await dispatch(loadFlashcards(currentPage));
+            if (response) {
+                setTotalPages(Math.ceil(response.total / 20));
+            }
+        };
+    
+        fetchFlashcards();
+        dispatch(loadFlashcardSets());
+    }, [currentPage, dispatch]);
+
 
     const flashcards = useSelector(state => Object.values(state.flashcard))
     const flashcardSets = useSelector(state => Object.values(state.flashcardSet))
@@ -85,17 +98,29 @@ const Flashcards = ({ searchBar }) => {
         history.push(`/quizzes/${id}`)
     }
 
+    // Pagination navigation handlers
+    const goToPreviousPage = () => setCurrentPage(currentPage => Math.max(1, currentPage - 1))
+    const goToNextPage = () => setCurrentPage(currentPage => Math.min(totalPages, currentPage + 1))
+
     return (
        <>
        <div className='flashcard-container'>
-        <div className='filter-option-container'>
-        <label htmlFor="viewOptions" className='options-view-label'>What do you want to study?</label>
-        <select id="viewOptions" value={selectedOption} onChange={handleOptionSwitch} className='option-select'>
-            <option value="flashcards">Flashcards</option>
-            <option value="flashcardSets">Flashcard Sets</option>
-            <option value="quizzes">Quizzes</option>
-            <option value="all">All</option>
-        </select>
+        <div className='pagingation-and-filter-options-container'>
+            <div className='spacer'></div>
+            <div className='filter-option-container'>
+            <label htmlFor="viewOptions" className='options-view-label'>What do you want to study?</label>
+            <select id="viewOptions" value={selectedOption} onChange={handleOptionSwitch} className='option-select'>
+                <option value="flashcards">Flashcards</option>
+                <option value="flashcardSets">Flashcard Sets</option>
+                <option value="quizzes">Quizzes</option>
+                <option value="all">All</option>
+            </select>
+            </div>
+            <div className='pagination-controls'> {/* Pagination Controls */}
+                <button onClick={goToPreviousPage} disabled={currentPage === 1}> <FontAwesomeIcon icon={faArrowLeft}/></button>
+                <span>Page {currentPage} of {totalPages}</span>
+                <button onClick={goToNextPage} disabled={currentPage === totalPages}><FontAwesomeIcon icon={faArrowRight}/></button>
+            </div>
         </div>
         {(selectedOption === 'flashcards' || selectedOption === "all") && (
         <div className="flashcard-grid">

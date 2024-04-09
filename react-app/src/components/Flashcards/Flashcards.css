@@ -99,11 +99,11 @@
     bottom: 10px;
     cursor: pointer;
     background-color: white;
-    width: 30px;   /* Added this line */
-    height: 30px;  /* Added this line */
-    display: flex; /* Added this line */
-    justify-content: center; /* Added this line to horizontally center the ... */
-    align-items: center; /* Added this line to vertically center the ... */
+    width: 30px; 
+    height: 30px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
@@ -170,6 +170,13 @@
     font-family: "Open Sans", "PT Sans", Calibri, Tahoma, sans-serif;
 }
 
+.pagination-and-filter-options-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%
+}
+
 .username {
     font-style: italic;
     font-size: 0.9rem;
@@ -201,6 +208,12 @@ h2 {
 
 .option-select:hover {
     border-color: #666;
+}
+
+
+
+.spacer{
+    flex: 1;
 }
 
 .filter-option-container {
@@ -245,4 +258,17 @@ h2 {
 .individual-quiz:hover{
     transform: scale(1.03);
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+}
+
+.pagination-controls{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    /* width: 30px;
+    height: 30px; */
+}
+
+.pagination-controls span{
+    color: whitesmoke;
+    margin: 10px;
 }
