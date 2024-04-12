@@ -14,7 +14,7 @@ function Landing() {
         <div className="landing-main-wrapper">
             <section className="landing-main-text">
                 <h1>Rescue Ready <br/>Turning Learners into Lifesavers</h1>
-                <p>Utilize Flashcards, Flashcard Sets and Quizzes to enhance your studying experience and ACE the NREMT</p>
+                <p>Utilize and Create Flashcards, Flashcard Sets and Quizzes to enhance your studying experience and ACE the NREMT</p>
             </section>
                 <div className="landing-main-actions">
                     <button className="get-started-button" type="button" onClick={<OpenModalButton

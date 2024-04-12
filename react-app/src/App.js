@@ -21,6 +21,7 @@ import MyQuizzes from "./components/MyQuizzes";
 import EditQuizForm from "./components/EditQuizForm";
 import LoginFormModal from "./components/LoginFormModal";
 import SignupFormModal from "./components/SignupFormModal";
+import Landing from "./components/Landing";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,9 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path="/">
+            <Landing />
+          </Route>
+          <Route exact path="/home">
             <Flashcards searchBar={searchBar} />
           </Route>
           <Route path="/flashcards/topic/:topicId">

@@ -1,0 +1,21 @@
+.landing-main-wrapper{
+    background-color: #fcfcfc;
+    display: flex;
+    flex: 1 1;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.landing-main-text{
+    width: 400px;
+}
+
+.landing-main-text h1{
+    color: var(--text-heading);
+    font-size: 70px;
+    line-height: 65px;
+    margin: 0 0 15px;
+}
