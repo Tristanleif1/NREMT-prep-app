@@ -12,13 +12,14 @@ function Footer() {
         <div className=" user-info">
           <p>Tristan Allaman</p>
           <div className="icons">
-            <a href="https://github.com/Tristanleif1" target="_blank" rel="noreferrer">
+            <a href="https://github.com/Tristanleif1" target="_blank" rel="noreferrer" className="github-icon">
               <BiLogoGithub />
             </a>
             <a
               href="https://www.linkedin.com/in/tristan-allaman-a18206232/"
               target="_blank"
               rel="noreferrer"
+              className="linkedin-icon"
             >
               <BiLogoLinkedin />
             </a>

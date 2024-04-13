@@ -117,8 +117,7 @@ a {
 }
 
 .create-flashcard,
-.create-flashcard-set,
-.create-quiz {
+.create-flashcard-set {
     display: inline-block; /* Ensures the width matches the text */
     margin-bottom: 5px;
     color: white;

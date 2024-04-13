@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
@@ -21,21 +21,27 @@ import MyQuizzes from "./components/MyQuizzes";
 import EditQuizForm from "./components/EditQuizForm";
 import LoginFormModal from "./components/LoginFormModal";
 import SignupFormModal from "./components/SignupFormModal";
+import Landing from "./components/Landing";
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [ searchBar, setSearchBar ] = useState('')
+  const [ searchBar, setSearchBar ] = useState('');
+  const location = useLocation();
+
   useEffect(() => {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} setSearchBar={setSearchBar} searchBar={searchBar} />
+      {isLoaded && location.pathname !== "/" && <Navigation isLoaded={isLoaded} setSearchBar={setSearchBar} searchBar={searchBar} />}
       {isLoaded && (
         <Switch>
           <Route exact path="/">
+            <Landing />
+          </Route>
+          <Route exact path="/home">
             <Flashcards searchBar={searchBar} />
           </Route>
           <Route path="/flashcards/topic/:topicId">

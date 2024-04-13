@@ -58,8 +58,16 @@ button[type="submit"]:hover {
     margin-top: 5px;
 }
 
-.question-input, .answer-input{
+/* .question-input, .answer-input{
     width: 100%;
+} */
+
+#flashcard-question, #flashcard-input{
+    width: 100% !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+    border: 1px solid #ddd !important;
+    font-size: 16px !important;
 }
 
 .topic-select{

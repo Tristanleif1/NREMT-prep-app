@@ -1,0 +1,49 @@
+.landing-main-wrapper{
+    background-color: #fcfcfc;
+    display: flex;
+    flex: 1 1;
+    height: 100vh;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    align-items: center;
+    padding-left: 150px;
+}
+
+.landing-main-text{
+    width: 400px;
+}
+
+.landing-main-text h1{
+    color: hsl(199, 85%, 32%);
+    font-size: 70px;
+    line-height: 65px;
+    margin: 0 0 15px;
+}
+
+.landing-main-text p{
+    color: #5a5a5a;
+    font-size: 25px;
+    line-height: 30px;
+    margin: 0 0 30px;
+}
+
+.get-started-button{
+    align-items: center;
+    cursor: pointer;
+    /* display: flex; */
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    gap: 10px;
+    height: 45px;
+    padding: 0 20px;
+}
+
+.landing-emt-image{
+    width: 60%;
+}
