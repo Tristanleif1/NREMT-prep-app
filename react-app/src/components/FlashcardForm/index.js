@@ -70,6 +70,7 @@ function FlashcardForm(){
                 <div>
                     <label>Question</label>
                     <input 
+                        id="flashcard-question"
                         className="question-input"
                         type="text" 
                         value={formData.question}
@@ -81,6 +82,7 @@ function FlashcardForm(){
                 <div>
                     <label>Answer</label>
                     <input 
+                        id="flashcard-input"
                         className="answer-input"
                         type="text" 
                         value={formData.answer}
