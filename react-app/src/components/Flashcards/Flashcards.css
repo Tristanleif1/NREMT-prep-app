@@ -121,12 +121,12 @@
 }
 
 .myflashcards-heading{
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: white;
     padding-bottom: 20px;
-    margin-bottom: 20px;
-    text-align: center
+    margin-bottom: 5px;
+    text-align: left;
 }
 .flashcard-sets-section {
     margin-top: 40px;

@@ -71,7 +71,7 @@ const MyFlashcards = () => {
     return (
        <div className="myflashcards-container">
         <div className="myflashcards-heading">
-            Hello! Here are your flashcards: 
+            My Flashcards:
         </div>
         <div className="flashcard-grid">
             {flashcards.map(flashcard => (
