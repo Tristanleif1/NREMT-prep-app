@@ -175,7 +175,7 @@ function QuizPage() {
     const handleQuitSelect = () => {
         setIsPlaying(false);
         if(timeRef.current) clearInterval(timeRef.current)
-        history.push('/')
+        history.push('/home')
     }
 
     const quizTimer = () => {

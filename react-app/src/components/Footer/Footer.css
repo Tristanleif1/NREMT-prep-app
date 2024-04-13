@@ -33,3 +33,7 @@
     margin: 10px auto; 
     color: lightblue;
 }
+
+.github-icon, .linkedin-icon{
+    color: white;
+}
