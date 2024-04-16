@@ -406,7 +406,7 @@ def seed_flashcards():
     flashcard64= Flashcard(
         topicId=3,
         userId=7,
-        question="Green tags",
+        question="Green tags...",
         answer="(wait) are reserved for the \"walking wounded\" who will need medical care at some point, after more critical injuries have been treated.",
     )
     flashcard65= Flashcard(
@@ -445,7 +445,68 @@ def seed_flashcards():
         question="HEPA stands for:",
         answer="High Efficiency Particulate Air",
     )
+    flashcard71= Flashcard(
+        topicId=4,
+        userId=8,
+        question="What does \"P\" stand for in describing pregnant woman?",
+        answer="P stands for \"parous\" or number of live births",
+    )
+    flashcard72= Flashcard(
+        topicId=4,
+        userId=7,
+        question="The first stage of labor begins & ends with what events?",
+        answer="From onset of contractions to full dilation & effacement* of cervix"
+    )
+    flashcard73= Flashcard(
+        topicId=4,
+        userId=6,
+        question="Define effacement.",
+        answer="Effacement of the cervix is thinning or shortening of neck of uterus",
+    )
+    flashcard74= Flashcard(
+        topicId=4,
+        userId=5,
+        question="Rupture of bag of waters can occur at any time during first stage of labor. What is another name for the BOW?",
+        answer="Amniotic Sac",
+    )
+    flashcard75= Flashcard(
+        topicId=4,
+        userId=6,
+        question="In first stage of labor, the contractions become (1) more intense & (2) closer together as it progresses. In most active stage of labor, contractions are less than [how many] minutes apart?",
+        answer="Two",
+    )
+    flashcard76= Flashcard(
+        topicId=4,
+        userId=7,
+        question="The second stage of labor begins & ends with what events?",
+        answer="From full dilation & effacement of cervix to birth of baby; The baby is born in the second stage of labor"
+    )
+    flashcard77= Flashcard(
+        topicId=4,
+        userId=8,
+        question="Placenta normally delivers within how many minutes of delivery?",
+        answer="20 minutes",
+    )
+    flashcard78= Flashcard(
+        topicId=4,
+        userId=9,
+        question="How does Pre-eclampsia differ from Eclampsia?",
+        answer="Onset of seizures (usually occur in the third trimester of pregnancy)",
+    )
+    flashcard79= Flashcard(
+        topicId=4,
+        userId=10,
+        question="What causes a pregnant woman to have a drop in BP while supine in Supine Hypotension Syndrome?",
+        answer="The weight of the fetus & uterus compress both the aorta & inferior vena cava compromising circulation",
+    )
+    flashcard80= Flashcard(
+        topicId=4,
+        userId=10,
+        question="What is the magic cure for low BP in Supine Hypotension Syndrome?",
+        answer="Turn female on her left side",
+    )
     
+
     
 
 
@@ -520,6 +581,16 @@ def seed_flashcards():
     db.session.add(flashcard68)
     db.session.add(flashcard69)
     db.session.add(flashcard70)
+    db.session.add(flashcard71)
+    db.session.add(flashcard72)
+    db.session.add(flashcard73)
+    db.session.add(flashcard74)
+    db.session.add(flashcard75)
+    db.session.add(flashcard76)
+    db.session.add(flashcard77)
+    db.session.add(flashcard78)
+    db.session.add(flashcard79)
+    db.session.add(flashcard80)
 
     
 
