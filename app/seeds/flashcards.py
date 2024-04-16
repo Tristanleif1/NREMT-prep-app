@@ -290,10 +290,40 @@ def seed_flashcards():
         answer="Contract and create a negative pressure drawing air into the lungs",
     )
     flashcard45= Flashcard(
-        topicId=1,
+        topicId=2,
         userId=2,
         question="Belly breathing is normal for ___________",
         answer="Infants and young children",
+    )
+    flashcard46= Flashcard(
+        topicId=2,
+        userId=6,
+        question="An unresponsive 3-month-old female is in cardiac arrest. While you and your partner are resuscitating her, you should compress her chest:",
+        answer="Using a two thumb - encircling hands technique",
+    )
+    flashcard47= Flashcard(
+        topicId=2,
+        userId=7,
+        question="An 84-year-old male is lying in bed complaining of right-sided weakness and nausea. He has a history of hypertension and type 2 diabetes. He tells you he was fine when he went to bed last night. His vital signs are P 68, R 14, BP 142/82, and SpO2 is 95% on room air. His blood glucose level is 168 mg/dL. You should:",
+        answer="notify the receiving hospital of your findings.",
+    )
+    flashcard48= Flashcard(
+        topicId=2,
+        userId=7,
+        question="You are resuscitating an unresponsive 74-year-old female who is in cardiac arrest. While you are performing chest compressions, you see her take several breaths. You should:",
+        answer="stop compressions and check for a pulse.",
+    )
+    flashcard49= Flashcard(
+        topicId=2,
+        userId=8,
+        question="A 3-year-old male was in cardiac arrest. You successfully resuscitated him, but he remains unresponsive. His vital signs are P 124, R 22, BP 94/70, and SpO2 is 100% on oxygen by non-rebreather mask. You should:",
+        answer="switch to a nasal cannula.",
+    )
+    flashcard50= Flashcard(
+        topicId=2,
+        userId=9,
+        question="An unresponsive 2-year-old male is lying in his bed. His mother tells you that he has been sick for four days. You should next:",
+        answer="assess his breathing and pulse.",
     )
     
     
@@ -345,6 +375,11 @@ def seed_flashcards():
     db.session.add(flashcard43)
     db.session.add(flashcard44)
     db.session.add(flashcard45)
+    db.session.add(flashcard46)
+    db.session.add(flashcard47)
+    db.session.add(flashcard48)
+    db.session.add(flashcard49)
+    db.session.add(flashcard50)
     
 
     db.session.commit()
