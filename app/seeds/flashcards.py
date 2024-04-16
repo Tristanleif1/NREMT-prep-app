@@ -385,6 +385,66 @@ def seed_flashcards():
         question="An unresponsive 17-year-old female is taking occasional, gasping breaths. Her lips and tongue are cyanotic. You are unable to palpate a carotid pulse. You should suspect:",
         answer="opiod agonist use",
     )
+    flashcard61= Flashcard(
+        topicId=3,
+        userId=4,
+        question="Autonomy refers to:",
+        answer="to the patient's right to refuse medical care. It also includes the patient's right to choose medical care. Despite having a life-threatening medical condition, you cannot force the patient to allow treatment or transport in this situation.",
+    )
+    flashcard62= Flashcard(
+        topicId=3,
+        userId=9,
+        question="Red tags...",
+        answer="are used to label those who cannot survive without immediate treatment but who have a chance of survival",
+    )
+    flashcard63= Flashcard(
+        topicId=3,
+        userId=1,
+        question="Yellow tags...",
+        answer="(observation) for those who require observation (and possible later re-triage). Their condition is stable for the moment and, they are not in immediate danger of death. These victims will still need hospital care and would be treated immediately under normal circumstances."
+    )
+    flashcard64= Flashcard(
+        topicId=3,
+        userId=7,
+        question="Green tags",
+        answer="(wait) are reserved for the \"walking wounded\" who will need medical care at some point, after more critical injuries have been treated.",
+    )
+    flashcard65= Flashcard(
+        topicId=3,
+        userId=1,
+        question="Decontamination",
+        answer="is an important process at any hazardous materials incident and should be performed prior to placing patients in emergency apparatus. It is A process that involves removing, preventing, or reducing the spread of hazardous materials",
+    )
+    flashcard66= Flashcard(
+        topicId=3,
+        userId=3,
+        question="A disaster is an accident",
+        answer="with 100 or more patients",
+    )
+    flashcard67= Flashcard(
+        topicId=3,
+        userId=3,
+        question="Patients in cardiac arrest are an obsolute contraindication for:",
+        answer="all types of aeromedical transport"
+    )
+    flashcard68= Flashcard(
+        topicId=3,
+        userId=10,
+        question="Medically stable patients should use",
+        answer="Ground Transport",
+    )
+    flashcard69= Flashcard(
+        topicId=3,
+        userId=9,
+        question="A DNR or Do Not Resuscitate Order is another name for",
+        answer="an advance directive",
+    )
+    flashcard70= Flashcard(
+        topicId=3,
+        userId=8,
+        question="HEPA stands for:",
+        answer="High Efficiency Particulate Air",
+    )
     
     
 
@@ -450,6 +510,16 @@ def seed_flashcards():
     db.session.add(flashcard58)
     db.session.add(flashcard59)
     db.session.add(flashcard60)
+    db.session.add(flashcard61)
+    db.session.add(flashcard62)
+    db.session.add(flashcard63)
+    db.session.add(flashcard64)
+    db.session.add(flashcard65)
+    db.session.add(flashcard66)
+    db.session.add(flashcard67)
+    db.session.add(flashcard68)
+    db.session.add(flashcard69)
+    db.session.add(flashcard70)
 
     
 
