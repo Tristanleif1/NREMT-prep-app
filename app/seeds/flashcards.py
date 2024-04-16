@@ -325,6 +325,66 @@ def seed_flashcards():
         question="An unresponsive 2-year-old male is lying in his bed. His mother tells you that he has been sick for four days. You should next:",
         answer="assess his breathing and pulse.",
     )
+    flashcard51= Flashcard(
+        topicId=2,
+        userId=2,
+        question="An unresponsive 20-year-old male is taking occasional, gasping breaths. You are unable to palpate a carotid pulse. His skin is cyanotic, and his pupils are pinpoint. You should first:",
+        answer="begin chest compressions",
+    )
+    flashcard52= Flashcard(
+        topicId=2,
+        userId=1,
+        question="An unresponsive 94-year-old female was found by her family on the floor. She is apneic and pulseless. Your partner is performing chest compressions. The AED has analyzed her rhythm and advised that you shock the patient. After the AED has charged, you should next:",
+        answer="ensure no one is touching her.",
+    )
+    flashcard53= Flashcard(
+        topicId=2,
+        userId=6,
+        question="What is the primary cause of a cardiac arrest for a patient who is struck by lightning?:",
+        answer="Asystole",
+    )
+    flashcard54= Flashcard(
+        topicId=2,
+        userId=5,
+        question="An 81-year-old male is experiencing chest pain. He has no signs of dyspnea or shock. Why should you target oxygen administration to a SpO2 between 94%-99%?",
+        answer="To reduce production of free-radicals",
+    )
+    flashcard55= Flashcard(
+        topicId=2,
+        userId=4,
+        question="You are resuscitating a 45-year-old male who is in cardiac arrest. Your partners are performing chest compressions and operating the AED. You are ventilating him with a BVM and leading the team. When should you check for a pulse?",
+        answer="After you observe he is breathing on his own",
+    )
+    flashcard56= Flashcard(
+        topicId=2,
+        userId=9,
+        question="You are resuscitating an unresponsive 90-year-old male who is in cardiac arrest. After the AED analyzes his rhythm, it advises you to shock him. What cardiac rhythm should you suspect he is in?",
+        answer="Ventricular fibrillation",
+    )
+    flashcard57= Flashcard(
+        topicId=2,
+        userId=1,
+        question="An unresponsive 33-year-old female is found lying on the ground after a lightning storm. She is apneic, and you palpate a weak carotid pulse. You observe a fern-like burn pattern on her back. You should suspect she was:",
+        answer="struck by lightning."
+    )
+    flashcard58= Flashcard(
+        topicId=2,
+        userId=6,
+        question="A 56-year-old male complains of a sudden onset of difficulty breathing. He has a history of heart problems and high blood pressure. You auscultate fine crackles in the bases of his lungs. His vital signs are P98, R18, BP 154/88, and SpO2 is 95% on room air. You should suspect:",
+        answer="pulmonary edema",
+    )
+    flashcard59= Flashcard(
+        topicId=2,
+        userId=3,
+        question="An unresponsive 75-year-old female was struck by lightning. EMRs tell you she was apneic and pulseless, so they began CPR. They tell you they have been resuscitating her for five minutes. You should next:",
+        answer="apply the AED while they continue compressions",
+    )
+    flashcard60= Flashcard(
+        topicId=2,
+        userId=5,
+        question="An unresponsive 17-year-old female is taking occasional, gasping breaths. Her lips and tongue are cyanotic. You are unable to palpate a carotid pulse. You should suspect:",
+        answer="opiod agonist use",
+    )
     
     
 
@@ -380,6 +440,17 @@ def seed_flashcards():
     db.session.add(flashcard48)
     db.session.add(flashcard49)
     db.session.add(flashcard50)
+    db.session.add(flashcard51)
+    db.session.add(flashcard52)
+    db.session.add(flashcard53)
+    db.session.add(flashcard54)
+    db.session.add(flashcard55)
+    db.session.add(flashcard56)
+    db.session.add(flashcard57)
+    db.session.add(flashcard58)
+    db.session.add(flashcard59)
+    db.session.add(flashcard60)
+
     
 
     db.session.commit()
