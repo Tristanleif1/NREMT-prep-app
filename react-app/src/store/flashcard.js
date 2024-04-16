@@ -31,7 +31,7 @@ const setFlashcard = (flashcard) => ({
 
 
 export const loadFlashcards = (page = 1) => async (dispatch) => {
-    const response = await fetch(`/api/flashcards/?page=${page}&size=20`)
+    const response = await fetch(`/api/flashcards/?page=${page}&size=24`)
     if(response.ok){
         const data = await response.json();
         dispatch(setFlashcards(data.flashcards));

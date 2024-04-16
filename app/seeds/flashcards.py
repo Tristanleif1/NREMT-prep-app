@@ -223,6 +223,80 @@ def seed_flashcards():
         question="Basic shock management consists of__",
         answer="applying oxygen, elevating the lower extremities, and providing warmth",
     )
+    flashcard34 = Flashcard(
+        topicId=1,
+        userId=3,
+        question="Snoring is likely caused by.....",
+        answer="The tongue falling back against the pharynx.",
+    )
+    flashcard35= Flashcard(
+        topicId=1,
+        userId=3,
+        question="What is the major function of the lower airway?",
+        answer="To exchange oxygen and carbon dioxide through a process called diffusion.",
+    )
+    flashcard36= Flashcard(
+        topicId=1,
+        userId=5,
+        question="Rapid breathing is found in what stage of shock?",
+        answer="Compensated",
+    )
+    flashcard37= Flashcard(
+        topicId=1,
+        userId=6,
+        question="How would you ventilate a patient using a BVM?",
+        answer="With just enough air to make the chest rise",
+    )
+    flashcard38= Flashcard(
+        topicId=1,
+        userId=7,
+        question="Your patient has a distended abdomen which you know can disrupt proper movement of the diaphragm and lead to?",
+        answer="Hypoventilation",
+    )
+    flashcard39= Flashcard(
+        topicId=1,
+        userId=8,
+        question="A 6 year old girl was found outside in her yard unconscious. She is breathing 6 breaths a minute and her pulse is 58 bpm with poor systematic perfusion. What should you do?",
+        answer="Initiate chest compressions and assist ventilations with high flow O2",
+    )
+    flashcard40= Flashcard(
+        topicId=1,
+        userId=1,
+        question="Your patient is an 8 year old girl who fell from a swing and hit her head. She has a pulse but is not breathing. Your ventilations should include what?",
+        answer="Breaths at a rate of 12-20",
+    )
+    flashcard41= Flashcard(
+        topicId=1,
+        userId=7,
+        question="The Pediatric Assessment Triangle is a visual assessment used to check the child's ____________, ____________, _____________.",
+        answer="1. appearance 2. work of breathing 3. circulation to the skin before using a hands on assessment.",
+    )
+    flashcard42= Flashcard(
+        topicId=1,
+        userId=7,
+        question="Very little of the epinephrine is dispensed from the auto injector during administration, approximately _____ % stays inside the auto injector.",
+        answer="80-90% stays inside the auto injector, where as only 10-20% gets injected into the body.",
+    )
+    flashcard43= Flashcard(
+        topicId=1,
+        userId=6,
+        question="The average tidal volume for an adult is _______ - _________mL",
+        answer="500 mL - 600 mL.",
+    )
+    flashcard44= Flashcard(
+        topicId=1,
+        userId=4,
+        question="As a person inhales, the diaphragm will?",
+        answer="Contract and create a negative pressure drawing air into the lungs",
+    )
+    flashcard45= Flashcard(
+        topicId=1,
+        userId=2,
+        question="Belly breathing is normal for ___________",
+        answer="Infants and young children",
+    )
+    
+    
 
 
 
@@ -259,6 +333,18 @@ def seed_flashcards():
     db.session.add(flashcard31)
     db.session.add(flashcard32)
     db.session.add(flashcard33)
+    db.session.add(flashcard34)
+    db.session.add(flashcard35)
+    db.session.add(flashcard36)
+    db.session.add(flashcard37)
+    db.session.add(flashcard38)
+    db.session.add(flashcard39)
+    db.session.add(flashcard40)
+    db.session.add(flashcard41)
+    db.session.add(flashcard42)
+    db.session.add(flashcard43)
+    db.session.add(flashcard44)
+    db.session.add(flashcard45)
     
 
     db.session.commit()

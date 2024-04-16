@@ -46,7 +46,7 @@ const Flashcards = ({ searchBar }) => {
         const fetchFlashcards = async () => {
             const response = await dispatch(loadFlashcards(currentPage));
             if (response) {
-                setTotalPages(Math.ceil(response.total / 20));
+                setTotalPages(Math.ceil(response.total / 24));
             }
         };
     

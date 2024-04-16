@@ -21,7 +21,7 @@ def all_flashcards():
     """
 
     page = request.args.get('page', 1, type=int)
-    per_page = request.args.get('size', 20, type=int)
+    per_page = request.args.get('size', 24, type=int)
     paginated_flashcards = Flashcard.query.paginate(page=page, per_page=per_page, error_out=False)
     flashcards = paginated_flashcards.items
 
