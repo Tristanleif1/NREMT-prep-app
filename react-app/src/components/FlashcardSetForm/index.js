@@ -81,7 +81,7 @@ const FlashcardSetForm = () => {
             <form className="flashcard-set-form" onSubmit={handleSubmit}>
                 <label className='label-class'>
                     Title:
-                    <input type="text" className='title-field' value={formData.title} onChange={handleTitleChange}/>
+                    <input type="text" id='flashcard-s-form' className='title-field' value={formData.title} onChange={handleTitleChange}/>
                     {errors?.title && <div className='set-error-validation'>{errors?.title}</div> }
                 </label>
 
@@ -90,7 +90,8 @@ const FlashcardSetForm = () => {
                         {['question', 'answer'].map(field => (
                             <label key={field}>
                                 {`${field.charAt(0).toUpperCase() + field.slice(1)} ${idx + 1}:`}
-                                <input 
+                                <input
+                                    id="flashcard-s-form" 
                                     type="text" 
                                     value={flashcard[field]} 
                                     onChange={(e) => handleFlashcardAddition(e, idx, field)}

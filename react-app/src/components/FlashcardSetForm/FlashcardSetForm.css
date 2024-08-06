@@ -28,7 +28,7 @@
     font-size: 1.1em;
 }
 
-input[type="text"] {
+#flashcard-s-form input[type="text"] {
     width: 97%;
     padding: 8px;
     margin-bottom: 20px;
