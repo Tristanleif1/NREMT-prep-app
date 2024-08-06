@@ -17,15 +17,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
     /* Removed the transform property */
 }
 
 .label-class {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     margin-bottom: 8px;
     color: #333;
     font-size: 1.1em;
+    gap: 10px
 }
 
 #flashcard-s-form input[type="text"] {
@@ -70,11 +74,15 @@ button:hover {
 .set-error-validation {
     color: red;
     font-size: 14px;
-    width: 100%;
+    width: auto;
     text-align: center; /* Centering error validation message */
     margin-top: 5px;
 }
 
 .question-answer-label label {
     color: black; /* setting the color to black */
+}
+
+.question-answer-label {
+    gap: 5px;
 }
