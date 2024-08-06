@@ -84,7 +84,7 @@ function App() {
             <MyQuizzes />
           </Route>
           <Route path="/login" >
-            <LoginFormModal/>
+            <LoginFormPage/>
           </Route>
           <Route path="/signup">
             <SignupFormModal />

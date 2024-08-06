@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { CiMail, CiLock } from "react-icons/ci";
 import './LoginFormPage.css';
 
 function LoginFormPage() {
@@ -28,35 +29,51 @@ function LoginFormPage() {
 
   return (
     <div className="login-form-container">
-      <h1 className="login-form-title">Log In</h1>
-      <form onSubmit={handleSubmit} className="login-form">
+      <form onSubmit={handleSubmit} className="login-form-page">
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
         </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="login-input login-input-email"
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="login-input login-input-password"
-          />
-        </label>
-        <button type="submit" className="login-btn login-btn-submit">Log In</button>
-        <button type="button" className="login-btn login-btn-demo" onClick={handleDemo}>
+        <h1>Log In</h1>
+          <div className="login-form-page-email">
+            <label htmlFor="email" className="email-label">Email</label>
+            <div className="login-page-email-for-icon">
+              <CiMail className="login-email-icon" />
+              <input
+                type="text"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="login-input-email"
+                placeholder="Email"
+                style={{ paddingLeft: "30px" + (email ? "20px" : "")}}
+              />
+            </div>
+          </div>
+        <div className="login-form-page-password">
+          <div className="login-page-password">
+            <label htmlFor="password" className="password-label">Password</label>
+            <CiLock className="signup-lock-sign" />
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="login-input-password"
+              style={{ paddingLeft: "30px" + (password ? "20px" : "")}}
+            />
+          </div>
+        </div>
+        <p className="login-form-signup-button">
+          Don't have an account?
+          <a href="/signup">   Sign up here!</a>
+        </p>
+          <button type="submit" className="login-btn-submit">Log In</button>
+          <button type="button" className="login-btn-demo" onClick={handleDemo}>
             Demo User
         </button>
       </form>
