@@ -1,13 +1,16 @@
 .quiz-form-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 50%;
+    margin: auto;
     padding: 20px;
 }
 
 .quiz-form {
     width: 100%;
-    max-width: 550px; 
+    max-width: 600px; 
     margin: auto;
     padding: 20px;
     background-color: #ADD8E6;
@@ -25,7 +28,6 @@
 .quiz-option-label {
     justify-content: center;
     align-items: center;
-    margin-left: 66px;
 }
 .question-block {
     display: flex;
@@ -33,16 +35,22 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    gap: 5px;
 }
 
 .quiz-form .quiz-title-input,
-.quiz-form .quiz-option-input,
 .quiz-form .quiz-correct-answer-input {
     width: 80%; 
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.quiz-option-input {
+    border: none;
+    width: 100%;
+    padding: 10px;
 }
 
 .quiz-form .quiz-question-input{
@@ -97,15 +105,21 @@
 .correct-answer-label{
     justify-content: center;
     align-items: center;
-    margin-left: 40px;
 }
 
-.quiz-title-input{
+/* .quiz-title-input{
     margin-left: 50px;
-}
+} */
 
-.quiz-title-label {
-    margin-left: 240px;
+/* .quiz-title-label {
+ margin: auto;
+} */
+
+.quiz-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .delete-question-icon {
@@ -115,4 +129,24 @@
     cursor: pointer;
     color: red;
     font-size: 20px;
+}
+
+/* .quiz-form-label {
+    margin: 0 auto;
+} */
+
+.option-label-and-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.correct-label-and-answer-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
