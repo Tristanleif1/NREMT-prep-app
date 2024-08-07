@@ -505,6 +505,104 @@ def seed_flashcards():
         question="What is the magic cure for low BP in Supine Hypotension Syndrome?",
         answer="Turn female on her left side",
     )
+    flashcard81= Flashcard(
+        topicId=2,
+        userId=5,
+        question="What is the time frame in which cardiogenic shock can occur after an acute myocardial infarction (AMI)?",
+        answer="Cardiogenic shock is a condition in which the heart suddenly cannot pump enough blood to meet the demands of the body. It typically occurs within 24 hours of an AMI. It is important to know the signs and symptoms of cardiogenic shock, as without prompt treatment it often proves fatal.",
+    )
+    flashcard82= Flashcard(
+        topicId=2,
+        userId=7,
+        question="____ is when the heart muscles are not strong enough to accomplish the job of pumping blood throughout the body.",
+        answer="Congestive Heart Failure (CHF)"
+    )
+    flashcard83= Flashcard(
+        topicId=2,
+        userId=8,
+        question="Compare acute myocardial infarction and dissecting aortic aneurysm pain.",
+        answer="Acute myocardial infarction pain feels like tightness/pressure, while dissecting aortic aneurysm pain is a ripping/tearing sensation."
+    )
+    flashcard84= Flashcard(
+        topicId=2,
+        userId=4,
+        question="Vital signs should be assessed at least every ____ minutes for a patient in unstable condition.",
+        answer="Close observation of vital signs allows for timely action if the patient status declines. The caregiver must maintain frequent and realistic monitoring and should not let too much time pass between measurements or critical care outcome markers, or next step actions will be missed."
+    )
+    flashcard85= Flashcard(
+        topicId=2,
+        userId=1,
+        question="When a patient has an oxygen saturation below 94%, between what levels should you titrate the oxygen?",
+        answer="The patient whose pulse oximetry is below 94% will require support and assistance. Delivering oxygen at a 95-99% level would be appropriate for these patients. Adequate oxygen levels are needed to support the body’s blood oxygen delivery to organs and tissues. Use of a nasal cannula or nonrebreathing mask will need to be determined based on severity of shortness of breath (SOB)."
+    )
+    flashcard86= Flashcard(
+        topicId=2,
+        userId=5,
+        question="Which could be a reason that acetylsalicylic acid (ASA) was not administered to a patient in a cardiovascular emergency?",
+        answer="all of these"
+    )
+    flashcard87= Flashcard(
+        topicId=2,
+        userId=6,
+        question="An EMT is asked by a patient to help administer his prescribed nitroglycerin tablet. Which of the following is most appropriate?",
+        answer="Apply gloves, check the medication expiration date, verify the prescription ownership, and help administer the medication."
+    )
+    flashcard88= Flashcard(
+        topicId=2,
+        userId=9,
+        question="The administration of nitroglycerin by an EMT requires direction from medical control or a standing order, but which of these should you immediately note as a contraindication for the administration of this drug?",
+        answer="patient taking medication for erectile dysfunction"
+    )
+    flashcard89= Flashcard(
+        topicId=2,
+        userId=9,
+        question="Select the most accurate list of precautions/contraindications for use with nitroglycerin.",
+        answer="use of erectile dysfunction drugs, head injury, and systolic blood pressure under 100mmHg"
+    )
+    flashcard90= Flashcard(
+        topicId=2,
+        userId=3,
+        question="What is the maximum dosage frequency and time frame for nitroglycerin administration for one chest pain incident?",
+        answer="3 doses, allowing 5 minutes in between doses."
+    )
+    flashcard91= Flashcard(
+        topicId=2,
+        userId=4,
+        question="The EMT appears on the scene of an adult patient in a cardiac emergency. The patient is unconscious and does not have a pulse. An AED is required and needs to be applied to the patient. Which of the following findings must the EMT address before applying the AED pads?",
+        answer="The patient is found outside in the rain."
+    )
+    flashcard92= Flashcard(
+        topicId=2,
+        userId=2,
+        question="What specific measures are taken for a patient experiencing symptoms of an acute myocardial infarction (AMI) who also has a history of heart bypass or an internal defibrillator?",
+        answer="Implement the same measures as for any patient with AMI symptoms."
+    )
+    flashcard93= Flashcard(
+        topicId=2,
+        userId=6,
+        question="You come on the scene of a 2-year-old patient with her grandparents. The child has no pulse, is unresponsive, and does not have a history of heart problems. No CPR has been initiated. Select the best option for the next steps.",
+        answer="Begin CPR and attach an AED."
+    )
+    flashcard94= Flashcard(
+        topicId=2,
+        userId=7,
+        question="Identify the sequential links of the chain of survival for cardiac emergencies.",
+        answer="Identify early warning signs and activate EMS, CPR, AED use, basic and advanced EMS, ALS, and post-arrest car"
+    )
+    flashcard95= Flashcard(
+        topicId=2,
+        userId=10,
+        question="If your AED says, “no shock advised” because the patient’s rhythm is asystole, what is your immediate next step?",
+        answer="Begin CPR, starting with compressions."
+    )
+    flashcard96= Flashcard(
+        topicId=2,
+        userId=10,
+        question="You encounter a 4-month-old infant in cardiac arrest of unknown cause. Of the following options, which defibrillator is the preferred EMS option?",
+        answer="AED with pediatric dose attenuator"
+    )
+
+
     
 
     
@@ -591,6 +689,22 @@ def seed_flashcards():
     db.session.add(flashcard78)
     db.session.add(flashcard79)
     db.session.add(flashcard80)
+    db.session.add(flashcard81)
+    db.session.add(flashcard82)
+    db.session.add(flashcard83)
+    db.session.add(flashcard84)
+    db.session.add(flashcard85)
+    db.session.add(flashcard86)
+    db.session.add(flashcard87)
+    db.session.add(flashcard88)
+    db.session.add(flashcard89)
+    db.session.add(flashcard90)
+    db.session.add(flashcard91)
+    db.session.add(flashcard92)
+    db.session.add(flashcard93)
+    db.session.add(flashcard94)
+    db.session.add(flashcard95)
+    db.session.add(flashcard96)
 
     
 
