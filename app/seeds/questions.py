@@ -184,6 +184,201 @@ def seed_questions():
         option4="Black zone",
         correct_answer="Hot zone"
     )
+    question21 = Question(
+        quizId=3,
+        question="Which of these is the most likely indication of a head injury?",
+        option1="unequal pupil dilation",
+        option2="eye hyphema",
+        option3="epistaxis",
+        option4="impaled object in scapula",
+        correct_answer="unequal pupil dilation"
+    )
+    question22 = Question(
+        quizId=3,
+        question="Select the safest method for handling a patient with an impaled object in the thigh.",
+        option1="Hold pressure around the site with sterile gauze, carefully remove the object and apply an occlusive dressing.",
+        option2="Stabilize the impaled object with bulky dressing; do not remove the object.",
+        option3="Only remove impaled objects that are in the mouth.",
+        option4="Complete patient assessment and, if stable, hold pressure with sterile gauze, carefully remove the object, and apply pressure dressing.",
+        correct_answer="Stabilize the impaled object with bulky dressing, do not remove the object"
+    )
+    question23 = Question(
+        quizId=3,
+        question="The best method to care for a non-traumatic nosebleed is to put the ____.",
+        option1="patient in an upright sitting position, head backward, and ice pack to the forehead.",
+        option2="patient in an upright sitting position, head tilted slightly back, and pinch nostrils.",
+        option3="patient in a sidelying position and pinch nostrils.",
+        option4="patient in an upright sitting position, head forward, and pinch nostrils.",
+        correct_answer="patient in an upright sitting position, head forward, and pinch nostrils"
+    )
+    question24 = Question(
+        quizId=3,
+        question="What type of injury should be suspected when the patient presents with “raccoon eyes”?",
+        option1="mandibular fracture",
+        option2="epistaxis",
+        option3="skull injury or fracture",
+        option4="rupture of tympanic membranes",
+        correct_answer="skull injury or fracture"
+    )
+    question25 = Question(
+        quizId=3,
+        question="Select the best technique or device to use if extremity bleeding does not stop with pressure.",
+        option1="limb elevation with pressure dressing",
+        option2="occlusive dressing over a pressure dressing with limb elevation",
+        option3="tourniquet with limb elevation",
+        option4="tourniquet",
+        correct_answer="tourniquet"
+    )
+    question26 = Question(
+        quizId=3,
+        question="What does the acronym HAPE mean?",
+        option1="high-atmosphere pulmonary edema",
+        option2="high-atmosphere physical exposure",
+        option3="high-altitude pulmonary edema",
+        option4="high-altitude pulmonary ecchymosis",
+        correct_answer="high-altitude pulmonary edema"
+    )
+    question27 = Question(
+        quizId=3,
+        question="What is the first step to consider in the process of caring for a patient in extreme cold with exposure?",
+        option1="Assess MOI and begin warming the patient.",
+        option2="Check the patient’s airway and stabilize.",
+        option3="Prepare to prevent personal harm from cold exposure",
+        option4="Obtain the patient’s temperature and begin warming the patient.",
+        correct_answer="Prepare to prevent personal harm from cold exposure."
+    )
+    question28 = Question(
+        quizId=3,
+        question="During the physical assessment of a patient with chest injuries, you palpate the chest and feel crepitus. What does this indicate?",
+        option1="lack of blood flow",
+        option2="pulmonary embolism",
+        option3="bones grinding together",
+        option4="pulmonary hematoma",
+        correct_answer="bones grinding together"
+    )
+    question29 = Question(
+        quizId=3,
+        question="A patient who experiences a loss of consciousness caused by a decreased stimulus for breathing while swimming in shallow water may have experienced ____.",
+        option1="fatigue syndome",
+        option2="decompression sickness",
+        option3="a near drowning episode",
+        option4="breath-holding syncope",
+        correct_answer="breath-holding syncope"
+    )
+    question30 = Question(
+        quizId=3,
+        question="Which of these is not true about assessing for internal injuries and bleeding?",
+        option1="Bleeding from any body opening is a serious indicator of internal bleeding from injuries.",
+        option2="Bruising and swelling may not be seen immediately after an internal injury.",
+        option3="Bruising and swelling are indicators of possible internal bleeding from injuries.",
+        option4="Pain is usually not an indicator of internal bleeding from injuries.",
+        correct_answer="Pain is usually not an indicator of internal bleeding from injuries."
+    )
+    question31 = Question(
+        quizId=4,
+        question="What is the best description of the National Incident Management System (NIMS)?",
+        option1="NIMS is used to prevent incidents from occurring.",
+        option2="NIMS is the command structure to dictate an emergency response.",
+        option3="NIMS provides a framework for the federal government to take responsibility for an incident.",
+        option4="NIMS provides guidelines and common terms to allow multiple agencies to work together.",
+        correct_answer="NIMS provides guidelines and common terms to allow multiple agencies to work together."
+    )
+    question32 = Question(
+        quizId=4,
+        question="What is the advantage of using the Incident Command System (ICS)?",
+        option1="The ICS provides a framework to enable federal, state, and local governments, as well as private sector and nongovernmental organizations, to work together effectively.",
+        option2="The ICS provides common guidelines for responding to an incident.",
+        option3="The ICS is a rigid structure to establish command over an incident..",
+        option4="The ICS gives you a modular organizational structure that can be applied to incidents of all sizes.",
+        correct_answer="The ICS gives you a modular organizational structure that can be applied to incidents of all sizes."
+    )
+    question33 = Question(
+        quizId=4,
+        question="What is the term for an incident with three or more patients or one that places great demand on the EMS system?",
+        option1="Multiple Response Incident(MRI)",
+        option2="Multiple Victim Incident.",
+        option3="Mass-Casualty Incident",
+        option4="Triage",
+        correct_answer="Mass Casualty Incident."
+    )
+    question34 = Question(
+        quizId=4,
+        question="What is triage?",
+        option1="a method of sorting patients based on their severity of injury",
+        option2="a method to determine how fast to transport a patient",
+        option3="a method of bandaging a wound",
+        option4="a method to determine how many personnel to care for a patient",
+        correct_answer="a method of sorting patients based on their severity of injury"
+    )
+    question35 = Question(
+        quizId=4,
+        question="What is the name of the reference used to determine the initial response to a Hazardous Materials (HazMat) incident?",
+        option1="the Safety Data Sheet",
+        option2="the Shipping Paper",
+        option3="CHEMTREC",
+        option4="the DOT Emergency Response Guide",
+        correct_answer="the DOT Emergency Response Guide"
+    )
+    question36 = Question(
+        quizId=4,
+        question="Where is an ambulance most likely to be involved in a traffic accident?",
+        option1="at an intersection",
+        option2="in a school zone",
+        option3="on the freeway",
+        option4="three miles from the station",
+        correct_answer="at an instersection"
+    )
+    question37 = Question(
+        quizId=4,
+        question="Who is responsible for the daily inspection of an ambulance?",
+        option1="the government licensing authority",
+        option2="the staff assigned to the vehicle for that shift",
+        option3="the staff who last used the vehicle",
+        option4="the chief or supervisor",
+        correct_answer="the staff assigned to the vehicle for that shift"
+    )
+    question38 = Question(
+        quizId=4,
+        question="Upon arrival on a scene, your first responsibility after BSI and PPE is to ____.",
+        option1="gown/glove up for patient care",
+        option2="size-up the scene",
+        option3="begin care of the patient",
+        option4="evaluate for spinal immobilization",
+        correct_answer="size-up the scene"
+    )
+    question39 = Question(
+        quizId=4,
+        question="When cleaning an ambulance, what mixture of bleach to water is recommended?",
+        option1="Bleach is not recommended. Use only an FDA approved chemical.",
+        option2="1:5 dilution bleach to water",
+        option3="1:2 dilution bleach to wate",
+        option4="1:10 to 1:100 dilution bleach to water",
+        correct_answer="1:10 to 1:100 dilution bleach to water"
+    )
+    question40 = Question(
+        quizId=4,
+        question="Which of these procedures are necessary in preparation for an ambulance call?",
+        option1="checking supplies for expired and missing items and replacing them, when needed",
+        option2="familiarizing yourself with the operating area and facilities you will transport to and from",
+        option3="checking the equipment and vehicle for proper operation",
+        option4="all of these",
+        correct_answer="all of these"
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     db.session.add(question1)
     db.session.add(question2)
@@ -205,6 +400,29 @@ def seed_questions():
     db.session.add(question18)
     db.session.add(question19)
     db.session.add(question20)
+    db.session.add(question21)
+    db.session.add(question22)
+    db.session.add(question23)
+    db.session.add(question24)
+    db.session.add(question25)
+    db.session.add(question26)
+    db.session.add(question27)
+    db.session.add(question28)
+    db.session.add(question29)
+    db.session.add(question30)
+    db.session.add(question31)
+    db.session.add(question32)
+    db.session.add(question33)
+    db.session.add(question34)
+    db.session.add(question35)
+    db.session.add(question36)
+    db.session.add(question37)
+    db.session.add(question38)
+    db.session.add(question39)
+    db.session.add(question40)
+
+
+
     db.session.commit()
 
 

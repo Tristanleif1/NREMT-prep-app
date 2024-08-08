@@ -5,6 +5,7 @@ from .flashcard_sets import seed_flashcard_sets, undo_flashcard_sets
 from .quizzes import seed_quizzes, undo_quizzes
 from .questions import seed_questions, undo_questions
 from .topics import seed_topics, undo_topics
+from .flashcards2 import seed_flashcards2, undo_flashcards2
 
 from app.models.db import db, environment, SCHEMA
 
@@ -25,12 +26,14 @@ def seed():
         undo_topics()
         undo_flashcard_sets()
         undo_flashcards()
+        undo_flashcards2()
         undo_quizzes()
         undo_questions()
     seed_users()
     seed_topics()
     seed_flashcard_sets()
     seed_flashcards()
+    seed_flashcards2()
     seed_quizzes()
     seed_questions()
     # Add other seed functions here
@@ -43,6 +46,7 @@ def undo():
     undo_topics()
     undo_flashcard_sets()
     undo_flashcards()
+    undo_flashcards2()
     undo_quizzes()
     undo_questions()
     # Add other undo functions here

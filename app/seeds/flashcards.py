@@ -601,11 +601,35 @@ def seed_flashcards():
         question="You encounter a 4-month-old infant in cardiac arrest of unknown cause. Of the following options, which defibrillator is the preferred EMS option?",
         answer="AED with pediatric dose attenuator"
     )
-
-
     
 
     
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -705,7 +729,6 @@ def seed_flashcards():
     db.session.add(flashcard94)
     db.session.add(flashcard95)
     db.session.add(flashcard96)
-
     
 
     db.session.commit()
