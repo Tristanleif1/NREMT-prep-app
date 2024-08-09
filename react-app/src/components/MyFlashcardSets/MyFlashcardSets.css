@@ -13,15 +13,19 @@
 }
 
 .flashcard-set {
-    border: 1px solid #ccc;
     border-radius: 15px; /* Slight border radius */
-    background-color: white;
+    background-color: #2e3856;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 150ms, box-shadow 150ms;
     cursor: pointer;
     height: 150px;
     width: 250px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    margin: 20px 0;
 }
 
 .flashcard-set:hover{
@@ -32,11 +36,13 @@
 .flashcard-set h3 {
     margin: 0;
     font-size: 1.2rem;
+    color: #D9DDE8;
 }
 
 .flashcard-set p {
     margin: 10px 0;
     font-size: 1rem;
+    color: #D9DDE8;
 }
 
 .username {

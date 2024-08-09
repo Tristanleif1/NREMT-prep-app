@@ -245,13 +245,22 @@ h2 {
 }
 
 .individual-quiz {
+    margin: 20px 0;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 15px; 
-    background-color: white;
+    background-color: #2e3856;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 150ms, box-shadow 150ms;
     cursor: pointer;
+    height: 150px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.individual-quiz h3 {
+    color: #D9DDE8;
 }
 
 .individual-quiz:hover{
