@@ -6,6 +6,7 @@ import { loadFlashcardSets } from '../../store/flashcardSet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import './Flashcards.css';
+import '../MyFlashcardSets/MyFlashcardSets.css';
 import Footer from '../Footer';
 
 const Flashcards = ({ searchBar }) => {

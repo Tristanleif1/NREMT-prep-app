@@ -19,6 +19,14 @@ function ProfileButton({ user }) {
     setShowMenu(false);
   };
 
+  const handleLoginClick = () => {
+    history.push('/login')
+  }
+
+  const handleSignUp = () => {
+    history.push('/signup')
+  }
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -80,17 +88,8 @@ function ProfileButton({ user }) {
         ) : (
           <>
           <div className="signup-login">
-            <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
+            <button onClick={handleLoginClick}>Log In</button>
+            <button onClick={handleSignUp}>Sign Up</button>
             <button onClick={handleDemo}>Demo User</button>
             </div>
           </>

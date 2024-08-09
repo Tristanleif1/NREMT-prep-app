@@ -31,6 +31,7 @@
 
   .login-form-page > h1 {
     text-align: center;
+    color: #5c6bc0;
   }
 
   .login-form-page-email {
@@ -70,6 +71,10 @@
   
   .login-form-signup-button {
     text-align: center;
+  }
+
+  .login-form-signup-button a {
+    color:#5c6bc0;
   }
   
   .login-form ul {
