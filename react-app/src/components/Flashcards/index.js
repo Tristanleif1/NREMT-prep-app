@@ -119,6 +119,8 @@ const Flashcards = ({ searchBar }) => {
     const goToPreviousPage = () => setCurrentPage(currentPage => Math.max(1, currentPage - 1))
     const goToNextPage = () => setCurrentPage(currentPage => Math.min(totalPages, currentPage + 1))
 
+    const isFlashcardsOrAllSelected = selectedOption === 'flashcards' || selectedOption === 'all';
+
     return (
        <>
        <div className='flashcard-container'>
@@ -134,12 +136,16 @@ const Flashcards = ({ searchBar }) => {
             </select>
             </div>
             <div className='pagination-controls'> 
-                <button className='shuffle-button' onClick={randomizeFlashcards}>Shuffle</button>
-                <div className='page-navigator-container'>
-                    <button className='pagination-button' onClick={goToPreviousPage} disabled={currentPage === 1}> <FontAwesomeIcon icon={faArrowLeft}/></button>
-                    <span>Page {currentPage} of {totalPages}</span>
-                    <button className='pagination-button' onClick={goToNextPage} disabled={currentPage === totalPages}><FontAwesomeIcon icon={faArrowRight}/></button>
-                </div>
+                {isFlashcardsOrAllSelected && (
+                    <>
+                        <button className='shuffle-button' onClick={randomizeFlashcards}>Shuffle</button>
+                        <div className='page-navigator-container'>
+                            <button className='pagination-button' onClick={goToPreviousPage} disabled={currentPage === 1}> <FontAwesomeIcon icon={faArrowLeft}/></button>
+                            <span>Page {currentPage} of {totalPages}</span>
+                            <button className='pagination-button' onClick={goToNextPage} disabled={currentPage === totalPages}><FontAwesomeIcon icon={faArrowRight}/></button>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
         {(selectedOption === 'flashcards' || selectedOption === "all") && (
