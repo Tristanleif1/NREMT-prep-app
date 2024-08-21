@@ -23,9 +23,21 @@ const Flashcards = ({ searchBar }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [flashcards, setFlashcards] = useState([])
+
 
     const handleOptionSwitch = (e) => {
         setSelectedOption(e.target.value)
+    }
+
+    const randomizeFlashcards = () => {
+        const arrOfFlashcards = [...flashcards]
+        for(let i = arrOfFlashcards.length - 1; i > 0; i--){
+            let j = Math.floor(Math.random() * (i + 1));
+            [arrOfFlashcards[i], arrOfFlashcards[j]] = [arrOfFlashcards[j], arrOfFlashcards[i]]
+
+        }
+        setFlashcards(arrOfFlashcards)
     }
 
     const renderFlashcardColor = (topicId) => {
@@ -47,8 +59,10 @@ const Flashcards = ({ searchBar }) => {
         const fetchFlashcards = async () => {
             const response = await dispatch(loadFlashcards(currentPage));
             if (response) {
+                setFlashcards(response.flashcards);
                 setTotalPages(Math.ceil(response.total / 24));
             }
+
         };
     
         fetchFlashcards();
@@ -56,7 +70,9 @@ const Flashcards = ({ searchBar }) => {
     }, [currentPage, dispatch]);
 
 
-    const flashcards = useSelector(state => Object.values(state.flashcard))
+    // const flashcards = useSelector(state => Object.values(state.flashcard))
+    // randomizeFlashcards(flashcards)
+    // console.log(flashcards);
     const flashcardSets = useSelector(state => Object.values(state.flashcardSet))
 
     const filteredFlashcards = searchBar ? flashcards.filter(flashcard =>
@@ -117,10 +133,13 @@ const Flashcards = ({ searchBar }) => {
                 <option value="all">All</option>
             </select>
             </div>
-            <div className='pagination-controls'> {/* Pagination Controls */}
-                <button onClick={goToPreviousPage} disabled={currentPage === 1}> <FontAwesomeIcon icon={faArrowLeft}/></button>
-                <span>Page {currentPage} of {totalPages}</span>
-                <button onClick={goToNextPage} disabled={currentPage === totalPages}><FontAwesomeIcon icon={faArrowRight}/></button>
+            <div className='pagination-controls'> 
+                <button className='shuffle-button' onClick={randomizeFlashcards}>Shuffle</button>
+                <div className='page-navigator-container'>
+                    <button className='pagination-button' onClick={goToPreviousPage} disabled={currentPage === 1}> <FontAwesomeIcon icon={faArrowLeft}/></button>
+                    <span>Page {currentPage} of {totalPages}</span>
+                    <button className='pagination-button' onClick={goToNextPage} disabled={currentPage === totalPages}><FontAwesomeIcon icon={faArrowRight}/></button>
+                </div>
             </div>
         </div>
         {(selectedOption === 'flashcards' || selectedOption === "all") && (
