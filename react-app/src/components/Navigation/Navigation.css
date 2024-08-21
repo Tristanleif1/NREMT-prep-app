@@ -149,6 +149,13 @@ a {
     margin-right: 20px;
     font-weight: bold;
     position: relative; 
+    transition: 200ms cubic-bezier(0.08,0.52,0.52,1);
+    /* transition: 200ms cubic-bezier(0.08,0.52,0.52,1); */
+}
+
+.create-flashcard:hover, .create-flashcard-set:hover, .create-quiz:hover {
+  /* transition: 200ms cubic-bezier(0.08,0.52,0.52,1); */
+  color: lightblue;
 }
 
 .create-quiz{
@@ -160,6 +167,7 @@ a {
   position: relative;
   text-decoration: none;
   background-color: transparent;
+  transition: 200ms cubic-bezier(0.08,0.52,0.52,1);
 }
 
 /* .logged-out-create-quiz{
@@ -244,7 +252,7 @@ margin-right: 30px;
 .create-flashcard a::after, .create-flashcard-set a::after, .create-quiz a::after{
     content: '';
     height: 2px;
-    background-color: #7583ff;
+    /* background-color: #7583ff; */
     position: absolute;
     bottom: -10px;
     left: 0;
