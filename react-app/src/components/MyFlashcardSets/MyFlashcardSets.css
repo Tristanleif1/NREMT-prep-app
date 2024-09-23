@@ -50,17 +50,18 @@
     font-size: 0.9rem;
 }
 
-.trash-icon {
-    position: absolute;
+.trash-icon-flashcardset {
+    /* position: absolute;
     top: 10px;
-    right: 10px;
+    right: 10px; */
     cursor: pointer;
     transition: 0.3s ease;
+    /* border: 1px solid #D9DDE8; */
 }
 
-.trash-icon:hover{
+.trash-icon-flashcardset:hover{
     transform: scale(1.10);
-    border-color: black
+    border-color: #D9DDE8
 }
 
 .set-edit-icon {

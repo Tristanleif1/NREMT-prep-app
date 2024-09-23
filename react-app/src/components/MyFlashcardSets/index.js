@@ -47,7 +47,7 @@ const MyFlashcardSets = () => {
                         <h3>{set.title}</h3>
                         <p>{set.flashcards?.length} questions</p>
                         <p className='username'>{set?.user?.username}</p>
-                        <div className="trash-icon" onClick={(e) => handleDelete(set.id, e)}>
+                        <div className="trash-icon-flashcardset" onClick={(e) => handleDelete(set.id, e)}>
                         🗑️
                     </div>
                     <div className='set-edit-icon' onClick={(e) => {
