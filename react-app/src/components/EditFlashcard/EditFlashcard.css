@@ -1,0 +1,63 @@
+.flashcard-form {
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    transform: translateY(30%);
+    border-radius: 25px;
+}
+
+.flashcard-form > div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows each div to grow and fill the space */
+    margin-bottom: 20px; /* Consistent margin for all divs */
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.update-button {
+    background-color: #0056b3 !important;
+    color: #fff !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 15px !important;
+    width: 100% !important;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.error-validation {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+
+
+#flashcard-question, #flashcard-input{
+    width: 100% !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+    border: 1px solid #ddd !important;
+    font-size: 16px !important;
+}
+
+.topic-select{
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}          

@@ -88,7 +88,7 @@ const EditQuizForm = () => {
     return (
         <div className="quiz-form-container">
             <form className="quiz-form" onSubmit={handleSubmit}>
-                <div>
+                <div className="quiz-title-wrapper">
                     <label className='quiz-title-label'>Quiz Title</label>
                     <input className='quiz-title-input' type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
                     {errors?.title && <div className="error-validation">{errors?.title}</div>}
@@ -112,7 +112,7 @@ const EditQuizForm = () => {
                         {errors?.[`question${index}`] && <div className="error-validation">{errors[`question${index}`]}</div>}
 
                         {['option1', 'option2', 'option3', 'option4'].map(option => (
-                            <div key={option}>
+                            <div className="option-label-and-input-container" key={option}>
                                 <label className='quiz-option-label'>{`Option ${option.charAt(option.length - 1)}`}</label>
                                 <input 
                                     className='quiz-option-input'
@@ -124,7 +124,7 @@ const EditQuizForm = () => {
                             </div>
                         ))}
 
-                        <div>
+                        <div className="correct-label-and-answer-wrapper">
                             <label className='correct-answer-label'>Correct Answer</label>
                             <input 
                                 className='quiz-correct-answer-input'

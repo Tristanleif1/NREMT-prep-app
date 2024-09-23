@@ -5,7 +5,7 @@ import { useHistory, useParams } from "react-router-dom"
 import { Redirect } from "react-router-dom"
 import { updateFlashcard } from "../../store/flashcard";
 import { getSingleFlashcard } from "../../store/flashcard";
-import "../FlashcardForm/FlashcardForm.css"
+import "../EditFlashcard/EditFlashcard.css"
 
 const EditFlashcard = () => {
     const user = useSelector((state => state.session.user));
@@ -79,6 +79,7 @@ const EditFlashcard = () => {
                 <div>
                     <label>Question</label>
                     <input
+                        id="flashcard-question"
                         className="question-input" // added class for styling
                         type="text"
                         value={formData.question}
@@ -90,6 +91,7 @@ const EditFlashcard = () => {
                 <div>
                     <label>Answer</label>
                     <input
+                        id="flashcard-input"
                         className="answer-input" // added class for styling
                         type="text"
                         value={formData.answer}
@@ -98,7 +100,7 @@ const EditFlashcard = () => {
                     {errors?.answer && <div className="error-validation">{errors?.answer}</div>}
                 </div>
 
-                <button type="submit" className="update-button">Update!</button> {/* You might need to add additional styling for this button */}
+                <button className="update-button"type="submit">Update!</button> {/* You might need to add additional styling for this button */}
             </form>
         </div>
     );
