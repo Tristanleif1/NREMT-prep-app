@@ -39,7 +39,8 @@
     border-left: 5px solid #1da1f2;
     width: 80%;
     margin: 10% auto;
-    padding: 1.5rem 2rem;
+    padding: 3rem;
+    /* height: 450px; */
     /* transform: translateY(-20%); */
 }
 
@@ -192,5 +193,15 @@ h1 {
     bottom: 10%;
     top: 1.5%;
     transform: translateX(-5%);
+}
+
+.quiz-buttons {
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: #3c4b96;
+    font-style: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
 }
 

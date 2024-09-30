@@ -9,13 +9,14 @@
     padding-top: 20px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 17px 1px rgba(0, 0, 0, .4);
+    box-shadow: 0 4px 8px #04053a4d;
     border-radius: 16px;
     margin-top: 5%;
+    max-width: 400px;
 }
 
 .signup-modal h1 {
-    color: #444;
+    color: #5c6bc0;
     margin-bottom: 20px;
 }
 

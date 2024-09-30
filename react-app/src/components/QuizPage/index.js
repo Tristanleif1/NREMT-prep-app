@@ -257,9 +257,9 @@ function QuizPage() {
                             <button className="option" onClick={handleAnswerClick}>{currentQuestion.option4}</button>
                         </div>
                         <div className='navigation-buttons'>
-                            <div className='prev-question-button'> {currentQuestionIndex > 0 && <button onClick={goToPrev}>Previous</button>} </div>
-                            <div className='quit-quiz-button'>< button onClick={handleQuitSelect}>Quit</button></div>
-                            <div className='next-question-button'>{currentQuestionIndex < rearrangedQuestions.length - 1 && <button onClick={goToNext}>Next</button>}</div>
+                            <div className='prev-question-button'> {currentQuestionIndex > 0 && <button className="quiz-buttons"onClick={goToPrev}>Previous</button>} </div>
+                            <div className='quit-quiz-button'>< button  className="quiz-buttons"onClick={handleQuitSelect}>Quit</button></div>
+                            <div className='next-question-button'>{currentQuestionIndex < rearrangedQuestions.length - 1 && <button className="quiz-buttons"onClick={goToNext}>Next</button>}</div>
                         </div>
                     </div>
             </div>

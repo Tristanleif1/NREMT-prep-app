@@ -3,10 +3,12 @@ html {
 }
 
 .set-detail-header{
-    color: white;
+    color:white;
+    margin-right: 1.75rem;
 }
 
 .set-detail-page{
+    padding: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,7 +89,10 @@ color: black;
 
 .card-info {
     margin-top: 5rem;
+    display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    margin-right: 1.5rem;
+
 }
