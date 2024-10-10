@@ -319,5 +319,20 @@ margin-right: 30px;
 }
 
 @media screen and (max-width: 1000px){
-  
+  .topic-bar{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 660px){
+  .flashcard-links{
+    display: flex;
+    flex-direction: column;
+  }
+  .search-bar-container{
+    display: none;
+  }
+  .create-quiz-link{
+    display: none;
+  }
 }
