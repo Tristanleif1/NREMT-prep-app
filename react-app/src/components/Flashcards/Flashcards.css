@@ -314,3 +314,12 @@ h2 {
         font-size: 1.2rem !important;
     }
 }
+
+@media screen and (max-width: 600px){
+    .filter-option-container{
+        display: none;
+    }
+    .options-view-label{
+        display: none;
+    }
+}

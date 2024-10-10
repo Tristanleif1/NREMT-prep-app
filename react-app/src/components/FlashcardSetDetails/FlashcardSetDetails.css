@@ -15,31 +15,27 @@ html {
     justify-content: center;
 }
 
-.set-flashcard-section{
-    margin-top: 10px;
-    margin-right: 100px;
-    width: 600px;
-    height: 400px;
-    display: grid;
-    grid-gap: 1rem 0;
-    gap: 1rem 0;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto 1fr;
-    align-items: center;
+.set-flashcard-section {
+    display: flex; /* Ensures consistent alignment across all screen sizes */
+    align-items: center; /* Vertically center the flashcard and arrows */
+    justify-content: space-between; /* Position arrows on the sides of the flashcard */
+    width: 80%; /* Adjust to a relative width for better scaling on larger screens */
+    margin: auto; /* Center the entire section */
+    padding: 0 20px; /* Add some padding to maintain spacing on larger screens */
 }
 
 .set-flashcard-detail {
     background-color: var(--gray-100-gray-700, #f0f0f0);
-    top: 50px;
     border-radius: 0.5rem;
     padding: 1.5rem 2rem;
     margin: auto;
-    width: 600px;
-    height: 400px;;
-    box-shadow: 0 0.25rem 1rem 0 rgba(0,0,0,0.1);
+    width: 600px; /* Keep a fixed width for larger screens */
+    height: 400px;
+    box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.6s;
-    transform: preserve-3d;
+    transform-style: preserve-3d; /* Fixed typo for consistent 3D transform behavior */
+    flex-shrink: 1; /* Allow the flashcard to shrink slightly on smaller screens */
 }
 
 .set-flashcard-detail.set-flipped .set-flip-container .set-front {
@@ -95,4 +91,27 @@ color: black;
     color: white;
     margin-right: 1.5rem;
 
+}
+
+@media screen and (max-width: 700px){
+    .set-flashcard-section{
+        width: 90%;
+        margin-right: 0;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px
+    }
+
+    .set-flashcard-detail{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .change-question-button{
+        flex-shrink: 0
+    }
 }
