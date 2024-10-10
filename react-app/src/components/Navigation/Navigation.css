@@ -71,12 +71,6 @@
 }
 
 
-
-/* .create-flashcard:hover {
-  color: #0b7564;
-  text-decoration: none;
-} */
-
 .signup-login {
   display: flex;
   flex-direction: column;
@@ -120,15 +114,6 @@ a {
   position: relative;
 }
 
-/* .emt-logo img {
-  width: 150px;
-  height: 82px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 10px;
-  position: absolute;
-  bottom: 2px;
-} */
 
 .flashcard-links, .create-quiz-link {
   margin-top: 15px;
@@ -170,13 +155,7 @@ a {
   transition: 200ms cubic-bezier(0.08,0.52,0.52,1);
 }
 
-/* .logged-out-create-quiz{
-  margin-bottom: 5px;
-  color: white;
-  margin-right: 20px;
-  font-weight: bold;
-  transform: translateX(110%);
-} */
+
 
 .create-quiz-link{
 margin-left: auto;
@@ -192,19 +171,6 @@ margin-right: 30px;
   position: relative;
   height: 100%;
 }
-
-/* .create-flashcard:hover::after,
-.create-flashcard-set:hover::after,
-.create-quiz:hover::after {
-    content: '';
-    height: 2px;
-    background-color: #7583ff;
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    right: 0;
-    width: 100%; 
-} */
 
 .topic-bar{
   padding: 0px 10px;
@@ -352,3 +318,6 @@ margin-right: 30px;
  padding-left: 5px;
 }
 
+@media screen and (max-width: 1000px){
+  
+}
