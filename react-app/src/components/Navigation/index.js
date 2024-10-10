@@ -67,7 +67,7 @@ function Navigation({ isLoaded, setSearchBar, searchBar }) {
                             ) : (
                                 <div className="create-flashcard-set">
                                     <NavLink className="create-flashcard" exact to="/login">
-                                        Create a Flashcard
+                                        Create a Flashcard Set
                                     </NavLink>
                                 </div>
                             )}
