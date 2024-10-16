@@ -7,18 +7,54 @@ import "./SignupForm.css";
 
 function SignupFormModal() {
     const dispatch = useDispatch();
-    const [email, setEmail] = useState("");
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [formData, setFormData] = useState({
+        email: "",
+        username: "",
+        password: ""
+    })
+    // const [email, setEmail] = useState("");
+    // const [username, setUsername] = useState("");
+    // const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const [isSubmitting, setIsSubmitting] = useState(false); 
     const { closeModal } = useModal();
 	const history = useHistory();
 
+    const validateEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); 
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (password === confirmPassword) {
+
+        let formErrors = {}
+        if(formData.username < 4){
+            formErrors.username = "Username must be at least 4 characters long"
+        }
+        if(!formData.username){
+            formErrors.username = "Username is required"
+        }
+
+        if(formData.username > 30){
+            formErrors.username = "Username must be less than 30 characters long"
+        }
+
+        if(!validateEmail(formData.email)){
+            formErrors.email = "Please provide a valid email address";
+        }
+
+        if(!formData.password){
+            formErrors.password = "Password is required"
+        }
+
+        if (Object.keys(formErrors).length > 0){
+            setErrors(formErrors);
+            return
+        }
+
+
+        if (formData.password === confirmPassword) {
             setIsSubmitting(true);
             const data = await dispatch(signUp(username, email, password));
             setIsSubmitting(false);
@@ -28,10 +64,10 @@ function SignupFormModal() {
                 closeModal();
 				history.push('/home')
             }
+
         } else {
-            setErrors([
-                "Confirm Password field must be the same as the Password field",
-            ]);
+            formErrors.conPassword = "Confirm Pasword field must be the same as the Password field"
+            setErrors(formErrors)
         }
     };
 
