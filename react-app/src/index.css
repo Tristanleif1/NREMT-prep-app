@@ -5,3 +5,8 @@
     padding: 0;
     font-family: "Open Sans", sans-serif;
   }
+
+  .errors{
+    color: red;
+    font-size: 12px;
+  }
