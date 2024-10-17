@@ -64,3 +64,9 @@
 .signup-form button:hover{
     background-color: #c9302c
 }
+
+.sign-up-button{
+    background-color: rgb(35, 134, 199);
+    color: white;
+    width: 50%;
+}
